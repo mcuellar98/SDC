@@ -5,8 +5,9 @@ module.exports = {
   entry: "./client/src/index.js",
   mode: 'development',
   output: {
-    filename: "bundle.[hash].js",
+    filename: "bundle.[fullhash].js",
     path: path.resolve(__dirname, "./client/dist"),
+    clean: true
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -14,8 +15,8 @@ module.exports = {
     }),
   ],
   resolve: {
+    extensions: ["*", ".js", ".jsx", ".tsx", ".ts", '.css'],
     modules: [__dirname, "src", "node_modules"],
-    extensions: ["*", ".js", ".jsx", ".tsx", ".ts"],
   },
   module: {
     rules: [
