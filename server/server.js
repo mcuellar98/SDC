@@ -1,11 +1,12 @@
 const express = require('express');
+const path = require('path')
 const app = express();
+
 // make sure before deployment we create an .env file and make this process.env.PORT;
 const port = 3000;
-
+app.use(express.static(path.join(__dirname, ".." ,"/client/dist")));
 // here is the api link if we need it
 // https://app-hrsei-api.herokuapp.com/api/fec2/:hr-rfe/
-
 
 
 
