@@ -6,18 +6,19 @@ const HeroSection = () => {
     <section className="h-[90vh]  bg-gray-100 relative">
       <img
         src="/assets/img/model.jpg"
-        alt="details"
+        alt="hero Section"
         className="object-cover w-full h-full"
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-        <p className="text-lg text-center">
+        <p className="text-2xl text-center">
           Quality. Style. Atelier
           <br />
-          A standout online store
+          <p className='text-xl'>Crafting Elegance & Wearing Dreams</p>
         </p>
         <a
-          href="#next-section" // Replace with the ID of the next section
-          className="mt-6 inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-800 transition ease-in-out duration-150"
+          href="#" // Replace to jump to next secction
+          className="mt-6 inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-[#27272A] hover:bg-[#78716C] focus:outline-none focus:border-gray-500 focus:shadow-outline-gray active:bg-gray-500 transition ease-in-out duration-150"
+
         >
           Shop Now
           <AiFillShopping className="ml-2" size={20} />
