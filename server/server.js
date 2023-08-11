@@ -27,7 +27,9 @@ app.use(bodyParser.json());
 // this is  Heith section
 
 
-
+app.get('/', (req,res) => {
+  res.send('test')
+})
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`)
