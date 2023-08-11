@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import axios from 'axios';
+import QuestionsAndAnswers from "./components/componentV/Q&A.jsx"
+import axios from 'axios'
 import Header from './components/ComponentH/Header.jsx';
 
 
@@ -9,6 +10,9 @@ const App = () => {
     <div>
       <div className='header'>
       <Header />
+      <div className="h-max">
+      <QuestionsAndAnswers />
+    </div>
       </div>
 
     </div>
@@ -17,3 +21,4 @@ const App = () => {
 };
 
 export default App;
+
