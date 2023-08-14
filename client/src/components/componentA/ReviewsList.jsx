@@ -32,7 +32,7 @@ const ReviewsList = () => {
   }, []);
 
   return (
-    <div className="relative overflow-y-auto h-64 reviews-list ">
+    <div className="relative mx-20 my-20 overflow-y-auto h-64 reviews-list ">
       <h2>248 reviews, sorted by relevance</h2>
       {reviews.slice(0, visible).map(review => (
         <ReviewEntry review={review} key={review.review_id} />
