@@ -5,13 +5,13 @@ module.exports = {
   entry: "./client/src/index.js",
   mode: 'development',
   output: {
-    filename: "bundle.[fullhash].js",
+    filename: "bundle.js",
     path: path.resolve(__dirname, "./client/dist"),
     clean: true
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./client/src/index.html",
+      template: "./public/index.html",
     }),
   ],
   resolve: {
@@ -27,7 +27,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use:
+        [
+          'css-loader',
+          'postcss-loader'
+        ]
       },
       {
         test: /\.png|svg|jpg|gif$/,
