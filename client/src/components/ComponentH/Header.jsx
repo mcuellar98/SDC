@@ -49,15 +49,3 @@ const Header = () => {
 
 export default Header;
 
-
-       // <nav>
-      // <ul className='flex flex-wrap'>
-      // <li className='p-2'><a href="/">WOMEN</a></li>
-       // <li className='p-2'><a href="/">MEN</a></li>
-       // <li className='p-2'><a href="/">BEAUTY</a></li>
-      //  <li className='p-2'><a href="/">HOME</a></li>
-     // </ul>
-   // </nav>
-
-   //bg-[#27272A]
-   //src='/assets/img/logo.png'
