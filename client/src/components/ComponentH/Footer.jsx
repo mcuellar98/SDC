@@ -29,9 +29,9 @@ const Footer = () => {
         </div>
         <div className="mb-8 md:mb-0">
           <ul className="text-lg">
-            <li>ALETIER</li>
-            <li>Tel: 123-456-7890</li>
-            <li>Email: info@atelier.com</li>
+            <li className='hover:text-[#78716C]'><a href="#">ALETIER</a></li>
+            <li className='hover:text-[#78716C]'><a href="#">  Tel: 123-456-7890</a></li>
+            <li className='hover:text-[#78716C]'><a href="#" >Email: info@atelier.com</a></li>
           </ul>
         </div>
         <div>
