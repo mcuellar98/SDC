@@ -2,7 +2,7 @@ import React from "react";
 
 const Report = () => {
   return (
-    <p> Report </p>
+    <p className="hover:text-stone-50"> Report </p>
   )
 }
 
