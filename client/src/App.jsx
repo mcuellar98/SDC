@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import ReviewsList from './components/componentA/ReviewsList.jsx'
 import QuestionsAndAnswers from "./components/componentV/Q&A.jsx"
 import axios from 'axios'
 import Header from './components/ComponentH/Header.jsx';
@@ -12,10 +13,15 @@ const App = () => {
     <div>
       <div className='header'>
       <Header />
+      </div>
+      <div>
+        <ReviewsList />
+      </div>
+
       <div className="h-max">
       <QuestionsAndAnswers />
     </div>
-      </div>
+
 
       <div>
         <AboutSection />
