@@ -24,7 +24,9 @@ const ReviewsList = () => {
 
   const showMoreReviews = () => {
     setVisible((prevValue) => prevValue + 2);
-  }
+  };
+
+  const showLoadMoreButton = reviews.length > visible;
 
 
   useEffect(() => {
@@ -32,15 +34,21 @@ const ReviewsList = () => {
   }, []);
 
   return (
-    <div className="relative mx-20 my-20 overflow-y-auto h-64 reviews-list ">
+    <div className="reviews-module mx-20 my-20">
       <h2>248 reviews, sorted by relevance</h2>
-      {reviews.slice(0, visible).map(review => (
-        <ReviewEntry review={review} key={review.review_id} />
-      ))}
+      <div className="relative overflow-y-auto h-64 reviews-list">
+        {reviews.slice(0, visible).map(review => (
+          <ReviewEntry review={review} key={review.review_id} />
+        ))}
+      </div>
 
-      {visible < reviews.length ? <button className="border-solid border-2 border-black px-8" onClick={showMoreReviews}> MORE REVIEWS</button> : null}
-      <button className="border-solid border-2 border-black px-8">ADD A REVIEW</button>
+      {showLoadMoreButton && (
+        <button className="load-more-button border-solid border-2 border-black px-8" onClick={showMoreReviews}>
+          More Reviews
+        </button>
+      )}
 
+      <button className="add-review-button border-solid border-2 border-black px-8">Add a Review</button>
     </div>
   );
 };

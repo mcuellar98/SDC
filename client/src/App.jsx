@@ -13,11 +13,14 @@ const App = () => {
     <div>
       <div className='header'>
       <Header />
+      </div>
+      <div className='h-max'>
+        <ReviewsList />
+      </div>
       <div className="h-max">
-      <ReviewsList />
       <QuestionsAndAnswers />
     </div>
-      </div>
+
 
       <div>
         <AboutSection />
