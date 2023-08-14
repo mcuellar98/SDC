@@ -1,9 +1,7 @@
 import React, {useState, useEffect}  from "react";
-import Helpful from "./Helpful.jsx"
-import UserInfo from "./userInfo.jsx"
-import Report from "./report.jsx"
 import Answer from "./answer.jsx"
 import AnswerItem from "./answerList.jsx"
+import Helpful from "./Helpful.jsx"
 
 const IdividualAnswer = (props) => {
   var loopAnswers = props.answers
@@ -14,18 +12,18 @@ const IdividualAnswer = (props) => {
     })
     var twoAnswers = loopAnswers.slice(0,2)
   updateAnswers([...twoAnswers])
-  },[props.answers,answers])
+  },[props.answers, answers])
 
   const [answers, updateAnswers] = useState(props.answers)
 
   return (
-    <div>
+    <div className=" overflow-auto ">
       <div className="flex w-full justify-between">
       <p className="text-xl">
         Q: {props.questions.question_body}
-      </p> <span className="flex text-xs"><Helpful />&nbsp;| &nbsp;<Answer /></span>
+      </p> <span className="flex text-xs text-stone-400"><Helpful />&nbsp;| &nbsp;<Answer /></span>
       </div>
-      <p className="text-xl">
+      <p className="text-xl max-w-xl">
         {answers.map((answer, index) => {
           return  <AnswerItem answer={answer} key={index}/>
         })}
@@ -34,7 +32,6 @@ const IdividualAnswer = (props) => {
         updateAnswers(loopAnswers)
       }}>Load More Answers</p>}
       <div >
-      <p className="flex text-xs "> <UserInfo /> &nbsp;| &nbsp;<Helpful /> &nbsp;| &nbsp;<Report /> &nbsp;</p>
       </div>
     </div>
   )

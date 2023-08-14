@@ -22,10 +22,10 @@ const [questions, updateQuestions] = useState([{
 }])
 
 return (
-  <div className="pl-1.5 bg-neutral-800 text-white">
+  <div className="pl-24 pt-2 bg-neutral-800 text-white ">
     <h2  className=" text-lg">Questions & Answers</h2>
     <SearchBar />
-    <div className="flex flex-col space-y-32 mt-3.5">
+    <div className="flex flex-col space-y-32 mt-3.5 pt-6">
       {questions.map((question, index) => {
           var answers = [];
           for (var key in question.answers) {

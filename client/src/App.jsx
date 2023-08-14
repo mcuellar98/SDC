@@ -10,7 +10,7 @@ const App = () => {
     <div>
       <div className='header'>
       <Header />
-      <div className="h-max">
+      <div>
       <QuestionsAndAnswers />
     </div>
       </div>
