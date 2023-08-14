@@ -17,6 +17,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#27272A] text-white py-8">
+      <div className="border-t border-[#78716C] border-opacity-50 h-10 my-12 md:my-0"></div>
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="mb-8 md:mb-0">
           <ul className="text-lg">
@@ -46,12 +47,15 @@ const Footer = () => {
               <button className="px-4 py-2 bg-[#78716C] text-white" onClick={handleJoinClick}>Join</button>
             </div>
           </div>
-          <ul className="flex space-x-4">
+          <ul className="flex space-x-4 mb-4">
             <li className='hover:text-[#78716C]'><a href="#"><AiFillFacebook size={24} /></a></li>
             <li className='hover:text-[#78716C]'><a href="#"><AiOutlineTwitter size={24} /></a></li>
             <li className='hover:text-[#78716C]'><a href="#"><AiOutlineInstagram size={24} /></a></li>
             <li className='hover:text-[#78716C]'><a href="#"><AiFillYoutube size={24} /></a></li>
           </ul>
+          <div className="text-right mt-8 md:mt-0">
+        <p>&copy; {new Date().getFullYear()} ALETIER. All Rights Reserved.</p>
+      </div>
         </div>
       </div>
     </footer>
