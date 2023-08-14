@@ -30,9 +30,11 @@ const IdividualAnswer = (props) => {
           return  <AnswerItem answer={answer} key={index}/>
         })}
       </p>
-      {props.answers.length > 2 && <p>Load More Answers</p>}
+      {props.answers.length > 2 && <p onClick={ (e) => {
+        updateAnswers(loopAnswers)
+      }}>Load More Answers</p>}
       <div >
-      <p className="flex text-xs"> <UserInfo /> &nbsp;| &nbsp;<Helpful /> &nbsp;| &nbsp;<Report /> &nbsp;</p>
+      <p className="flex text-xs "> <UserInfo /> &nbsp;| &nbsp;<Helpful /> &nbsp;| &nbsp;<Report /> &nbsp;</p>
       </div>
     </div>
   )
