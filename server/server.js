@@ -2,13 +2,22 @@ const express = require('express');
 require('dotenv').config()
 const questionRouter = require('./questionRoutes.js')
 const bodyParser = require('body-parser');
-const path = require('path')
+const path = require('path');
+const config = require('../config.js');
+const axios = require('axios');
+const basePath = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe';
+const reviewsRouter = require('./reviewsRoutes.js');
+
+
 const app = express();
+let params = {
+  headers: {Authorization: config.api_key}
+}
 
 // make sure before deployment we create an .env file and make this process.env.PORT;
 const port = 3000;
+app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, ".." ,"/client/dist")));
-app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use((req,res,next) => {
   if (!req.headers.authorization) {
@@ -17,8 +26,11 @@ app.use((req,res,next) => {
   next();
 })
 
-// here is the api link if we need it
+app.use(express.json());
+app.use('/reviews', reviewsRouter);
 
+
+// here is the api link if we need it
 
 
 // this is Victors section
@@ -30,11 +42,8 @@ app.get("/questions/:product_id", (req,res) => {
 })
 
 
-// this is  Amelia section
-
-
-
-
+// this is Ratings & Reviews section
+app.use('/reviews', reviewsRouter);
 
 // this is  Heith section
 
