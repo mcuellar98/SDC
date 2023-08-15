@@ -1,7 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
+import StarRating from './StarRating.jsx';
 import img1 from '../resources/reviewmail.svg';
 
 const Modal = ({openModal, setOpenModal}) => {
+
+  const[recommend, setRecommend] = useState(null);
+
+  const handleRecommendChange = (value) => {
+    setRecommend(value);
+  }
+
   return (
     <>
     <div className="main-container">
@@ -13,6 +21,29 @@ const Modal = ({openModal, setOpenModal}) => {
         <div>
           <label>Overall rating</label>
           <StarRating />
+        </div>
+        <div>
+          <label>Do you recommend this product?</label>
+          <label>
+            <input
+            type="radio"
+            name="recommend"
+            value="yes"
+            onChange={() => handleRecommendChange(true)}
+            />
+            Yes
+          </label>
+
+          <label>
+            <input
+            type="radio"
+            name="recommend"
+            value="no"
+            onChange={() => handleRecommendChange(false)}
+            />
+            No
+          </label>
+
         </div>
         <div>
           <label>Review body:</label>
