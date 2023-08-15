@@ -5,16 +5,19 @@ import IdividualAnswer from "./QnAcomponents/indvAnswer.jsx";
 import MoreAnswers from "./QnAcomponents/moreAnswers.jsx";
 import AddQuestions from "./QnAcomponents/addQuestion.jsx";
 const QuestionsAndAnswers = () => {
-  const product = '37323'
+  const product = '37323';
 
 useEffect(() => {
   axios.get(`/questions/${product}`).then((result) => {
-    updateQuestions(result.data.results)
+    updateQuestions(result.data.results);
+    updateStatic(result.data.results)
     wasUpdated(true)
   }).catch((err) => {
     console.error(err)
   })
 }, [])
+const [sliceNum, updateSlice] = useState(2)
+const [staticInfo, updateStatic] = useState('')
 const [updated, wasUpdated] = useState(false)
 const [questions, updateQuestions] = useState([{
   question_body: 'Please wait for page to load',
@@ -23,18 +26,17 @@ const [questions, updateQuestions] = useState([{
 
 
 useEffect(() => {
-  console.log(questions)
   questions.sort((a,b) => {
     return b.question_helpfulness
     - a.question_helpfulness
-
   })
-  var topQuestions = questions.slice(0,4)
-updateQuestions([...topQuestions])
-// updateTwo([...twoAnswers])
-},[updated])
-
-
+  var topQuestions = questions.filter((question, index) => {
+    if(index < sliceNum){
+      return question
+    }
+  })
+  updateQuestions(topQuestions)
+},[updated, sliceNum])
 
 return (
   <div className="pl-24 pt-2 bg-neutral-800 text-white ">
@@ -51,7 +53,12 @@ return (
 
     </div>
     <div className="my-1.5">
-    <button className="rounded bg-neutral-400	 p-3">More Answered Questions</button> <AddQuestions />
+    {staticInfo.length < 2 || questions.length === staticInfo.length ? "" : <button className="rounded bg-neutral-400	 p-3" onClick={(e) => {
+      updateSlice( (prevVal) => {
+        updateQuestions(staticInfo.slice(0, prevVal + 2))
+        return prevVal + 2
+      })
+    }} key={sliceNum}>More Answered Questions</button>} <AddQuestions />
     </div>
   </div>
 )
