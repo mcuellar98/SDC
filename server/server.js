@@ -3,7 +3,6 @@ require('dotenv').config()
 const questionRouter = require('./questionRoutes.js')
 const bodyParser = require('body-parser');
 const path = require('path');
-const config = require('../config.js');
 const axios = require('axios');
 const basePath = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe';
 const reviewsRouter = require('./reviewsRoutes.js');
@@ -11,7 +10,7 @@ const reviewsRouter = require('./reviewsRoutes.js');
 
 const app = express();
 let params = {
-  headers: {Authorization: config.api_key}
+  headers: {Authorization: process.env.TOKEN}
 }
 
 // make sure before deployment we create an .env file and make this process.env.PORT;

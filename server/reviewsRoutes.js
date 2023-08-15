@@ -1,6 +1,6 @@
 const reviewsRouter = require('express').Router();
 const axios = require('axios');
-const config = require('../config.js');
+require('dotenv').config()
 const basePath = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe';
 
 
@@ -9,7 +9,7 @@ reviewsRouter.get('/getAllReviews', (req, res) => {
   // let productId = parseInt(req.query.product_id);
   let productId = 37311;
   let options = {
-    headers: { Authorization: config.api_key},
+    headers: { Authorization: process.env.TOKEN},
     params: {
       product_id: productId,
       count: req.query.count,
