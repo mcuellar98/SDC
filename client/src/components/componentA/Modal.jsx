@@ -9,6 +9,7 @@ const Modal = ({openModal, setOpenModal}) => {
   const [reviewBody, setReviewBody] = useState('');
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
+  const [counterMessage, setCounterMessage] = useState('');
 
   const handleRecommendChange = (value) => {
     setRecommend(value);
@@ -18,12 +19,30 @@ const Modal = ({openModal, setOpenModal}) => {
     setReviewSummary(event.target.value);
   };
 
+  const handleReviewBodyChange = (event) => {
+    const newReviewBody = event.target.value;
+
+    setReviewBody(newReviewBody);
+
+    const remainingCharacters = Math.max(50-newReviewBody.length, 0);
+    const counterMessage = remainingCharacters === 0 ? 'Minimum reached' : `Minimum required characters left: ${remainingCharacters}`;
+    setCounterMessage(counterMessage);
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handleNicknameChange = (event) => {
+    setNickname(event.target.value);
+  };
+
   return (
     <>
-    <div className="main-container">
-      <div className="modal-container">
+    <div className="main-container p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md items-center space-x-4">
+      <div className="modal-container ">
         <img className="model-image w-24 h-24" src={img1} />
-        <h1 className="font-bold">Write Your Review</h1>
+        <h1 className="text-xl font-bold">Write Your Review</h1>
       </div>
       <div className="reviewForm">
         <div>
@@ -90,7 +109,7 @@ const Modal = ({openModal, setOpenModal}) => {
             placeholder="Example: jackson11!"
             maxLength="60"
           />
-          <div>For privacy reasons, do not use your full name or email address</div>
+          <div>For privacy reasons, do not use your full name or email address.</div>
         </div>
 
         <div>
@@ -102,7 +121,7 @@ const Modal = ({openModal, setOpenModal}) => {
             placeholder="Example: jackson11@email.com"
             maxLength="60"
           />
-          <div>For authentication reasons, you will not be emailed</div>
+          <div>For authentication reasons, you will not be emailed.</div>
 
         </div>
 
