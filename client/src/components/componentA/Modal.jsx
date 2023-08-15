@@ -57,7 +57,7 @@ const Modal = ({openModal, setOpenModal}) => {
         <h1 className="text-xl font-bold text-center">Write Your Review</h1>
       </div>
       <div className="reviewForm p-6">
-        <div className="overallRating mb-4">
+        <div className="overallRating inline-block">
           <label>Overall rating</label>
           <StarRating />
         </div>
