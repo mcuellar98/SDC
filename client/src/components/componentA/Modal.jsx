@@ -49,17 +49,19 @@ const Modal = ({openModal, setOpenModal}) => {
 
   return (
     <>
-    {!reviewSend && (<div className="main-container p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md items-center space-x-4">
+    {!reviewSend && (<div className="fixed inset-0 flex items-center justify-center p-6 bg-white rounded-xl shadow-md">
       <div className="modal-container ">
-        <img className="model-image w-24 h-24" src={img1} />
-        <h1 className="text-xl font-bold">Write Your Review</h1>
+        <div className="model-image mb-4">
+          <img className="w-24 h-24 mx-auto" src={img1} alt="Review" />
+        </div>
+        <h1 className="text-xl font-bold text-center">Write Your Review</h1>
       </div>
-      <div className="reviewForm">
-        <div>
+      <div className="reviewForm p-6">
+        <div className="overallRating mb-4">
           <label>Overall rating</label>
           <StarRating />
         </div>
-        <div>
+        <div className="recommendForm mb-4">
           <label>Do you recommend this product?</label>
           <label>
             <input
@@ -82,7 +84,7 @@ const Modal = ({openModal, setOpenModal}) => {
           </label>
         </div>
 
-        <div>
+        <div className="reviewSummary mb-4">
           <label>Review Summary</label>
           <input
           type="text"
@@ -93,7 +95,7 @@ const Modal = ({openModal, setOpenModal}) => {
           />
         </div>
 
-        <div>
+        <div className="reviewBody mb-4">
           <label>Review body:</label>
           <textarea
           value={reviewBody}
@@ -110,7 +112,7 @@ const Modal = ({openModal, setOpenModal}) => {
           {/* upload images */}
         </div>
 
-        <div>
+        <div className="nickName mb-4">
           <label>What is your nickname?</label>
           <input
             type="text"
@@ -122,7 +124,7 @@ const Modal = ({openModal, setOpenModal}) => {
           <div>For privacy reasons, do not use your full name or email address.</div>
         </div>
 
-        <div>
+        <div className="email mb-4">
           <label>Your email </label>
           <input
             type="text"
@@ -135,16 +137,16 @@ const Modal = ({openModal, setOpenModal}) => {
 
         </div>
 
-        <div>
-          <button className="modal-button-send" onClick={submitReview}>Submit</button>
+        <div className="flex justify-between" >
+          <button className="modal-button-send px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2" onClick={submitReview}>Submit</button>
           <br></br>
-          <button className="modal-button-cancel" onClick={() => {setOpenModal(false);}}>Cancel</button>
+          <button className="modal-button-cancel px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2" onClick={() => {setOpenModal(false);}}>Cancel</button>
         </div>
       </div>
     </div>)}
 
     {reviewSend && (
-      <div className="modal-container-sent p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md items-center space-x-4">
+      <div className="modal-container-sent fixed inset-0 flex items-center justify-center p-6 bg-white rounded-xl shadow-md">
         <img className="model-image w-24 h-24" src={img2} />
         <div className="modal-text">Review Submitted!</div>
       </div>
