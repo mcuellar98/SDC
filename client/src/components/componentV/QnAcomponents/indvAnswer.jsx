@@ -1,25 +1,47 @@
-import React from "react";
-import Helpful from "./Helpful.jsx"
-import UserInfo from "./userInfo.jsx"
-import Report from "./report.jsx"
+import React, {useState, useEffect}  from "react";
 import Answer from "./answer.jsx"
-const IdividualAnswer = () => {
+import AnswerItem from "./answerList.jsx"
+import Helpful from "./Helpful.jsx"
+
+const IdividualAnswer = (props) => {
+  var loopAnswers = props.answers
+
+  useEffect(() => {
+    loopAnswers.sort((a,b) => {
+      return b.helpfulness - a.helpfulness
+    })
+    var twoAnswers = loopAnswers.slice(0,2)
+  updateAnswers([...twoAnswers])
+  updateTwo([...twoAnswers])
+  },[props.answers, answers])
+  const [two, updateTwo] = useState(0);
+  const [answers, updateAnswers] = useState(props.answers)
 
   return (
     <div>
-      <div className="flex w-full justify-between">
-      <p className="text-xl">
-        Q: this will be where questions go
-      </p> <span className="flex text-xs"><Helpful />&nbsp;| &nbsp;<Answer /></span>
-      </div>
 
+    <div className="flex w-full justify-between ">
       <p className="text-xl">
-        A: this will be where top rated Answer go
+        Q: {props.questions.question_body}
+      </p> <span className="flex text-xs text-stone-400"><Helpful />&nbsp;| &nbsp;<Answer /></span>
+      </div>
+    <div className="indAnswer">
+      <div className="outer" >
+      <p className="text-xl max-w-xl">
+        {answers.map((answer, index) => {
+          return  <AnswerItem answer={answer} key={index}/>
+        })}
       </p>
-      <div >
-      <p className="flex text-xs"> <UserInfo /> &nbsp;| &nbsp;<Helpful /> &nbsp;| &nbsp;<Report /> &nbsp;</p>
+      {props.answers.length > 2 && <p onClick={ (e) => {
+        if (answers.length <= 2) {
+          updateAnswers(loopAnswers)
+        } else {
+          updateAnswers(two)
+        }
+      }}>Load More Answers</p>}
       </div>
     </div>
+      </div>
   )
 }
 

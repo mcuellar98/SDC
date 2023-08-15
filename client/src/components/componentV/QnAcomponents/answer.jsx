@@ -2,7 +2,7 @@ import React from "react";
 
 const Answer = () => {
   return (
-    <p> Add Answer </p>
+    <p className="hover:text-stone-50"> Add Answer </p>
   )
 }
 
