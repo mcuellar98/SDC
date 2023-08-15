@@ -12,8 +12,6 @@ const StarRating = () => {
     5: 'Great',
   };
 
-
-
   return (
     <div className="flex">
       {[...Array(5)].map((star, i) => {

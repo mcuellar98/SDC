@@ -83,6 +83,11 @@ const Modal = ({openModal, setOpenModal}) => {
             No
           </label>
         </div>
+        <div className="characteristics inline-block">
+          <label>characteristics</label>
+
+        </div>
+
 
         <div className="reviewSummary mb-4">
           <label>Review Summary</label>
