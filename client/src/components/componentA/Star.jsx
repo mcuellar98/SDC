@@ -16,9 +16,9 @@ const Star = ({rating}) => {
       {Array.from({ length: fullStars }, (_, index) => (
         <FaStar key={index} />
       ))}
-      {decimalPart > 0 && decimalPart <= 0.25 && <FaStarQuarter />}
+      {decimalPart > 0 && decimalPart <= 0.25 && <FaStarHalfAlt style={{ width: `${fractionalStarWidth}%` }} />}
       {decimalPart > 0.25 && decimalPart <= 0.5 && <FaStarHalfAlt />}
-      {decimalPart > 0.5 && decimalPart <= 0.75 && <FaStarThreeQuarters />}
+      {decimalPart > 0.5 && decimalPart <= 0.75 && <FaStarHalfAlt style={{ width: `${fractionalStarWidth}%` }} />}
       {Array.from({ length: outlinedStars }, (_, index) => (
         <FaRegStar key={index} />
       ))}

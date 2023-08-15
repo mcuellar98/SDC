@@ -13,8 +13,9 @@ const ReviewEntry = ({ review }) => {
       </div>
       <Star rating={review.rating} />
       <div className="reviewSummary font-semibold">{review.summary}</div>
-      <div>Recommend: {review.recommend ? 'Yes' : 'No'}</div>
-      <div>Helpfulness: {review.helpfulness}</div>
+      <div className="reviewBody font-normal">{review.body}</div>
+      <div>{review.recommend ? 'I recommend this product' : null}</div>
+      <div>Helpful? Yes({review.helpfulness}) </div>
 
       {/* Render other review details as needed */}
     </div>
