@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import StarRating from './StarRating.jsx';
-import img1 from '../resources/reviewmail.svg';
+import img1 from '../resources/review.svg';
+import img2 from '../resources/reviewsent.svg';
+
 
 const Modal = ({openModal, setOpenModal}) => {
 
@@ -10,6 +12,7 @@ const Modal = ({openModal, setOpenModal}) => {
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
   const [counterMessage, setCounterMessage] = useState('');
+  const [reviewSend, setReviewSend] = useState(false);
 
   const handleRecommendChange = (value) => {
     setRecommend(value);
@@ -37,9 +40,16 @@ const Modal = ({openModal, setOpenModal}) => {
     setNickname(event.target.value);
   };
 
+  const submitReview = () => {
+    setReviewSend(true);
+    setTimeout(() => {
+      setOpenModal(false);
+    }, 2000);
+  }
+
   return (
     <>
-    <div className="main-container p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md items-center space-x-4">
+    {!reviewSend && (<div className="main-container p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md items-center space-x-4">
       <div className="modal-container ">
         <img className="model-image w-24 h-24" src={img1} />
         <h1 className="text-xl font-bold">Write Your Review</h1>
@@ -126,14 +136,19 @@ const Modal = ({openModal, setOpenModal}) => {
         </div>
 
         <div>
-          <button className="modal-button-send">Submit</button>
+          <button className="modal-button-send" onClick={submitReview}>Submit</button>
           <br></br>
           <button className="modal-button-cancel" onClick={() => {setOpenModal(false);}}>Cancel</button>
         </div>
-
       </div>
+    </div>)}
 
-    </div>
+    {reviewSend && (
+      <div className="modal-container-sent p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md items-center space-x-4">
+        <img className="model-image w-24 h-24" src={img2} />
+        <div className="modal-text">Review Submitted!</div>
+      </div>
+    )}
 
     </>
   )
