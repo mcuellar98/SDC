@@ -12,28 +12,36 @@ const IdividualAnswer = (props) => {
     })
     var twoAnswers = loopAnswers.slice(0,2)
   updateAnswers([...twoAnswers])
+  updateTwo([...twoAnswers])
   },[props.answers, answers])
-
+  const [two, updateTwo] = useState(0);
   const [answers, updateAnswers] = useState(props.answers)
 
   return (
-    <div className=" overflow-auto ">
-      <div className="flex w-full justify-between">
+    <div>
+
+    <div className="flex w-full justify-between ">
       <p className="text-xl">
         Q: {props.questions.question_body}
       </p> <span className="flex text-xs text-stone-400"><Helpful />&nbsp;| &nbsp;<Answer /></span>
       </div>
+    <div className="indAnswer">
+      <div className="outer" >
       <p className="text-xl max-w-xl">
         {answers.map((answer, index) => {
           return  <AnswerItem answer={answer} key={index}/>
         })}
       </p>
       {props.answers.length > 2 && <p onClick={ (e) => {
-        updateAnswers(loopAnswers)
+        if (answers.length <= 2) {
+          updateAnswers(loopAnswers)
+        } else {
+          updateAnswers(two)
+        }
       }}>Load More Answers</p>}
-      <div >
       </div>
     </div>
+      </div>
   )
 }
 
