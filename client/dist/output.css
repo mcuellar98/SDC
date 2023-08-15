@@ -727,6 +727,14 @@ video {
   height: max-content;
 }
 
+.h-32 {
+  height: 8rem;
+}
+
+.h-24 {
+  height: 6rem;
+}
+
 .w-11\/12 {
   width: 91.666667%;
 }
@@ -741,6 +749,14 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-32 {
+  width: 8rem;
+}
+
+.w-24 {
+  width: 6rem;
 }
 
 .flex-col {

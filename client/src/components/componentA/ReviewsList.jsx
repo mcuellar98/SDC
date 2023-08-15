@@ -52,8 +52,8 @@ const ReviewsList = () => {
         </button>
       )}
 
-      <button className="add-review-button border-solid border-2 border-black px-8 my-20" >Add a Review</button>
-      <Modal openModal={openModal} setOpenModal={setOpenModal} />
+      <button className="add-review-button border-solid border-2 border-black px-8 my-20" onClick={() => {setOpenModal(true);}}>Add a Review</button>
+      {openModal && <Modal openModal={openModal} setOpenModal={setOpenModal} />}
 
     </div>
   );
