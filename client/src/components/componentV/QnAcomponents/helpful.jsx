@@ -2,7 +2,7 @@ import React from "react";
 
 const Helpful = () => {
   return (
-      <p> Helpful? <u>Yes</u> (25) </p>
+      <p className="hover:text-stone-50"> Helpful? <u>Yes</u> (25) </p>
   )
 }
 

@@ -5,7 +5,6 @@ import axios from 'axios'
 import Header from './components/ComponentH/Header.jsx';
 import AboutSection from './components/ComponentH/AboutSection.jsx';
 import Footer from './components/ComponentH/Footer.jsx';
-import ReviewsList from './components/ComponentA/ReviewsList.jsx';
 
 
 const App = () => {
