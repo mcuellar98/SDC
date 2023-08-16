@@ -11,7 +11,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="h-[90vh] bg-gray-100 relative">
+    <section className="h-[87vh] bg-gray-100 relative">
       <img
         src="/assets/img/model.jpg"
         alt="hero Section"
