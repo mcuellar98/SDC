@@ -43,7 +43,7 @@ const Footer = () => {
               placeholder="Enter your email here*"
               value= {email}
               onChange={handleEmailChange}
-              className="mr-2 px-2 py-1 border text-black border-gray-300" />
+              className="mr-2 px-2 py-1 border text-black border-[#27272A]" />
               <button className="px-4 py-2 bg-[#78716C] text-white" onClick={handleJoinClick}>Join</button>
             </div>
           </div>

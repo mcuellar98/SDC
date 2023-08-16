@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import ReviewsList from './components/componentA/ReviewsList.jsx'
 import QuestionsAndAnswers from "./components/componentV/Q&A.jsx"
 import axios from 'axios'
-import Header from './components/ComponentH/Header.jsx';
-import AboutSection from './components/ComponentH/AboutSection.jsx';
-import Footer from './components/ComponentH/Footer.jsx';
-import OverviewModule from './components/ComponentH/OverviewModule.jsx';
+import Header from './components/ComponentHeith/Header.jsx';
+import AboutSection from './components/ComponentHeith/AboutSection.jsx';
+import Footer from './components/ComponentHeith/Footer.jsx';
+import OverviewModule from './components/ComponentHeith/OverviewModule.jsx';
 
 
 const App = () => {
