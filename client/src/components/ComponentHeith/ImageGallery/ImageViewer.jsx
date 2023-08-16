@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
+import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import axios from 'axios';
 
 const ImageViewer = () => {
@@ -29,23 +29,19 @@ const ImageViewer = () => {
   }, []);
 
   return (
-    <div className="image-viewer">
-      <div className="relative">
-        <div className="absolute top-1/2 left-0 transform -translate-y-1/2">
-          <AiOutlineArrowLeft
-          onClick={handlePrevClick}
-          className="text-4xl text-[#27272A] hover:text-[#78716C] cursor-pointer" />
-        </div>
+    <div className="w-full h-[500px] relative group overflow-hidden">
+      <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-2 text-2xl rounded-full p-2 bg-[#27272A]/60 text-white cursor-pointer z-10">
+        <BsChevronCompactLeft onClick={handlePrevClick} />
+      </div>
+      <div className="w-full h-full duration-500 rounded-lg overflow-hidden absolute inset-0 flex items-center justify-center">
         <img
           src={images[currentImageIndex]}
-          alt="Product Image"
-          className="mx-auto"
+          alt={`Image ${currentImageIndex + 1}`}
+          className="max-w-full max-h-full"
         />
-        <div className="absolute top-1/2 right-0 transform -translate-y-1/2">
-          <AiOutlineArrowRight
-            onClick={handleNextClick}
-            className="text-4xl text-[#27272A] hover:text-[#78716C] cursor-pointer"  />
-        </div>
+      </div>
+      <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-2 text-2xl rounded-full p-2 bg-[#27272A]/60 text-white cursor-pointer z-10">
+        <BsChevronCompactRight onClick={handleNextClick} />
       </div>
     </div>
   );
