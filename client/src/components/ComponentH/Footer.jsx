@@ -29,7 +29,7 @@ const Footer = () => {
         </div>
         <div className="mb-8 md:mb-0">
           <ul className="text-lg">
-            <li className='hover:text-[#78716C]'><a href="#">ALETIER</a></li>
+            <li className='hover:text-[#78716C]'><a href="#">ÉLIER</a></li>
             <li className='hover:text-[#78716C]'><a href="#">  Tel: 123-456-7890</a></li>
             <li className='hover:text-[#78716C]'><a href="#" >Email: info@atelier.com</a></li>
           </ul>
@@ -54,7 +54,7 @@ const Footer = () => {
             <li className='hover:text-[#78716C]'><a href="#"><AiFillYoutube size={24} /></a></li>
           </ul>
           <div className="text-right text-sm mt-8 md:mt-0">
-        <p>&copy; {new Date().getFullYear()} ALETIER. ALL RIGHTS RESERVED.</p>
+        <p>&copy; {new Date().getFullYear()} ÉLIER. ALL RIGHTS RESERVED.</p>
       </div>
         </div>
       </div>
