@@ -74,6 +74,7 @@ const handleCharacteristicRatingChange = (index, value) => {
   const updatedRatings = [...characteristicsRatings];
   updatedRatings[index] = value;
   setCharacteristicsRatings(updatedRatings);
+  console.log(characteristicsRatings);
 };
 
 return (
