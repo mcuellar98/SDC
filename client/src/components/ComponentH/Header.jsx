@@ -5,9 +5,24 @@ import HeroSection from './HeroSection.jsx'
 const Header = () => {
 
   const [nav, setNav] = useState(true);
+
   const handleNav = () => {
     setNav(!nav);
   }
+
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToOverview = () => {
+    const overviewElement = document.getElementById('overview');
+    if (overviewElement) {
+      overviewElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
 
     <div>
@@ -19,8 +34,12 @@ const Header = () => {
         <nav>
           <ul className="hidden md:flex">
             <li className='p-4 text-xl'><a href="/" className='hover:text-[#78716C]'>Home</a></li>
-            <li className='p-4 text-xl'><a href="/" className='hover:text-[#78716C]'>Shop</a></li>
-            <li className='p-4 text-xl'><a href="/" className='hover:text-[#78716C]'>About</a></li>
+            <li className='p-4 text-xl'><a onClick={scrollToOverview}className='hover:text-[#78716C]'>Shop</a></li>
+            <li className='p-4 text-xl'><a
+            onClick={scrollToAbout}
+            className='hover:text-[#78716C]'>
+              About
+              </a></li>
             <li className='p-4 text-xl'><a href="/" className='hover:text-[#78716C]'>Contact</a></li>
             <li className='p-4 text-xl group'><AiFillShopping size={22} className='transition-color group-hover:text-[#78716C]' /></li>
           </ul>

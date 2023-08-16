@@ -16,19 +16,19 @@ const App = () => {
       <Header />
       </div>
 
-      <div  className="overview-module">
+      <div  id="overview">
         <OverviewModule />
       </div>
 
-      <div className='h-max'>
+      <div >
         <ReviewsList />
       </div>
-      <div className="h-max">
+      <div >
       <QuestionsAndAnswers />
     </div>
 
 
-      <div>
+      <div id="about">
         <AboutSection />
         <Footer />
       </div>

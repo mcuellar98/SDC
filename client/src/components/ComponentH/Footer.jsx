@@ -53,8 +53,8 @@ const Footer = () => {
             <li className='hover:text-[#78716C]'><a href="#"><AiOutlineInstagram size={24} /></a></li>
             <li className='hover:text-[#78716C]'><a href="#"><AiFillYoutube size={24} /></a></li>
           </ul>
-          <div className="text-right mt-8 md:mt-0">
-        <p>&copy; {new Date().getFullYear()} ALETIER. All Rights Reserved.</p>
+          <div className="text-right text-sm mt-8 md:mt-0">
+        <p>&copy; {new Date().getFullYear()} ALETIER. ALL RIGHTS RESERVED.</p>
       </div>
         </div>
       </div>
