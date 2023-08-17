@@ -36,14 +36,14 @@ const Header = () => {
         <nav>
           <ul className="hidden md:flex">
             <li className='p-4 text-xl'><a href="/" className='hover:text-[#78716C]'>Home</a></li>
-            <li className='p-4 text-xl'><a onClick={scrollToOverview} lassName='hover:text-[#78716C]'>Shop</a></li>
+            <li className='p-4 text-xl'><a onClick={scrollToOverview} className='hover:text-[#78716C] cursor-pointer'>Shop</a></li>
             <li className='p-4 text-xl'><a
             onClick={scrollToAbout}
             className='hover:text-[#78716C] cursor-pointer'>
               About
               </a></li>
             <li className='p-4 text-xl'><a href="/" className='hover:text-[#78716C]'>Contact</a></li>
-            <li className='p-4 text-xl group'><AiFillShopping size={22} className='transition-color group-hover:text-[#78716C]' /></li>
+            <li className='p-4 text-xl group'><AiFillShopping size={22} className='transition-color group-hover:text-[#78716C] cursor-pointer' /></li>
           </ul>
         </nav>
         <div onClick={handleNav} className='block md:hidden'>

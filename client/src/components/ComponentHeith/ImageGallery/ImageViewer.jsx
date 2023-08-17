@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
+import PopupImageViewer from './PopupImageViewer';
 import { RxDotFilled } from 'react-icons/rx';
 import axios from 'axios';
 
 const ImageViewer = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [images, setImages] = useState([]);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     axios.get('/api/images')
@@ -33,19 +35,35 @@ const ImageViewer = () => {
     setCurrentIndex(slideIndex);
   };
 
+
+  const handleClick = () => {
+    openPopup(currentIndex);
+  };
+
+  const openPopup = (index) => {
+    setCurrentIndex(index);
+    setShowPopup(true);
+  }
+
+  const closePopup = (index) => {
+    setCurrentIndex(index);
+    setShowPopup(true);
+  }
+
   return (
-    <div className='max-w-[1400px] mx-auto w-full m-auto pt-4 px-4 relative group'>
+    <div className='mx-auto w-full m-auto pt-4 px-4 relative group'>
       {/* Left Arrow */}
-      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-[#27272A]/50 text-white cursor-pointer'>
+      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-xl rounded-full p-2 bg-[#27272A]/50 text-white cursor-pointer'>
         <BsChevronCompactLeft onClick={prevSlide} size={30} />
       </div>
       {/* Right Arrow */}
-      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-[#27272A]/50 text-white cursor-pointer'>
+      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-xl rounded-full p-2 bg-[#27272A]/50 text-white cursor-pointer'>
         <BsChevronCompactRight onClick={nextSlide} size={30} />
       </div>
       <div
         style={{ backgroundImage: `url(${images[currentIndex]})` }}
-        className='w-[800px] h-[200px] md:h-[500px] lg:h-[550px] mx-auto rounded-2xl bg-center bg-cover duration-500'
+        className='w-full h-[40vw] md:h-[40vh] lg:h-[50vh] mx-auto rounded-2xl bg-center bg-cover duration-500 cursor-pointer'
+        onClick={handleClick}
       ></div>
       <div className='flex top-4 justify-center py-2'>
         {images.map((slide, slideIndex) => (
@@ -58,6 +76,7 @@ const ImageViewer = () => {
           </div>
         ))}
       </div>
+      {showPopup && <PopupImageViewer images={images} currentIndex={currentIndex} onClose={closePopup} setShowPopup={setShowPopup}/>}
     </div>
   );
 };

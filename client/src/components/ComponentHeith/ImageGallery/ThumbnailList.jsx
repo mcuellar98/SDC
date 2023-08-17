@@ -32,7 +32,7 @@ const ThumbnailList = () => {
       <div id='slider' className='w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide'>
         {thumbnail.map((item, index) => (
           <img
-            className='w-[200px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300'
+            className='w-[200px] inline-block p-2 rounded-2xl cursor-pointer hover:scale-105 ease-in-out duration-300'
             src={item} alt='Product Thumbnail' key={index}
           />
         ))}
