@@ -5,14 +5,12 @@ const Helpful = (props) => {
 
   const [helpNum, updateNum] = useState(props.helpfulness);
   const [clicked, updateClick] = useState(false);
-  console.log("helpful",props.id)
+
+
 useEffect(() => {
   updateNum(props.helpfulness)
 },[props])
 
-// useEffect(() => {
-
-// },[])
 
 const handleClick = () => {
   return axios.put('/helpful/'+ props.id).then((result) => {
