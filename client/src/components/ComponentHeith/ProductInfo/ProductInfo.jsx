@@ -6,7 +6,7 @@ const ProductInfo = () => {
 
   return (
     <div>
-      <h1 className='text-white'>TEST</h1>
+      <h1 className='text-white '>TEST</h1>
     </div>
   )
 
