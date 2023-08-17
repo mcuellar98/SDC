@@ -18,14 +18,14 @@ const HeroSection = () => {
         className="object-cover w-full h-full"
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-        <div className="text-2xl text-center">
-          <p>Quality. Style. Atelier</p>
+        <div className="text-5xl text-center">
+          <p>Quality. Style. ÉLIER</p>
           <p className='text-xl'>Crafting Elegance & Wearing Dreams</p>
         </div>
         <div>
           <button
             onClick={scrollToOverview}
-            className="mt-6 inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-[#27272A] hover:bg-[#78716C] focus:outline-none focus:shadow-outline-gray active:bg-[#27272A] transition ease-in-out duration-150"
+            className="mt-6 inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-[#27272A] hover:bg-[#78716C] active:bg-[#27272A] transition ease-in-out duration-150"
           >
             Shop Now
             <AiFillShopping className="ml-2" size={20} />

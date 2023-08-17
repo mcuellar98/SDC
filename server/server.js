@@ -46,6 +46,8 @@ app.get("/questions/:product_id", (req,res) => {
 app.use('/reviews', reviewsRouter);
 
 // this is  Heith section
+
+//View Images
 app.get('/api/images', (req, res) => {
   const requestOptions = {
     headers: {
@@ -63,6 +65,26 @@ app.get('/api/images', (req, res) => {
       res.status(500).json({ error: 'Internal Server Error' });
     });
 });
+
+//Thumbnail Images
+app.get('/api/thumbnail', (req, res) => {
+  const requestOptions = {
+    headers: {
+      Authorization: process.env.TOKEN,
+    }
+  };
+
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/37314/styles', requestOptions)
+    .then(response => {
+      const thumbnailImages = response.data.results[0].photos.map(photo => photo.thumbnail_url);
+      res.json(thumbnailImages);
+    })
+    .catch(error => {
+      console.error('Error fetching images:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    });
+});
+
 
 
 

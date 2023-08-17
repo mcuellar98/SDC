@@ -1,22 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
+import { RxDotFilled } from 'react-icons/rx';
 import axios from 'axios';
 
 const ImageViewer = () => {
+
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [images, setImages] = useState([]);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const handlePrevClick = () => {
-    setCurrentImageIndex(prevIndex =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNextClick = () => {
-    setCurrentImageIndex(prevIndex =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
-  };
 
   useEffect(() => {
     axios.get('/api/images')
@@ -28,20 +18,46 @@ const ImageViewer = () => {
       });
   }, []);
 
+  const prevSlide = () => {
+    const isFirstSlide = currentIndex === 0;
+    const newIndex = isFirstSlide ? images.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+  };
+
+  const nextSlide = () => {
+    const isLastSlide = currentIndex === images.length - 1;
+    const newIndex = isLastSlide ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+  };
+
+  const goToSlide = (slideIndex) => {
+    setCurrentIndex(slideIndex);
+  };
+
   return (
-    <div className="w-full h-[500px] relative group overflow-hidden">
-      <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-2 text-2xl rounded-full p-2 bg-[#27272A]/60 text-white cursor-pointer z-10">
-        <BsChevronCompactLeft onClick={handlePrevClick} />
+    <div className='max-w-[1400px] mx-auto w-full m-auto px-4 relative group'>
+      {/* Left Arrow */}
+      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-[#27272A]/50 text-white cursor-pointer'>
+        <BsChevronCompactLeft onClick={prevSlide} size={30} />
       </div>
-      <div className="w-full h-full duration-500 rounded-lg overflow-hidden absolute inset-0 flex items-center justify-center">
-        <img
-          src={images[currentImageIndex]}
-          alt={`Image ${currentImageIndex + 1}`}
-          className="max-w-full max-h-full"
-        />
+      {/* Right Arrow */}
+      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-[#27272A]/50 text-white cursor-pointer'>
+        <BsChevronCompactRight onClick={nextSlide} size={30} />
       </div>
-      <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-2 text-2xl rounded-full p-2 bg-[#27272A]/60 text-white cursor-pointer z-10">
-        <BsChevronCompactRight onClick={handleNextClick} />
+      <div
+        style={{ backgroundImage: `url(${images[currentIndex]})` }}
+        className='w-[800px] h-[200px] md:h-[500px] lg:h-[550px] mx-auto rounded-2xl bg-center bg-cover duration-500'
+      ></div>
+      <div className='flex top-4 justify-center py-2'>
+        {images.map((slide, slideIndex) => (
+          <div
+            key={slideIndex}
+            onClick={() => goToSlide(slideIndex)}
+            className={`text-2xl text-white cursor-pointer ${slideIndex === currentIndex ? 'text-2xl opacity-100' : 'opacity-50'}`}
+          >
+            <RxDotFilled />
+          </div>
+        ))}
       </div>
     </div>
   );

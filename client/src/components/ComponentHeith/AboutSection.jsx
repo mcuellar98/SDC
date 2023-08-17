@@ -1,13 +1,14 @@
 import React from 'react';
 
 const AboutSection = () => {
-  const containerStyle = {
-    padding: '16px', // Adjust padding as needed
-  };
-
   return (
-    <section className="bg-[#27272A] py-16 text-white font-sans flex items-center">
-      <div className="container mx-auto px-4  md:px-0 md:max-w-3xl text-center" style={containerStyle}>
+    <section className="relative bg-[#27272A] text-white">
+      <img
+        src="/assets/img/aboutImg.jpg"
+        alt="About Section"
+        className="object-cover object-center w-full h-full absolute inset-0"
+      />
+      <div className="container mx-auto px-4 md:px-0 md:max-w-3xl py-16 md:py-32 text-center relative">
         <h2 className="text-3xl font-bold mb-4 font-mono">About Us</h2>
         <p className="text-xl mb-8">
           Welcome to ÉLIER! We are dedicated to bringing you the latest trends and timeless classics in fashion. With an eye for quality and style, we curate a collection that reflects elegance, comfort, and individuality.
