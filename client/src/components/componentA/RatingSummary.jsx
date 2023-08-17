@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import Star from './Star.jsx';
 import axios from 'axios';
 
 const RatingSummary = () => {
@@ -44,6 +45,7 @@ const RatingSummary = () => {
     <div>
       <h2>RATINGS & REVIEWS</h2>
       <span>{averageRating}</span>
+      <Star rating={averageRating} />
     </div>
   )
 };
