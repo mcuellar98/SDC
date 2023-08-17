@@ -34,7 +34,20 @@ const posturl = postPath + req.params.question_id + "/answers"
   })
 }
 
+
+updateHelpful = (req,res) => {
+  const helpPath = postPath + req.params.question_id + "/helpful"
+  console.log(helpPath)
+  axios.put(helpPath, "test", {
+    headers: {
+      'authorization': req.headers.authorization
+    }
+  }).then((result) => {
+    console.log("result",result);
+  }).catch((err) => console.error(err))
+}
 //make a new one for post request
 
 exports.questionRouter = questionRouter;
 exports.postQuestionsRoute = postQuestionsRoute;
+exports.updateHelpful = updateHelpful;

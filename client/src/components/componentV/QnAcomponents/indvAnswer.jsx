@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import AnswerItem from "./answerList.jsx"
 import Helpful from "./Helpful.jsx"
 import AnswerModal from "./modal/answermodal.jsx"
+
 const IdividualAnswer = (props) => {
 
   const [collapse, updateCollapse] = useState(props.answers.length > 2)
@@ -30,13 +31,14 @@ const handleLoad = () => {
       updateCollapse(false)
     }
 }
+
   return (
     <div>
       <div className="flex w-full justify-between ">
         <div className="text-xl">
           Q: {props.questions.question_body}
           {showModal && <AnswerModal updateShow={updateShow} questionID={props.questions.question}/>}
-        </div> <span className="flex text-xs text-stone-400 pr-2.5" ><Helpful />&nbsp;| &nbsp;<p className="hover:text-stone-50" onClick={(e) => {
+        </div> <span className="flex text-xs text-stone-400 pr-2.5" ><Helpful id={props.questions.question_id} helpfulness={props.questions.question_helpfulness}/>&nbsp;| &nbsp;<p className="hover:text-stone-50" onClick={(e) => {
           updateShow(!showModal)
         }}> {showModal && 'Cancel'} {!showModal && 'Add Answer'}</p></span>
       </div>
@@ -44,7 +46,7 @@ const handleLoad = () => {
         <div className="outer" >
           <div className="text-xl max-w-xl">
             {answers.map((answer, index) => {
-              return <AnswerItem answer={answer} key={index} />
+              return <AnswerItem answer={answer} key={index}/>
             })}
           </div>
           {props.answers.length > 2 && <p onClick={(e)=> handleLoad()}>{answers.length <= 2 ? 'Load More Answers' : "Collapse Answers"}</p>}
