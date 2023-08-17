@@ -1,6 +1,6 @@
 const express = require('express');
 require('dotenv').config()
-const questionRouter = require('./questionRoutes.js')
+const {questionRouter, postQuestionsRoute} = require('./questionRoutes.js')
 const bodyParser = require('body-parser');
 const path = require('path');
 const axios = require('axios');
@@ -33,11 +33,16 @@ app.use('/reviews', reviewsRouter);
 
 
 // this is Victors section
+app.post("/questions/:question_id" , (req, res) => {
+  postQuestionsRoute(req).then((result) => {
+    res.end();
+  })
+})
+
 app.get("/questions/:product_id", (req,res) => {
   questionRouter(req).then((result) => {
     res.send(result)
   })
-
 })
 
 
