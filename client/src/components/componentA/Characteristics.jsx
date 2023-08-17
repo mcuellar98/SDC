@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 const Characteristics = () => {
 
@@ -74,8 +74,11 @@ const handleCharacteristicRatingChange = (index, value) => {
   const updatedRatings = [...characteristicsRatings];
   updatedRatings[index] = value;
   setCharacteristicsRatings(updatedRatings);
-  console.log(characteristicsRatings);
 };
+
+useEffect(()=> {
+  console.log(characteristicsRatings);
+}, [characteristicsRatings])
 
 return (
   <div className="characteristics">

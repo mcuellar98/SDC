@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {FaStar} from 'react-icons/fa';
 
 const StarRating = () => {
@@ -12,6 +12,10 @@ const StarRating = () => {
     5: 'Great',
   };
 
+  useEffect(() => {
+    console.log(rating);
+  }, [rating]);
+
   return (
     <div className="flex">
       {[...Array(5)].map((star, i) => {
@@ -24,7 +28,9 @@ const StarRating = () => {
               name="rating"
               className="hidden"
               value={ratingValue}
-              onClick={() => setRating(ratingValue)}
+              onClick={() => {
+                setRating(ratingValue);
+              }}
             />
 
             <FaStar
