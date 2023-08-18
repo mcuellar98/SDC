@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import ReviewEntry from './ReviewEntry.jsx'
 import axios from 'axios';
+import Modal from './Modal.jsx';
 
 const ReviewsList = () => {
   const [reviews, setReviews] = useState([]);
   const [visible, setVisible] = useState(2);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     fetchReviews();
@@ -26,6 +28,8 @@ const ReviewsList = () => {
     setVisible((prevValue) => prevValue + 2);
   };
 
+
+
   const showLoadMoreButton = reviews.length > visible;
 
 
@@ -43,12 +47,14 @@ const ReviewsList = () => {
       </div>
 
       {showLoadMoreButton && (
-        <button className="load-more-button border-solid border-2 border-black px-8" onClick={showMoreReviews}>
+        <button className="load-more-button border-solid border-2 border-black px-8 my-20" onClick={showMoreReviews}>
           More Reviews
         </button>
       )}
 
-      <button className="add-review-button border-solid border-2 border-black px-8">Add a Review</button>
+      <button className="add-review-button border-solid border-2 border-black px-8 my-20" onClick={() => {setOpenModal(true);}}>Add a Review</button>
+      {openModal && <Modal openModal={openModal} setOpenModal={setOpenModal} />}
+
     </div>
   );
 };

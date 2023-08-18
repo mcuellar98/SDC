@@ -17,11 +17,12 @@ reviewsRouter.get('/getAllReviews', (req, res) => {
       page: req.query.page
     }
   };
-//  console.log(req.url);
+
+  // console.log(req.url);
 
   axios.get(basePath + '/reviews', options)
     .then((response) => {
-     // console.log(response.data.results);
+      // console.log(response.data.results);
       res.send(response.data.results);
     })
     .catch((err) => {
