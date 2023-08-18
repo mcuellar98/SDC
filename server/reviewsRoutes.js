@@ -32,4 +32,26 @@ reviewsRouter.get('/getAllReviews', (req, res) => {
 });
 
 
+reviewsRouter.get('/getRatings', (req, res) => {
+  // let productId = parseInt(req.query.product_id);
+  let productId = 37311;
+  let options = {
+    headers: { Authorization: process.env.TOKEN},
+    params: {
+      product_id: productId,
+    }
+  };
+  console.log(req.url);
+
+  axios.get(basePath + '/reviews/meta', options)
+    .then((response) => {
+      // console.log(response.data);
+      res.send(response.data);
+    })
+    .catch((err) => {
+      console.log('axios GET reviews failed');
+      res.status(400).send(err);
+    });
+});
+
 module.exports = reviewsRouter;

@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import ReviewsList from './components/componentA/ReviewsList.jsx'
+import RatingSummary from './components/componentA/RatingSummary.jsx'
 import QuestionsAndAnswers from "./components/componentV/Q&A.jsx"
 import ReviewsList from "./components/componentA/ReviewsList.jsx"
 import axios from 'axios'

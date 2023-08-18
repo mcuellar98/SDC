@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import StarRating from './StarRating.jsx';
+import Characteristics from './Characteristics.jsx';
 import img1 from '../resources/review.svg';
 import img2 from '../resources/reviewsent.svg';
 
@@ -57,12 +58,12 @@ const Modal = ({openModal, setOpenModal}) => {
         <h1 className="text-xl font-bold text-center">Write Your Review</h1>
       </div>
       <div className="reviewForm p-6">
-        <div className="overallRating mb-4">
+        <div className="overallRating font-bold text-lg mb-2 inline-block">
           <label>Overall rating</label>
           <StarRating />
         </div>
         <div className="recommendForm mb-4">
-          <label>Do you recommend this product?</label>
+          <label className="font-bold text-lg mb-2">Do you recommend this product?</label>
           <label>
             <input
             type="radio"
@@ -83,9 +84,13 @@ const Modal = ({openModal, setOpenModal}) => {
             No
           </label>
         </div>
+        <div className="characteristics inline-block">
+          <Characteristics />
+        </div>
+
 
         <div className="reviewSummary mb-4">
-          <label>Review Summary</label>
+          <label className="font-bold text-lg mb-2">Review Summary</label>
           <input
           type="text"
           value={reviewSummary}
@@ -96,7 +101,7 @@ const Modal = ({openModal, setOpenModal}) => {
         </div>
 
         <div className="reviewBody mb-4">
-          <label>Review body:</label>
+          <label className="font-bold text-lg mb-2">Review body:</label>
           <textarea
           value={reviewBody}
           onChange={handleReviewBodyChange}
@@ -113,7 +118,7 @@ const Modal = ({openModal, setOpenModal}) => {
         </div>
 
         <div className="nickName mb-4">
-          <label>What is your nickname?</label>
+          <label className="font-bold text-lg mb-2">What is your nickname?</label>
           <input
             type="text"
             value={nickname}
@@ -125,7 +130,7 @@ const Modal = ({openModal, setOpenModal}) => {
         </div>
 
         <div className="email mb-4">
-          <label>Your email </label>
+          <label className="font-bold text-lg mb-2">Your email </label>
           <input
             type="text"
             value={email}
