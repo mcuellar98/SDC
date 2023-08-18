@@ -17,6 +17,7 @@ reviewsRouter.get('/getAllReviews', (req, res) => {
       page: req.query.page
     }
   };
+
   // console.log(req.url);
 
   axios.get(basePath + '/reviews', options)

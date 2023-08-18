@@ -1,28 +1,49 @@
 import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu, AiFillShopping } from 'react-icons/ai';
-import HeroSection from './HeroSection.jsx'
+import HeroSection from './HeroSection.jsx';
+
+//color theme:  bg-[#27272A]
 
 const Header = () => {
 
   const [nav, setNav] = useState(true);
+
   const handleNav = () => {
     setNav(!nav);
   }
+
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToOverview = () => {
+    const overviewElement = document.getElementById('overview');
+    if (overviewElement) {
+      overviewElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
 
     <div>
-      <header className='flex justify-between items-center h-[10vh]  text-white bg-[#27272A] px-8'>
+      <header className='flex justify-between items-center h-[13vh]  text-white bg-[#222222] px-8'>
         <div className="flex items-center">
-          <img src='/assets/img/logo.png' alt="Company Logo" className="w-60 h-auto ml-4" />
+          <img src='/assets/img/logo.png' alt="Company Logo" className="w-60 h-[14vh] ml-4" />
         </div>
 
         <nav>
           <ul className="hidden md:flex">
             <li className='p-4 text-xl'><a href="/" className='hover:text-[#78716C]'>Home</a></li>
-            <li className='p-4 text-xl'><a href="/" className='hover:text-[#78716C]'>Shop</a></li>
-            <li className='p-4 text-xl'><a href="/" className='hover:text-[#78716C]'>About</a></li>
+            <li className='p-4 text-xl'><a onClick={scrollToOverview} className='hover:text-[#78716C] cursor-pointer'>Shop</a></li>
+            <li className='p-4 text-xl'><a
+            onClick={scrollToAbout}
+            className='hover:text-[#78716C] cursor-pointer'>
+              About
+              </a></li>
             <li className='p-4 text-xl'><a href="/" className='hover:text-[#78716C]'>Contact</a></li>
-            <li className='p-4 text-xl group'><AiFillShopping size={22} className='transition-color group-hover:text-[#78716C]' /></li>
+            <li className='p-4 text-xl group'><AiFillShopping size={22} className='transition-color group-hover:text-[#78716C] cursor-pointer' /></li>
           </ul>
         </nav>
         <div onClick={handleNav} className='block md:hidden'>
