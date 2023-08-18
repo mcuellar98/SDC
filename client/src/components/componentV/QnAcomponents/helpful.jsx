@@ -18,7 +18,6 @@ const handleClick = () => {
   })
 }
 
-
   return (
       <p className="hover:text-stone-50" onClick={(e) => {
         if (!clicked) {
