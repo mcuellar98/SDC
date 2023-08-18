@@ -4,8 +4,7 @@ import axios from "axios";
 const QuestionModal = (props) => {
 
 return (
-    <div className="absolute right-0">
-      <form className="grid grid-col-2 gap-2 mr-4 bg-neutral-200 p-2" onSubmit={(e) => {
+      <form className="absolute bottom-0 right-0 z-10 grid grid-col-2 gap-2 mr-4 bg-neutral-200 p-2" onSubmit={(e) => {
         e.preventDefault()
       var options = {
         "body":e.target[0].value,
@@ -21,20 +20,18 @@ return (
       <textarea
         id={'answerTextAreaID'}
         name={"answer conent"}
-        placeholder="Add Answer Here"
+        placeholder="Add Question Here"
         rows={5}
         cols={40}
         maxLength="1000"
         className="col-span-2 text-base rounded-sm text-black"
       />
-        <input placeholder="Example: jack543!" maxLength="60" className="rounded-sm text-base p-1 text-black"/>
-        <input placeholder="Email" type="email" className="rounded-sm text-base p-1 text-black"/>
+        <input placeholder="Example: jackson11!" maxLength="60" className="rounded-sm text-base p-1 text-black"/>
+        <input placeholder="Email" type="email" maxLength="60" className="rounded-sm text-base p-1 text-black"/>
         <p className="text-xs text-neutral-400 max-w break-words">For privacy reasons, do not use your full name or email address</p>
         <p className="text-xs text-neutral-400 max-w break-words">For authentication reasons, you will not be emailed</p>
-        <input type="button" value="Submit Photo" className="rounded bg-neutral-500	 p-1"/>
-        <input type="Submit" value="Submit" className="rounded bg-neutral-500	 p-1" readOnly={true}/>
+        <input type="Submit" value="Submit" className="rounded bg-neutral-500	 p-1 col-span-2" readOnly={true}/>
       </form>
-    </div>
 )
 }
 
