@@ -4,10 +4,10 @@ const ReviewBar = ({bgcolor,progress,height}) => {
 
     const Parentdiv = {
       height: height,
-      width: '15%',
+      width: '50%',
       backgroundColor: 'whitesmoke',
       // borderRadius: 40,
-      margin: 15
+      margin: 10
     }
 
     const Childdiv = {

@@ -3,7 +3,7 @@ import Star from './Star.jsx';
 import axios from 'axios';
 import ReviewBar from './ReviewBar.jsx';
 
-const RatingSummary = () => {
+const RatingSummary = ({reviews, unfilteredReviews, setReviews}) => {
 
   const [ratingsData, setRatingsData] = useState(null);
 
@@ -58,6 +58,14 @@ const RatingSummary = () => {
   }
 
 
+  const filterReviewsByRating = (rating) => {
+    // console.log("Filtering reviews by rating:", rating);
+    const filteredReviews = unfilteredReviews.filter(review => review.rating === rating);
+    // console.log("Filtered reviews:", filteredReviews);
+    setReviews(filteredReviews);
+  }
+
+
   const recommendPercentage = calculateRecommendPercentage(ratingsData.recommended).toFixed(1);
   // ratingsData.ratings = {1: '92', 2: '60', 3: '184', 4: '168', 5: '423'}
   const averageRating = calculateAverageRating(ratingsData.ratings).toFixed(1);
@@ -80,38 +88,31 @@ const RatingSummary = () => {
 
       <div className="ratingDistribute">
         <div className="5stars flex items-center mb-2">
-          <label>5 stars</label>
+          <label onClick={() => {filterReviewsByRating(5)}}>5 stars</label>
           <ReviewBar bgcolor="#27272A" progress={ratingDistribute[5]*100}  height={13} />
           <label>({ratingsData.ratings[5]} reviews)</label>
         </div>
         <div className="4stars flex items-center mb-2">
-          <label>4 stars</label>
+          <label onClick={() => {filterReviewsByRating(4)}}>4 stars</label>
           <ReviewBar bgcolor="#27272A" progress={ratingDistribute[4]*100}  height={13} />
           <label>({ratingsData.ratings[4]} reviews)</label>
         </div>
         <div className="3stars flex items-center mb-2">
-          <label>3 stars</label>
+          <label onClick={() => {filterReviewsByRating(3)}}>3 stars</label>
           <ReviewBar bgcolor="#27272A" progress={ratingDistribute[3]*100}  height={13} />
           <label>({ratingsData.ratings[3]} reviews)</label>
         </div>
         <div className="2stars flex items-center mb-2">
-          <label>2 stars</label>
+          <label onClick={() => {filterReviewsByRating(2)}}>2 stars</label>
           <ReviewBar bgcolor="#27272A" progress={ratingDistribute[2]*100}  height={13} />
           <label>({ratingsData.ratings[2]} reviews)</label>
         </div>
         <div className="1stars flex items-center mb-2">
-          <label>1 stars</label>
+          <label onClick={() => {filterReviewsByRating(1)}}>1 stars</label>
           <ReviewBar bgcolor="#27272A" progress={ratingDistribute[1]*100}  height={13} />
           <label>({ratingsData.ratings[1]} reviews)</label>
         </div>
-
-
-
-
-
       </div>
-
-
     </div>
   )
 };

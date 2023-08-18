@@ -15,9 +15,6 @@ const App = () => {
       <div className='header'>
       <Header />
       </div>
-      <div>
-        <RatingSummary />
-      </div>
       <div className='h-max'>
         <ReviewsList />
       </div>
