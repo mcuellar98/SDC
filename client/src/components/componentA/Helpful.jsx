@@ -4,7 +4,7 @@ import axios from "axios"
 const Helpful = ({review}) => {
 
   const [helpNum, updateNum] = useState(review.helpfulness);
-  const [clicked, updateClick] = useState(false);
+  const [clicked, updateClicked] = useState(false);
 
 
 useEffect(() => {
@@ -13,21 +13,22 @@ useEffect(() => {
 
 
 const handleClick = () => {
-  return axios.put('updateHelpful/'+ review.review_id).then(
-    (result) => {
-    return console.log(result)
-  })
-}
+  if (!clicked) {
+    axios
+      .put(`/reviews/updateHelpful/${review.review_id}`)
+      .then((result) => {
+        updateClicked(true);
+        updateNum(helpNum + 1);
+      })
+      .catch((error) => {
+        console.log("Error marking review as helpful:", error);
+      });
+  }
+};
 
 
   return (
-      <p className="updateHelpful" onClick={(e) => {
-        if (!clicked) {
-          handleClick()
-          updateClick(true)
-          updateNum(helpNum + 1)
-        }
-      }}> Helpful? <u>Yes</u> ({helpNum}) </p>
+      <p className="updateHelpful" onClick={handleClick}> Helpful? <u>Yes</u> ({helpNum}) </p>
   )
 }
 

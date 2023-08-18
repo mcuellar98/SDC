@@ -54,7 +54,9 @@ reviewsRouter.get('/getRatings', (req, res) => {
 });
 
 reviewsRouter.put('/updateHelpful/:review_id', (req, res) => {
+  // console.log(req.url);
   const reviewId = req.params.review_id;
+  // console.log(reviewId);
 
   const options = {
     headers: { Authorization: process.env.TOKEN },
