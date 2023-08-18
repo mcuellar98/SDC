@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Star from './Star.jsx';
 import ImageModal from './ImageModal.jsx';
+import { AiOutlineCheck } from 'react-icons/ai';
 
 const ReviewEntry = ({ review }) => {
   const dateObj = new Date(review.date);
@@ -56,7 +57,7 @@ const ReviewEntry = ({ review }) => {
       )}
 
 
-      {review.recommend && <div className="recommendation">I recommend this product</div>}
+      {review.recommend && <div className="recommendation flex"> <AiOutlineCheck className="mr-2"/>I recommend this product</div>}
       <div>Helpful? Yes ({review.helpfulness})</div>
 
     </div>
