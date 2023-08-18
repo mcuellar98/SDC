@@ -78,7 +78,7 @@ const RatingSummary = ({reviews, unfilteredReviews, setReviews}) => {
     <div>
       <div className="averageRating">
         <h2>RATINGS & REVIEWS</h2>
-        <span>{averageRating}</span>
+        <span className="text-5xl">{averageRating}</span>
         <Star rating={averageRating} />
       </div>
 
