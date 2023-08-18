@@ -4,7 +4,7 @@ import UserInfo from "./userInfo.jsx"
 import Report from "./report.jsx"
 
 const AnswerItem = (props) => {
-  // console.log(props)
+
   return (
     <div className="test pt-4">
     <p>A: {props.answer.body}</p>

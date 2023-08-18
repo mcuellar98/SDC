@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 import QuestionsAndAnswers from "./components/componentV/Q&A.jsx"
 import ReviewsList from "./components/componentA/ReviewsList.jsx"
 import axios from 'axios'
-import Header from './components/ComponentH/Header.jsx';
-import AboutSection from './components/ComponentH/AboutSection.jsx';
-import Footer from './components/ComponentH/Footer.jsx';
+import Header from './components/ComponentHeith/Header.jsx';
+import AboutSection from './components/ComponentHeith/AboutSection.jsx';
+import Footer from './components/ComponentHeith/Footer.jsx';
+import OverviewModule from './components/ComponentHeith/OverviewModule.jsx';
 
 
 const App = () => {
@@ -14,15 +15,20 @@ const App = () => {
       <div className='header'>
       <Header />
       </div>
-      <div className='h-max'>
+
+      <div  id="overview">
+        <OverviewModule />
+      </div>
+
+      <div >
         <ReviewsList />
       </div>
-      <div className="h-max">
+      <div >
       <QuestionsAndAnswers />
     </div>
 
 
-      <div>
+      <div id="about">
         <AboutSection />
         <Footer />
       </div>
