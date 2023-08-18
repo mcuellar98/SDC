@@ -3,6 +3,7 @@ const app = express();
 const axios = require('axios');
 const basePath = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions/?product_id=';
 const postPath ='https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions/'
+const answerHelpPath ='https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/answers/'
 
 
 questionRouter = (req, res) => {
@@ -34,16 +35,26 @@ const posturl = postPath + req.params.question_id + "/answers"
   })
 }
 
+updateAnswer = (req , res) => {
+  const answerHelpUrl = answerHelpPath + req.params.answer_id + "/helpful"
+  console.log('answers',answerHelpUrl)
+  axios.put(answerHelpUrl, "test", {
+    headers: {
+      'authorization': req.headers.authorization
+    }
+  }).then((result) => {
+    // console.log("result",result);
+  }).catch((err) => console.error(err))
+}
 
 updateHelpful = (req,res) => {
   const helpPath = postPath + req.params.question_id + "/helpful"
-  console.log(helpPath)
   axios.put(helpPath, "test", {
     headers: {
       'authorization': req.headers.authorization
     }
   }).then((result) => {
-    console.log("result",result);
+    // console.log("result",result);
   }).catch((err) => console.error(err))
 }
 //make a new one for post request
@@ -51,3 +62,4 @@ updateHelpful = (req,res) => {
 exports.questionRouter = questionRouter;
 exports.postQuestionsRoute = postQuestionsRoute;
 exports.updateHelpful = updateHelpful;
+exports.updateAnswer = updateAnswer;
