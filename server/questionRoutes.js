@@ -37,7 +37,7 @@ const posturl = postPath + req.params.question_id + "/answers"
 
 updateHelpful = (req,res) => {
   const helpPath = postPath + req.params.question_id + "/helpful"
-  console.log(helpPath)
+  // console.log(helpPath)
   axios.put(helpPath, "test", {
     headers: {
       'authorization': req.headers.authorization
