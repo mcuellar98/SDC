@@ -53,4 +53,22 @@ reviewsRouter.get('/getRatings', (req, res) => {
     });
 });
 
+reviewsRouter.put('/updateHelpful/:review_id', (req, res) => {
+  const reviewId = req.params.review_id;
+
+  const options = {
+    headers: { Authorization: process.env.TOKEN },
+  };
+
+  axios.put(`${basePath}/reviews/${reviewId}/helpful`, {}, options)
+    .then(() => {
+      res.sendStatus(204); // Successfully updated
+    })
+    .catch((err) => {
+      console.log('axios PUT updateHelpful failed:', err);
+      res.status(400).send(err);
+    });
+
+});
+
 module.exports = reviewsRouter;

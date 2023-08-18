@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Star from './Star.jsx';
 import ImageModal from './ImageModal.jsx';
+import Helpful from './Helpful.jsx';
 import { AiOutlineCheck } from 'react-icons/ai';
 
 const ReviewEntry = ({ review }) => {
@@ -56,9 +57,11 @@ const ReviewEntry = ({ review }) => {
         />
       )}
 
-
       {review.recommend && <div className="recommendation flex"> <AiOutlineCheck className="mr-2"/>I recommend this product</div>}
-      <div>Helpful? Yes ({review.helpfulness})</div>
+
+      {/* Feedback Section */}
+
+      <Helpful review={review} />
 
     </div>
   );
