@@ -13,7 +13,7 @@ useEffect(() => {
 
 
 const handleClick = () => {
-  return axios.put('/helpful/'+ review.review_id).then(
+  return axios.put('updateHelpful/'+ review.review_id).then(
     (result) => {
     return console.log(result)
   })
@@ -21,7 +21,7 @@ const handleClick = () => {
 
 
   return (
-      <p className="hover:text-stone-50" onClick={(e) => {
+      <p className="updateHelpful" onClick={(e) => {
         if (!clicked) {
           handleClick()
           updateClick(true)
