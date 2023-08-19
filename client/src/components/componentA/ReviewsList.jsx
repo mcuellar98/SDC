@@ -31,10 +31,7 @@ const ReviewsList = () => {
     setVisible((prevValue) => prevValue + 2);
   };
 
-
-
   const showLoadMoreButton = reviews.length > visible;
-
 
   useEffect(() => {
     fetchReviews();
@@ -48,8 +45,8 @@ const ReviewsList = () => {
     <div className="reviews-module w-2/3">
       <h2>248 reviews, sorted by relevance</h2>
       <div className="relative overflow-y-auto h-80 reviews-list">
-        {reviews.slice(0, visible).map(review => (
-          <ReviewEntry review={review} key={review.review_id} />
+        {reviews.slice(0, visible).map((review, index) => (
+          <ReviewEntry review={review} key={index} />
         ))}
       </div>
 

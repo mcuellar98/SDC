@@ -83,8 +83,8 @@ const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
 
     axios.post('/reviews/reviews', newReview)
       .then(response => {
-        console.log(response.data);
-        setReviews([...reviews, response.data]);
+        console.log('hererererer', newReview);
+        setReviews([...reviews, newReview]);
         setReviewSend(true);
       })
       .catch(error => {
