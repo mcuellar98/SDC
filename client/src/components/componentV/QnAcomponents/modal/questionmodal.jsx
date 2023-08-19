@@ -10,18 +10,18 @@ return (
         "body":e.target[0].value,
         "name": e.target[1].value,
         "email": e.target[2].value,
-        "photo": "[]"
       }
-        axios.post("/questions/300476", options).then((result) => {
+      //add proper question route for adding
+        axios.post("/addQuestion/37323", options).then((result) => {
           return
         })
         props.updateShow(false);
       }} >
       <textarea
-        id={'answerTextAreaID'}
-        name={"answer conent"}
+        id={'questionTextAreaID'}
+        name={"question conent"}
         placeholder="Add Question Here"
-        rows={5}
+        rows={6}
         cols={40}
         maxLength="1000"
         className="col-span-2 text-base rounded-sm text-black"
