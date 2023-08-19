@@ -18,11 +18,13 @@ const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
   const [counterMessage, setCounterMessage] = useState('');
   const [reviewSend, setReviewSend] = useState(false);
   const [characteristicsKeys, setCharacteristicsKeys] = useState([]);
+  const [characteristicsResponse, setCharacteristicsResponse] = useState(null);
 
   useEffect(() => {
     axios.get('/reviews/getRatings')
       .then(response => {
         const characteristicsResponse = response.data.characteristics;
+        setCharacteristicsResponse(characteristicsResponse);
         const keys = Object.keys(characteristicsResponse);
         setCharacteristicsKeys(keys);
         setCharacteristicsRatings(keys.map(() => null));
@@ -61,7 +63,34 @@ const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
 
 
   const submitReview = () => {
-    setReviewSend(true);
+    const transformedCharacteristics = {};
+    characteristicsKeys.map((charName, index) => {
+      const charId = characteristicsResponse[charName].id;
+      transformedCharacteristics[charId] = characteristicsRatings[index];
+    })
+
+    const newReview = {
+      product_id: 37311,
+      rating: rating,
+      summary: reviewSummary,
+      body: reviewBody,
+      recommend: recommend,
+      name: nickname,
+      email: email,
+      characteristics: transformedCharacteristics,
+      photos: []
+    };
+
+    axios.post('/reviews/reviews', newReview)
+      .then(response => {
+        console.log(response.data);
+        setReviews([...reviews, response.data]);
+        setReviewSend(true);
+      })
+      .catch(error => {
+        console.error('Error posting reviews:', error);
+      });
+
     setTimeout(() => {
       setOpenModal(false);
     }, 2000);

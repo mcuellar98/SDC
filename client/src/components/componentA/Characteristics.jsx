@@ -2,9 +2,8 @@ import React, {useState, useEffect} from 'react';
 
 const Characteristics = ({characteristicsRatings, setCharacteristicsRatings, characteristicsKeys}) => {
 
-  console.log("characteristicsData:", characteristicsData);
-  console.log("characteristicsKeys:", characteristicsKeys);
-  console.log("characteristicsRatings:", characteristicsRatings);
+  // console.log("characteristicsKeys:", characteristicsKeys);
+  // console.log("characteristicsRatings:", characteristicsRatings);
 
   const characteristicsData = [
     {
