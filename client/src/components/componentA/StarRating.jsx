@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {FaStar} from 'react-icons/fa';
 
-const StarRating = () => {
-  const [rating, setRating] = useState(null);
+const StarRating = ({rating, setRating}) => {
+
   const [hover, setHover] = useState(null);
   const ratingText = {
     1: 'Poor',

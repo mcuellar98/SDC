@@ -5,8 +5,9 @@ import img1 from '../resources/review.svg';
 import img2 from '../resources/reviewsent.svg';
 
 
-const Modal = ({openModal, setOpenModal}) => {
+const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
 
+  const [rating, setRating] = useState(null);
   const[recommend, setRecommend] = useState(null);
   const [reviewSummary, setReviewSummary] = useState('');
   const [reviewBody, setReviewBody] = useState('');
@@ -42,11 +43,36 @@ const Modal = ({openModal, setOpenModal}) => {
   };
 
   const submitReview = () => {
-    setReviewSend(true);
+
+    const newReview = {
+      product_id: 37311,
+      rating: rating,
+      summary: reviewSummary,
+      body: reviewBody,
+      recommend: recommend,
+      name: nickname,
+      email: email,
+      characteristics: /* Get the characteristics data from somewhere */,
+      // Assuming you have a "photos" state for images
+      photos: []
+    };
+
+    axios.post('/reviews', newReview)
+      .then(response => {
+        // console.log(response.data);
+        setReviews([...reviews, newReview])
+        setReviewSend(true);
+      })
+      .catch(error => {
+        console.error('Error posting reviews:', error);
+      });
+
     setTimeout(() => {
       setOpenModal(false);
     }, 2000);
   }
+
+
 
   return (
     <>
