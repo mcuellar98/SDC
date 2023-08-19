@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import StarRating from './StarRating.jsx';
 import Characteristics from './Characteristics.jsx';
 import img1 from '../resources/review.svg';
 import img2 from '../resources/reviewsent.svg';
+import axios from 'axios';
 
 
 const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
@@ -13,8 +14,23 @@ const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
   const [reviewBody, setReviewBody] = useState('');
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
+  const [characteristicsRatings, setCharacteristicsRatings] = useState([]);
   const [counterMessage, setCounterMessage] = useState('');
   const [reviewSend, setReviewSend] = useState(false);
+  const [characteristicsKeys, setCharacteristicsKeys] = useState([]);
+
+  useEffect(() => {
+    axios.get('/reviews/getRatings')
+      .then(response => {
+        const characteristicsResponse = response.data.characteristics;
+        const keys = Object.keys(characteristicsResponse);
+        setCharacteristicsKeys(keys);
+        setCharacteristicsRatings(keys.map(() => null));
+      })
+      .catch(error => {
+        console.error('Error fetching characteristics keys:', error);
+      });
+  }, []);
 
   const handleRecommendChange = (value) => {
     setRecommend(value);
@@ -42,36 +58,14 @@ const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
     setNickname(event.target.value);
   };
 
+
+
   const submitReview = () => {
-
-    const newReview = {
-      product_id: 37311,
-      rating: rating,
-      summary: reviewSummary,
-      body: reviewBody,
-      recommend: recommend,
-      name: nickname,
-      email: email,
-      characteristics: /* Get the characteristics data from somewhere */,
-      // Assuming you have a "photos" state for images
-      photos: []
-    };
-
-    axios.post('/reviews', newReview)
-      .then(response => {
-        // console.log(response.data);
-        setReviews([...reviews, newReview])
-        setReviewSend(true);
-      })
-      .catch(error => {
-        console.error('Error posting reviews:', error);
-      });
-
+    setReviewSend(true);
     setTimeout(() => {
       setOpenModal(false);
     }, 2000);
-  }
-
+  };
 
 
   return (
@@ -86,7 +80,7 @@ const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
       <div className="reviewForm p-6">
         <div className="overallRating font-bold text-lg mb-2 inline-block">
           <label>Overall rating</label>
-          <StarRating />
+          <StarRating rating={rating} setRating={setRating} />
         </div>
         <div className="recommendForm mb-4">
           <label className="font-bold text-lg mb-2">Do you recommend this product?</label>
@@ -110,8 +104,13 @@ const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
             No
           </label>
         </div>
+
         <div className="characteristics inline-block">
-          <Characteristics />
+          <Characteristics
+            characteristicsRatings={characteristicsRatings}
+            setCharacteristicsRatings={setCharacteristicsRatings}
+            characteristicsKeys={characteristicsKeys}
+          />
         </div>
 
 
