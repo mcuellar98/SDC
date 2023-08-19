@@ -22,7 +22,7 @@ const App = () => {
       </div>
 
       <div >
-        <ReviewsList />
+        <ReviewsList className="my-50"/>
       </div>
       <div >
       <QuestionsAndAnswers />

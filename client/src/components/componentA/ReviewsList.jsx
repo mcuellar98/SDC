@@ -41,7 +41,7 @@ const ReviewsList = () => {
   }, []);
 
   return (
-  <div className='flex mx-20 my-20'>
+  <div className='flex pl-24 pt-20 pr-24 bg-white text-neutral-800'>
     <div className="w-1/3 ">
       <RatingSummary reviews={reviews} unfilteredReviews={unfilteredReviews} setReviews={setReviews} />
     </div>
