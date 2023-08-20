@@ -38,7 +38,7 @@ const handleLoad = () => {
         <div className="text-xl">
           Q: {props.questions.question_body}
           {showModal && <AnswerModal updateShow={updateShow} questionID={props.questions.question}/>}
-        </div> <span className="flex text-xs text-stone-400 pr-2.5" ><Helpful id={props.questions.question_id} helpfulness={props.questions.question_helpfulness}/>&nbsp;| &nbsp;<p className="hover:text-stone-50" onClick={(e) => {
+        </div> <span className="flex text-xs text-stone-400 pr-2.5" ><Helpful id={props.questions.question_id} helpfulness={props.questions.question_helpfulness} type="questions"/>&nbsp;| &nbsp;<p className="hover:text-stone-50" onClick={(e) => {
           updateShow(!showModal)
         }}> {showModal && 'Cancel'} {!showModal && 'Add Answer'}</p></span>
       </div>

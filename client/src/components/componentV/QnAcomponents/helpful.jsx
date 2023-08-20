@@ -2,29 +2,44 @@ import React, {useState, useEffect} from "react";
 import axios from "axios"
 
 const Helpful = (props) => {
-
   const [helpNum, updateNum] = useState(props.helpfulness);
-  const [clicked, updateClick] = useState(false);
-
+  const [clickedQuestion, updateQuestion] = useState(false);
+  const [clickedAnswer, updateAnswer] = useState(false);
 
 useEffect(() => {
   updateNum(props.helpfulness)
 },[props])
 
+const handleAnswer = () => {
+  return axios.put('/helpful/'+ props.id + '/answer').then((result) => {
+    return console.log(result)
+  })
+}
 
-const handleClick = () => {
+const handleQuestion = () => {
   return axios.put('/helpful/'+ props.id).then((result) => {
     return console.log(result)
   })
 }
 
-
   return (
       <p className="hover:text-stone-50" onClick={(e) => {
-        if (!clicked) {
-          handleClick()
-          updateClick(true)
-          updateNum(helpNum + 1)
+
+        if (!clickedQuestion) {
+          if(props.type === "questions") {
+            console.log('props.type', props.type)
+            handleQuestion()
+            updateQuestion(true)
+            updateNum(helpNum + 1)
+          }
+        }
+        if(!clickedAnswer) {
+          if(props.type === "answer"){
+            console.log('here')
+            handleAnswer()
+            updateAnswer(true)
+            updateNum(helpNum + 1)
+          }
         }
       }}> Helpful? <u>Yes</u> ({helpNum}) </p>
   )

@@ -38,7 +38,7 @@ useEffect(() => {
 },[updated, sliceNum])
 
 return (
-  <div className="pl-24 pt-2 bg-neutral-800 text-white ">
+  <div className="pl-24 pt-2 bg-neutral-800 text-white relative fullPageDiv">
     <h2  className=" text-lg">Questions & Answers</h2>
     <SearchBar />
     <div className="flex flex-col space-y-32 mt-3.5 pt-6 testers">
@@ -51,13 +51,13 @@ return (
       })}
 
     </div>
-    <div className="my-1.5">
+    <div className="my-1.5 flex">
     {staticInfo.length < 2 || questions.length === staticInfo.length ? "" : <button className="rounded bg-neutral-400	 p-3" onClick={(e) => {
       updateSlice( (prevVal) => {
         updateQuestions(staticInfo.slice(0, prevVal + 2))
         return prevVal + 2
       })
-    }} key={sliceNum}>More Answered Questions</button>} <AddQuestions />
+    }} key={sliceNum}>More Answered Questions</button> } &nbsp; <AddQuestions/>
     </div>
   </div>
 )
