@@ -40,7 +40,7 @@ useEffect(() => {
 return (
   <div className="pl-24 pt-2 bg-neutral-800 text-white relative fullPageDiv">
     <h2  className=" text-lg">Questions & Answers</h2>
-    <SearchBar />
+    <SearchBar static={staticInfo} questions={questions} updateQuestions={updateQuestions}/>
     <div className="flex flex-col space-y-32 mt-3.5 pt-6 testers">
       {questions.map((question, index) => {
           var answers = [];

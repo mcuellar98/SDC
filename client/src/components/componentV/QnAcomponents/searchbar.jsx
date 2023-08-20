@@ -4,8 +4,8 @@ const SearchBar = (props) => {
 
 const [search, updateSearch] = useState('')
 
-const handleSearch = () => {
-
+const handleSearch = (e) => {
+  console.log(e.target.value)
 }
 
   return (
