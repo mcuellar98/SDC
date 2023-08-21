@@ -54,6 +54,26 @@ reviewsRouter.get('/getRatings', (req, res) => {
     });
 });
 
+reviewsRouter.post('/reviews', (req,res) => {
+
+  const options = {
+    headers: { Authorization: process.env.TOKEN },
+  };
+
+  const requestData = req.body;
+
+  axios.post(basePath + '/reviews', requestData, options)
+    .then((response) => {
+      // console.log(requestData);
+      res.status(201).send(response.data); // Successfully created
+    })
+    .catch((err) => {
+      console.log('axios POST reviews failed:', err);
+      res.status(400).send(err);
+    });
+
+});
+
 reviewsRouter.put('/updateHelpful/:review_id', (req, res) => {
   // console.log(req.url);
   const reviewId = req.params.review_id;

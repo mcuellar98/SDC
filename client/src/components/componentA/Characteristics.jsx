@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 
-const Characteristics = () => {
+const Characteristics = ({characteristicsRatings, setCharacteristicsRatings, characteristicsKeys}) => {
+
+  // console.log("characteristicsKeys:", characteristicsKeys);
+  // console.log("characteristicsRatings:", characteristicsRatings);
 
   const characteristicsData = [
     {
@@ -63,12 +66,7 @@ const Characteristics = () => {
     'Runs long',
     ],
   },
-
 ]
-
-const [characteristicsRatings, setCharacteristicsRatings] = useState(
-  characteristicsData.map(() => null)
-);
 
 const handleCharacteristicRatingChange = (index, value) => {
   const updatedRatings = [...characteristicsRatings];
@@ -84,19 +82,22 @@ return (
   <div className="characteristics">
     <h2 className="font-bold text-lg mb-2">Characteristics</h2>
     <div className="flex flex-col space-y-4">
-      {characteristicsData.map((characteristic, index) => (
-        <div key={index} className="flex items-center">
-          <label className="font-normal mr-2">{characteristic.title}</label>
-          {Array.from({ length: 5 }, (_, rating) => rating + 1).map(
-            (rating) => (
-              <label
-                key={rating}
-                className={`flex items-center cursor-pointer mr-4 ${
-                  characteristicsRatings[index] === rating
-                    ? 'text-purple-600'
-                    : 'text-gray-600'
-                }`}
-              >
+      {characteristicsData
+          .filter(characteristic => characteristicsKeys.includes(characteristic.title))
+          .map((characteristic, index) => (
+            <div key={index} className="flex items-center">
+              <label className="font-normal mr-2">{characteristic.title}</label>
+              {Array.from({ length: 5 }, (_, rating) => rating + 1).map(
+                (rating) => (
+                  <label
+                    key={rating}
+                    className={`flex items-center cursor-pointer mr-4 ${
+                      characteristicsRatings[index] === rating
+                        ? 'text-purple-600'
+                        : 'text-gray-600'
+                    }`}
+                  >
+
                 <input
                   type="radio"
                   name={`characteristic_${index}`}

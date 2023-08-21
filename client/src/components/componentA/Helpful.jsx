@@ -28,7 +28,7 @@ const handleClick = () => {
 
 
   return (
-      <p className="updateHelpful" onClick={handleClick}> Helpful? <u>Yes</u> ({helpNum}) </p>
+      <p className="updateHelpful hover:text-stone-50 text-xs text-stone-300 pt-2.5 pr-2.5" onClick={handleClick}> Helpful? <u>Yes</u> ({helpNum}) </p>
   )
 }
 
