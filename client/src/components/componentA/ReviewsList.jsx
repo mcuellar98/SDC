@@ -43,7 +43,16 @@ const ReviewsList = () => {
       <RatingSummary reviews={reviews} unfilteredReviews={unfilteredReviews} setReviews={setReviews} />
     </div>
     <div className="reviews-module w-2/3">
-      <h2>248 reviews, sorted by relevance</h2>
+      <div className="reviewSort flex">
+        <h2>{reviews.length} reviews, sorted by  </h2>
+        <select className="bg-[#78716C]">
+          <option value="Helpful">Helpful</option>
+          <option value="Newest">Newest</option>
+          <option value="Relevant">Relevant</option>
+        </select>
+
+      </div>
+
       <div className="overflow-y-auto h-96 reviews-list" style={{ border: 'none', outline: 'none' }}>
         {reviews.slice(0, visible).map((review, index) => (
           <ReviewEntry review={review} key={index} />
