@@ -6,24 +6,25 @@ import AddQuestions from "./QnAcomponents/addQuestion.jsx";
 const QuestionsAndAnswers = () => {
   const product = '37323';
 
-useEffect(() => {
-  axios.get(`/questions/${product}`).then((result) => {
-    updateQuestions(result.data.results);
-    updateStatic(result.data.results)
-    updatePerma(result.data.results)
-    wasUpdated(true)
-  }).catch((err) => {
-    console.error(err)
-  })
-}, [])
-const [permaInfo, updatePerma] = useState('')
-const [sliceNum, updateSlice] = useState(2)
-const [staticInfo, updateStatic] = useState('')
-const [updated, wasUpdated] = useState(false)
-const [questions, updateQuestions] = useState([{
-  question_body: 'Please wait for page to load',
-  question_date: '2020-11-16T00:00:00.000Z',
-}])
+  useEffect(() => {
+    axios.get(`/questions/${product}`).then((result) => {
+      updateQuestions(result.data.results);
+      updateStatic(result.data.results)
+      updatePerma(result.data.results)
+      wasUpdated(true)
+    }).catch((err) => {
+      console.error(err)
+    })
+  }, [])
+
+  const [permaInfo, updatePerma] = useState('')
+  const [sliceNum, updateSlice] = useState(2)
+  const [staticInfo, updateStatic] = useState('')
+  const [updated, wasUpdated] = useState(false)
+  const [questions, updateQuestions] = useState([{
+    question_body: 'Please wait for page to load',
+    question_date: '2020-11-16T00:00:00.000Z',
+  }])
 
 
 useEffect(() => {
