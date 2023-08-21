@@ -38,25 +38,25 @@ const ReviewsList = () => {
   }, []);
 
   return (
-  <div className='flex pl-24 pt-20 pr-24 bg-white text-neutral-800'>
+  <div className='flex pl-40 pt-20 pr-40 bg-[#78716C] text-neutral-800'>
     <div className="w-1/3 ">
       <RatingSummary reviews={reviews} unfilteredReviews={unfilteredReviews} setReviews={setReviews} />
     </div>
     <div className="reviews-module w-2/3">
       <h2>248 reviews, sorted by relevance</h2>
-      <div className="relative overflow-y-auto h-80 reviews-list">
+      <div className="overflow-y-auto h-96 reviews-list" style={{ border: 'none', outline: 'none' }}>
         {reviews.slice(0, visible).map((review, index) => (
           <ReviewEntry review={review} key={index} />
         ))}
       </div>
 
       {showLoadMoreButton && (
-        <button className="load-more-button border-solid border-2 border-black px-8 my-20" onClick={showMoreReviews}>
+        <button className="load-more-button px-8 my-10 rounded bg-neutral-800	p-3 text-white" onClick={showMoreReviews}>
           More Reviews
         </button>
       )}
 
-      <button className="add-review-button border-solid border-2 border-black px-8 my-20" onClick={() => {setOpenModal(true);}}>Add a Review</button>
+      <button className="add-review-button px-8 my-10 rounded bg-neutral-800 p-3 text-white" onClick={() => {setOpenModal(true);}}>Add a Review</button>
       {openModal && <Modal openModal={openModal} setOpenModal={setOpenModal} reviews={reviews} setReviews={setReviews}/>}
 
     </div>

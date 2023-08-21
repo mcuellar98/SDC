@@ -5,7 +5,7 @@ const ReviewBar = ({bgcolor,progress,height}) => {
     const Parentdiv = {
       height: height,
       width: '50%',
-      backgroundColor: 'whitesmoke',
+      backgroundColor: '#efecec',
       // borderRadius: 40,
       margin: 10
     }
