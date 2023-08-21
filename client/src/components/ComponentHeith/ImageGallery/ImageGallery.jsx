@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ImageViewer from './ImageViewer.jsx';
 import ThumbnailList from './ThumbnailList.jsx';
 
-const ImageGallery = ({images}) => {
+const ImageGallery = ({images, thumbnail}) => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -12,7 +12,7 @@ const ImageGallery = ({images}) => {
         <ImageViewer  currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} images={images}/>
       </section>
       <section className="w-full mt-4 mb-4 py-4 px-4">
-        <ThumbnailList setCurrentIndex={setCurrentIndex}/>
+        <ThumbnailList setCurrentIndex={setCurrentIndex} thumbnail={thumbnail}/>
       </section>
     </div>
   );

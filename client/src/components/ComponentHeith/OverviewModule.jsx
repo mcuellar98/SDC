@@ -8,6 +8,7 @@ const OverviewModule = () => {
   const [productData, setProductData] = useState({});
   const [images, setImages] = useState([]);
   const [styles, setStyles] = useState([]);
+  const [thumbnail, SetThumbnail] = useState([]);
 
 
 
@@ -27,7 +28,10 @@ const OverviewModule = () => {
           const styleImages = response.data.results[0].photos.map(photo => photo.url);
           setImages(styleImages);
           const stylesData = response.data.results;
-          setStyles(stylesData)
+          setStyles(stylesData);
+          const thumbnailImages = response.data.results[0].photos.map(photo => photo.thumbnail_url);
+          SetThumbnail(thumbnailImages);
+
         })
         .catch(error => {
           console.error('Error fetching images:', error);
@@ -58,11 +62,11 @@ const OverviewModule = () => {
 
       <div className="flex">
         <div className="w-2/3">
-          <ImageGallery images={images} />
+          <ImageGallery images={images} thumbnail={thumbnail} />
         </div>
 
         <div className="w-1/3 ">
-          <ProductInfo productData={productData} styles ={styles} />
+          <ProductInfo productData={productData} styles ={styles} setImages={setImages} SetThumbnail={SetThumbnail} />
         </div>
       </div>
     </section>

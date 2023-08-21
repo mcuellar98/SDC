@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import { BsFillSuitHeartFill } from 'react-icons/bs';
 import Styles from './Styles.jsx';
+import FavoriteModal from './FavoriteModal.jsx';
 
-const ProductInfo = ({ productData, styles }) => {
+const ProductInfo = ({ productData, styles, setImages, SetThumbnail }) => {
 
   const [isFavorite, setIsFavorite] = useState(false);
-  console.log(isFavorite)
+  const [showModal, setShowModal] = useState(false);
+
+
   const handleFavoriteClick = () => {
     setIsFavorite(!isFavorite);
+    setShowModal(true);
   };
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
 
   return (
     <div className='p-4'>
@@ -27,14 +35,13 @@ const ProductInfo = ({ productData, styles }) => {
             {productData.features?.[0]?.feature} {productData.features?.[0]?.value}
           </section>
           <section className='text-white mb-2 text-lg font-sans'>${productData.default_price}</section>
-
-          {isFavorite && <p className='text-green-500'>You favorited this item!</p>}
         </section>
 
         <div>
-          <Styles styles={styles} />
+          <Styles styles={styles} setImages={setImages} SetThumbnail={SetThumbnail}/>
         </div>
       </div>
+      {showModal && <FavoriteModal closeModal={closeModal} />}
     </div>
   );
 };
