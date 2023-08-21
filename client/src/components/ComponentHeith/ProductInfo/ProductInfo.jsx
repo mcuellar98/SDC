@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import { BsFillSuitHeartFill } from 'react-icons/bs';
 import Styles from './Styles.jsx';
 import FavoriteModal from './FavoriteModal.jsx';
+import Reviews from './Reviews.jsx';
+import SizeQtyChooser from './SizeQtyChooser.jsx';
+import Checkout from './Checkout.jsx';
 
-const ProductInfo = ({ productData, styles, setImages, SetThumbnail }) => {
+
+
+const ProductInfo = ({ productData, styles, setImages, SetThumbnail, availableSizes  }) => {
 
   const [isFavorite, setIsFavorite] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -22,7 +27,7 @@ const ProductInfo = ({ productData, styles, setImages, SetThumbnail }) => {
     <div className='p-4'>
       <div className='inner py-4'>
         <section>
-          <section className='text-white flex items-center justify-between mb-2 text-xl font-sans'>
+          <section className='text-white flex items-center justify-between mb-1 text-xl font-bold font-sans'>
             <div>{productData.name}</div>
             <div className='pr-4 hover:text-[#78716C] cursor-pointer hover:scale-125 ease-in-out duration-300'
             onClick={handleFavoriteClick}>
@@ -37,9 +42,12 @@ const ProductInfo = ({ productData, styles, setImages, SetThumbnail }) => {
           <section className='text-white mb-2 text-lg font-sans'>${productData.default_price}</section>
         </section>
 
-        <div>
           <Styles styles={styles} setImages={setImages} SetThumbnail={SetThumbnail}/>
-        </div>
+          <Reviews />
+          <SizeQtyChooser availableSizes={availableSizes} />
+          <Checkout />
+
+
       </div>
       {showModal && <FavoriteModal closeModal={closeModal} />}
     </div>

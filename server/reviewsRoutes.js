@@ -41,7 +41,6 @@ reviewsRouter.get('/getRatings', (req, res) => {
       product_id: productId,
     }
   };
-  console.log(req.url);
 
   axios.get(basePath + '/reviews/meta', options)
     .then((response) => {

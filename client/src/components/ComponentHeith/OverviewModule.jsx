@@ -9,6 +9,9 @@ const OverviewModule = () => {
   const [images, setImages] = useState([]);
   const [styles, setStyles] = useState([]);
   const [thumbnail, SetThumbnail] = useState([]);
+  const [availableSizes, setAvailableSizes] = useState([]);
+
+
 
 
 
@@ -31,6 +34,17 @@ const OverviewModule = () => {
           setStyles(stylesData);
           const thumbnailImages = response.data.results[0].photos.map(photo => photo.thumbnail_url);
           SetThumbnail(thumbnailImages);
+
+           // Calculate available sizes from styles
+        const availableSizesSet = new Set();
+        stylesData.forEach(style => {
+          Object.keys(style.skus).forEach(skuId=> {
+            const size = style.skus[skuId].size;
+              availableSizesSet.add(size);
+          });
+        });
+        setAvailableSizes(Array.from(availableSizesSet));
+
 
         })
         .catch(error => {
@@ -66,7 +80,12 @@ const OverviewModule = () => {
         </div>
 
         <div className="w-1/3 ">
-          <ProductInfo productData={productData} styles ={styles} setImages={setImages} SetThumbnail={SetThumbnail} />
+          <ProductInfo productData={productData}
+          styles ={styles}
+          setImages={setImages}
+          SetThumbnail={SetThumbnail}
+          availableSizes={availableSizes}
+          />
         </div>
       </div>
     </section>

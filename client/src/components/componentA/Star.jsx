@@ -7,7 +7,7 @@ import starThreeQuarter from '../resources/star-three-quarter.svg';
 import fullStar from '../resources/fullStar.svg';
 
 
-const Star = ({rating}) => {
+const Star = ({rating, className}) => {
 
   // for example: rating = 3.75, fullStars = 3, decimalPart = 0.75, outlinedStars = 5 - 3 - 1 = 1
   // const totalStars = 5;
@@ -63,7 +63,7 @@ const Star = ({rating}) => {
   const stars = QuarterStars(rating);
 
   return (
-    <div className="star-rating inline-flex">
+    <div className={`star-rating inline-flex ${className}`}>
       {stars.map((item, i) => {
                 return (
                     <div className="single-star-container" key={i}>

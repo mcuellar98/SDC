@@ -3,9 +3,7 @@ import React, {useState} from 'react';
 const SearchBar = (props) => {
 
 const [search, updateSearch] = useState(false)
-console.log(props.perma)
-// console.log(props.questions)  <--- this is our array of questions to look over(use static to filter, but update questions)
-// console.log(props.questions[0].answers) <----- this is our array of answers inside of each question
+
 
 const handleSearch = (value) => {
   var filtered = props.perma.filter((question) => {

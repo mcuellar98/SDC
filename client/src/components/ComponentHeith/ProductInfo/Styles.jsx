@@ -15,7 +15,7 @@ const Styles = ({ styles, setImages, SetThumbnail }) => {
 
   return (
     <div>
-      <div className='text-white'>{selectedColor}</div>
+      <div className='text-white mb-4'>{selectedColor}</div>
       <div>
         {limitedStyles.map((style) => (
           <img
