@@ -20,10 +20,10 @@ const handleSearch = (value) => {
 
   return (
     <form className="mt-10 text text-black text-xl">
-      <input type={'text'} placeholder={'Have a Question? search for asnwers...'} className="w-11/12 h-14" onChange={(e) => {
+      <input type={'text'} placeholder={'Have a Question? search for answers...'} className="w-11/12 h-14" onChange={(e) => {
         if(e.target.value.length >= 3) {
           handleSearch(e.target.value);
-        }else if (search) {
+        } else if (search) {
           props.updateStatic(props.perma)
           props.updateQuestions(props.perma)
         }
