@@ -1,8 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ImageGallery from './ImageGallery/ImageGallery.jsx';
 import ProductInfo from './ProductInfo/ProductInfo.jsx';
+import axios from 'axios';
 
 const OverviewModule = () => {
+
+  const [productData, setProductData] = useState({});
+  const [images, setImages] = useState([]);
+  const [styles, setStyles] = useState([]);
+
+
+
+    useEffect(() => {
+      axios.get('/api/product')
+        .then(response => {
+          setProductData(response.data);
+        })
+        .catch(error => {
+          console.error('Error fetching product information:', error);
+        });
+    }, []);
+
+    useEffect(() => {
+      axios.get('/api/images')
+        .then(response => {
+          const styleImages = response.data.results[0].photos.map(photo => photo.url);
+          setImages(styleImages);
+          const stylesData = response.data.results;
+          setStyles(stylesData)
+        })
+        .catch(error => {
+          console.error('Error fetching images:', error);
+        });
+    }, []);
+
+
   return (
     <section className="h-[100vh] bg-[#27272A]">
       <div>
@@ -26,11 +58,11 @@ const OverviewModule = () => {
 
       <div className="flex">
         <div className="w-2/3">
-          <ImageGallery />
+          <ImageGallery images={images} />
         </div>
 
-        <div className="w-1/3">
-          <ProductInfo />
+        <div className="w-1/3 ">
+          <ProductInfo productData={productData} styles ={styles} />
         </div>
       </div>
     </section>
