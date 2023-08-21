@@ -23,8 +23,8 @@ const ReviewEntry = ({ review }) => {
   };
 
   return (
-    <div className="relative box-border h-50 w-50 p-4 border-4 reviewTile" key={review.review_id}>
-      <div className="absolute top-0 right-0 h-50 w-50 font-light">
+    <div className="relative h-100 w-50 p-4 border-b-2 border-neutral-800/50 reviewTile" key={review.review_id}>
+      <div className="absolute top-0 right-0 h-50 w-50 text-xs text-stone-300 pt-2.5 pr-2.5">
         {review.reviewer_name},{formattedDate}
       </div>
       <Star rating={review.rating} />
