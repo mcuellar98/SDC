@@ -1,6 +1,6 @@
 const express = require('express');
 require('dotenv').config()
-const {questionRouter, postQuestionsRoute, updateHelpful, updateAnswer, addQuestion} = require('./questionRoutes.js')
+const {questionRouter, postQuestionsRoute, updateHelpful, updateAnswer, addQuestion , reportAnswer, reportQuestion} = require('./questionRoutes.js')
 const bodyParser = require('body-parser');
 const path = require('path');
 const axios = require('axios');
@@ -35,12 +35,11 @@ app.use('/reviews', reviewsRouter);
 
 // this is Victors section\
 app.put("/helpful/:question_id", (req,res) => {
-  updateHelpful(req)
+  updateHelpful(req).then((result) => res.end)
 })
 
 app.put("/helpful/:answer_id/answer", (req,res) => {
-  console.log('here')
-  updateAnswer(req)
+  updateAnswer(req).then((result) => res.end)
 })
 
 app.post("/questions/:question_id" , (req, res) => {
@@ -57,6 +56,14 @@ app.get("/questions/:product_id", (req,res) => {
 
 app.post("/addQuestion/:product_id", (req,res) => {
   addQuestion(req)
+})
+
+app.put("/reportQuestion/:question_id", (req,res) => {
+  reportQuestion(req)
+})
+
+app.put("/reportAnswer/:answer_id", (req,res) => {
+  reportAnswer(req)
 })
 
 // this is Ratings & Reviews section
