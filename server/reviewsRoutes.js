@@ -17,11 +17,12 @@ reviewsRouter.get('/getAllReviews', (req, res) => {
       page: req.query.page
     }
   };
-//  console.log(req.url);
+
+  // console.log(req.url);
 
   axios.get(basePath + '/reviews', options)
     .then((response) => {
-     // console.log(response.data.results);
+      // console.log(response.data.results);
       res.send(response.data.results);
     })
     .catch((err) => {
@@ -30,5 +31,47 @@ reviewsRouter.get('/getAllReviews', (req, res) => {
     });
 });
 
+
+reviewsRouter.get('/getRatings', (req, res) => {
+  // let productId = parseInt(req.query.product_id);
+  let productId = 37311;
+  let options = {
+    headers: { Authorization: process.env.TOKEN},
+    params: {
+      product_id: productId,
+    }
+  };
+  console.log(req.url);
+
+  axios.get(basePath + '/reviews/meta', options)
+    .then((response) => {
+      // console.log(response.data);
+      res.send(response.data);
+    })
+    .catch((err) => {
+      console.log('axios GET reviews failed');
+      res.status(400).send(err);
+    });
+});
+
+reviewsRouter.put('/updateHelpful/:review_id', (req, res) => {
+  // console.log(req.url);
+  const reviewId = req.params.review_id;
+  // console.log(reviewId);
+
+  const options = {
+    headers: { Authorization: process.env.TOKEN },
+  };
+
+  axios.put(`${basePath}/reviews/${reviewId}/helpful`, {}, options)
+    .then(() => {
+      res.sendStatus(204); // Successfully updated
+    })
+    .catch((err) => {
+      console.log('axios PUT updateHelpful failed:', err);
+      res.status(400).send(err);
+    });
+
+});
 
 module.exports = reviewsRouter;

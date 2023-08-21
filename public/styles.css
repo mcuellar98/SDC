@@ -1,4 +1,6 @@
 @tailwind base;
+
+
 @tailwind components;
 @tailwind utilities;
 
@@ -16,4 +18,10 @@ height: 20%;
 }
 .testers {
   display: flex;
+}
+
+
+.fullPageDiv {
+  max-height: 100vh;
+  overflow-y: auto;
 }
