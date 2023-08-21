@@ -69,10 +69,21 @@ addQuestion = (req, res) => {
 
 reportQuestion = (req, res) => {
 const repQueUrl = postPath + req.params.question_id + "/report";
+
+axios.put(repQueUrl, '', {
+  headers: {
+    'authorization': req.headers.authorization
+  }
+}).then((result) => console.log(result)).catch((err) => console.error(err))
 }
 
 reportAnswer = (req,res) => {
  const repAnsUrl = answerHelpPath + req.params.answer_id + "/report";
+ axios.put(repAnsUrl, '', {
+  headers: {
+    'authorization': req.headers.authorization
+  }
+}).then((result) => console.log(result)).catch((err) => console.error(err))
 }
 
 exports.questionRouter = questionRouter;
