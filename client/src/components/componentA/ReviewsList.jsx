@@ -9,10 +9,34 @@ const ReviewsList = () => {
   const [unfilteredReviews, setUnfilteredReviews] = useState([]);
   const [visible, setVisible] = useState(2);
   const [openModal, setOpenModal] = useState(false);
+  const [sortingOption, setSortingOption] = useState(null);
+
+  const sortReviews = (option) => {
+    let sortedReviews = [...reviews];
+    switch (option) {
+      case "Helpful":
+        sortedReviews.sort((a, b) => b.helpfulness - a.helpfulness);
+        break;
+      case "Newest":
+        sortedReviews.sort((a, b) => new Date(b.date) - new Date(a.date));
+        break;
+      case "Relevant":
+        sortedReviews.sort((a, b) => {
+          const relevanceA = a.helpfulness / Math.max(1, new Date() - new Date(a.date));
+          const relevanceB = b.helpfulness / Math.max(1, new Date() - new Date(b.date));
+
+          return relevanceB - relevanceA;
+        });
+        break;
+      default:
+        break;
+    }
+    setReviews(sortedReviews);
+  };
 
   useEffect(() => {
-    fetchReviews();
-  }, []);
+    sortReviews(sortingOption);;
+  }, [sortingOption]);
 
   const fetchReviews = () => {
     return axios.get('http://localhost:3000/reviews/getAllReviews')
@@ -44,8 +68,12 @@ const ReviewsList = () => {
     </div>
     <div className="reviews-module w-2/3">
       <div className="reviewSort flex">
-        <h2>{reviews.length} reviews, sorted by  </h2>
-        <select className="bg-[#78716C]">
+        <h2>{reviews.length} reviews, sorted by </h2>
+        <select
+          className="bg-[#78716C]"
+          value={sortingOption}
+          onChange={(e) => setSortingOption(e.target.value)}
+          >
           <option value="Helpful">Helpful</option>
           <option value="Newest">Newest</option>
           <option value="Relevant">Relevant</option>
