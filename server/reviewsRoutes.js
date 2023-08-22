@@ -91,7 +91,6 @@ reviewsRouter.put('/updateHelpful/:review_id', (req, res) => {
       console.log('axios PUT updateHelpful failed:', err);
       res.status(400).send(err);
     });
-
 });
 
 module.exports = reviewsRouter;
