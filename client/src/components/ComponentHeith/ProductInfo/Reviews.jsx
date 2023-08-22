@@ -38,7 +38,7 @@ const Reviews = () => {
   const totalReviews = numberOfReviews(ratingsData);
 
   return (
-    <div className='flex items-center text-white pt-4 cursor-pointer hover:text-[#b7b4b1] px-4'>
+    <div className='flex items-center text-white pt-4 cursor-pointer hover:text-[#b7b4b1] px-2'>
       <section className='mr-2'>REVIEWS ({totalReviews})</section>
       <Star rating={averageRating} />
     </div>
