@@ -22,7 +22,8 @@ const ProductInfo = ({ productData, styles, setImages, SetThumbnail, availableSi
 
   const [selectedStyle, setSelectedStyle] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
-  const [checkoutItem, setCheckoutItem] = useState([])
+  const [checkoutItem, setCheckoutItem] = useState([]);
+  const [itemFeatures, setItemFeatures] = useState([])
 
 
 
@@ -57,6 +58,14 @@ const ProductInfo = ({ productData, styles, setImages, SetThumbnail, availableSi
       return () => clearTimeout(timeout);
     }
   }, [showBag]);
+
+  useEffect(() => {
+    if (productData && productData.features && productData.features.length > 0) {
+      setItemFeatures(productData.features);
+    }
+  }, [productData]);
+
+
 
 
   return (
@@ -98,9 +107,12 @@ const ProductInfo = ({ productData, styles, setImages, SetThumbnail, availableSi
               <BsChevronDown size={25} />
             </div>
           </section>
+
           {showMaterials && (
             <div className='text-white mb-2 text-md font-sans px-2'>
-              {productData.description}
+              {itemFeatures.map((feature, index) => (
+                <p key={index}>{feature.feature} : {feature.value}</p>
+              ))}
             </div>
           )}
 
