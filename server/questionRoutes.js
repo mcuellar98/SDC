@@ -13,17 +13,14 @@ questionRouter = (req, res) => {
     headers: {
       'authorization': req.headers.authorization
     }
-  }
-    ).then((result) => {
+  }).then((result) => {
     return result.data
-  })
-
+  }).catch((err) => console.error(err))
 };
 
 postQuestionsRoute = (req, res) => {
-  // console.log(req.body)
 const posturl = postPath + req.params.question_id + "/answers"
-// console.log(posturl)
+
   axios.post(posturl, req.body, {
     headers: {
       'authorization': req.headers.authorization
@@ -42,7 +39,7 @@ updateAnswer = (req , res) => {
       'authorization': req.headers.authorization
     }
   }).then((result) => {
-    // console.log("result",result);
+
   }).catch((err) => console.error(err))
 }
 
@@ -69,10 +66,30 @@ addQuestion = (req, res) => {
     console.log(result)
   }).catch((err) => console.error("err"))
 }
-//make a new one for post request
+
+reportQuestion = (req, res) => {
+const repQueUrl = postPath + req.params.question_id + "/report";
+
+axios.put(repQueUrl, '', {
+  headers: {
+    'authorization': req.headers.authorization
+  }
+}).then((result) => console.log(result)).catch((err) => console.error(err))
+}
+
+reportAnswer = (req,res) => {
+ const repAnsUrl = answerHelpPath + req.params.answer_id + "/report";
+ axios.put(repAnsUrl, '', {
+  headers: {
+    'authorization': req.headers.authorization
+  }
+}).then((result) => console.log(result)).catch((err) => console.error(err))
+}
 
 exports.questionRouter = questionRouter;
 exports.postQuestionsRoute = postQuestionsRoute;
 exports.updateHelpful = updateHelpful;
 exports.updateAnswer = updateAnswer;
 exports.addQuestion = addQuestion;
+exports.reportQuestion = reportQuestion;
+exports.reportAnswer = reportAnswer;

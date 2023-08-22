@@ -11,12 +11,11 @@ return (
         "name": e.target[1].value,
         "email": e.target[2].value,
       }
-      //add proper question route for adding
         axios.post("/addQuestion/37323", options).then((result) => {
           return
         })
-        props.updateShow(false);
-      }} >
+        props.updateQModal(false);
+      }}>
       <textarea
         id={'questionTextAreaID'}
         name={"question conent"}
