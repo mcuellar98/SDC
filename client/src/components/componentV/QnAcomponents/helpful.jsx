@@ -23,7 +23,7 @@ const handleQuestion = () => {
 }
 
   return (
-      <p className="hover:text-stone-50" onClick={(e) => {
+      <p data-testid="test-span" className="hover:text-stone-50" onClick={(e) => {
 
         if (!clickedQuestion) {
           if(props.type === "questions") {
@@ -41,7 +41,7 @@ const handleQuestion = () => {
             updateNum(helpNum + 1)
           }
         }
-      }}> Helpful? <u>Yes</u> ({helpNum}) </p>
+      }}>Helpful? <u> Yes</u> ({helpNum}) </p>
   )
 }
 
