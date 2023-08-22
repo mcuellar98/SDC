@@ -94,6 +94,7 @@ const ReviewsList = () => {
       )}
 
       <button className="add-review-button px-8 my-10 rounded bg-neutral-800 p-3 text-white" onClick={() => {setOpenModal(true);}}>Add a Review</button>
+
       {openModal && <Modal openModal={openModal} setOpenModal={setOpenModal} reviews={reviews} setReviews={setReviews}/>}
 
     </div>
