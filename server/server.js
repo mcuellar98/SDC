@@ -35,11 +35,11 @@ app.use('/reviews', reviewsRouter);
 
 // this is Victors section\
 app.put("/helpful/:question_id", (req,res) => {
-  updateHelpful(req).then((result) => res.end)
+  updateHelpful(req)
 })
 
 app.put("/helpful/:answer_id/answer", (req,res) => {
-  updateAnswer(req).then((result) => res.end)
+  updateAnswer(req)
 })
 
 app.post("/questions/:question_id" , (req, res) => {
