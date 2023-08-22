@@ -41,28 +41,30 @@ useEffect(() => {
 },[updated, sliceNum, staticInfo])
 
 return (
-  <div className="pl-24 pt-2 bg-neutral-800 text-white relative fullPageDiv">
-    <h2  className=" text-lg">Questions & Answers</h2>
+<div className="bg-[#27272A]">
+  <div className="p-20 bg-[#27272A] text-white relative fullPageDiv">
+    <h2 className="text-lg">Questions & Answers</h2>
     <SearchBar static={staticInfo} updateStatic={updateStatic} questions={questions} updateQuestions={updateQuestions} perma={permaInfo}/>
     <div className="flex flex-col space-y-32 mt-3.5 pt-6 testers">
       {questions.map((question, index) => {
-          var answers = [];
-          for (var key in question.answers) {
-            answers.push(question.answers[key])
-          }
-        return <IdividualAnswer questions={question} answers={answers}key={index}/>
+        var answers = [];
+        for (var key in question.answers) {
+          answers.push(question.answers[key])
+        }
+        return <IdividualAnswer questions={question} answers={answers} key={index}/>
       })}
-
     </div>
     <div className="my-1.5 flex">
-    {staticInfo.length < 2 || questions.length === staticInfo.length ? "" : <button className="rounded bg-neutral-400	 p-3" onClick={(e) => {
-      updateSlice( (prevVal) => {
-        updateQuestions(staticInfo.slice(0, prevVal + 2))
-        return prevVal + 2
-      })
-    }} key={sliceNum}>More Answered Questions</button> } &nbsp; <AddQuestions/>
+      {staticInfo.length < 2 || questions.length === staticInfo.length ? "" : <button className="rounded bg-neutral-400 p-3" onClick={(e) => {
+        updateSlice((prevVal) => {
+          updateQuestions(staticInfo.slice(0, prevVal + 2))
+          return prevVal + 2
+        })
+      }} key={sliceNum}>More Answered Questions</button>} &nbsp; <AddQuestions/>
     </div>
   </div>
+</div>
+
 )
 }
 
