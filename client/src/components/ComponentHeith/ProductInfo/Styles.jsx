@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Styles = ({ styles, setImages, SetThumbnail, setSelectedStyle, setCheckoutItem }) => {
-  const limitedStyles = styles.slice(0, 8);
-  const [selectedColor, setSelectedColor] = useState('Black');
+
+
+  const [selectedColor, setSelectedColor] = useState(null);
+
+
+  useEffect(() => {
+    if (styles.length > 0) {
+      setSelectedColor(styles[0].name);
+    }
+  }, [styles]);
+
 
 
   const handleClick = (styleColor, style) => {
@@ -18,14 +27,14 @@ const Styles = ({ styles, setImages, SetThumbnail, setSelectedStyle, setCheckout
 
   return (
     <div>
-      <div className='text-white font-semibold mb-4'>{selectedColor}</div>
+      <div className='text-white font-semibold mb-4'>Style: {selectedColor}</div>
       <div>
-        {limitedStyles.map((style) => (
+        {styles.map((style) => (
           <img
             key={style.style_id}
             src={style.photos[0].thumbnail_url}
             alt={style.name}
-            className={`w-24 h-24 inline-block p-2 rounded-2xl cursor-pointer hover:scale-105 ease-in-out duration-300 ${
+            className={`w-24 h-24 inline-block p-2 rounded-2xl cursor-pointer hover:scale-110 ease-in-out duration-300 ${
               selectedColor === style.name ? 'border-2 border-[#78716C]' : ''
             }`}
             onClick={() => handleClick(style.name, style)}
