@@ -10,7 +10,9 @@ const Share = ({closeShare}) => {
   };
 
   return (
-    <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-75 z-50">
+    <div
+    className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-75 z-50"
+    onClick={handleExit}>
       <div className="bg-[#27272A] py-14 px-16 rounded-lg text-white text-center">
       <p className="text-xl mb-4">Share on social media</p>
 
