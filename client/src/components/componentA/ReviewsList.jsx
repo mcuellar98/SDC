@@ -38,19 +38,19 @@ const ReviewsList = () => {
   }, []);
 
   return (
-  <div className='flex pl-40 pt-20 pr-40 bg-[#78716C] text-neutral-800'>
-    <div className="w-1/3 ">
+<div className="bg-[#27272A] flex items-center justify-center">
+  <div className="flex m-20 p-10 bg-[#78716C] text-neutral-800 rounded-2xl">
+    <div className="w-1/3">
       <RatingSummary reviews={reviews} unfilteredReviews={unfilteredReviews} setReviews={setReviews} />
     </div>
     <div className="reviews-module w-2/3">
       <div className="reviewSort flex">
-        <h2>{reviews.length} reviews, sorted by  </h2>
+        <h2>{reviews.length} reviews, sorted by</h2>
         <select className="bg-[#78716C]">
           <option value="Helpful">Helpful</option>
           <option value="Newest">Newest</option>
           <option value="Relevant">Relevant</option>
         </select>
-
       </div>
 
       <div className="overflow-y-auto h-96 reviews-list" style={{ border: 'none', outline: 'none' }}>
@@ -60,16 +60,18 @@ const ReviewsList = () => {
       </div>
 
       {showLoadMoreButton && (
-        <button className="load-more-button px-8 my-10 rounded bg-neutral-800	p-3 text-white" onClick={showMoreReviews}>
+        <button className="load-more-button px-8 my-10 rounded bg-neutral-800 p-3 text-white" onClick={showMoreReviews}>
           More Reviews
         </button>
       )}
 
-      <button className="add-review-button px-8 my-10 rounded bg-neutral-800 p-3 text-white" onClick={() => {setOpenModal(true);}}>Add a Review</button>
-      {openModal && <Modal openModal={openModal} setOpenModal={setOpenModal} reviews={reviews} setReviews={setReviews}/>}
+      <button className="add-review-button px-8 my-10 rounded bg-neutral-800 p-3 text-white" onClick={() => { setOpenModal(true); }}>Add a Review</button>
+      {openModal && <Modal openModal={openModal} setOpenModal={setOpenModal} reviews={reviews} setReviews={setReviews} />}
 
     </div>
   </div>
+</div>
+
 
   );
 };
