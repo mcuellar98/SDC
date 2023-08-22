@@ -72,7 +72,7 @@ app.get('/api/images', (req, res) => {
     }
   };
 
-  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/37314/styles', requestOptions)
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/37315/styles', requestOptions)
     .then(response => {
       res.json(response.data);
     })
@@ -89,7 +89,7 @@ app.get('/api/product', (req, res) => {
     }
   };
 
-  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/37314', requestOptions)
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/37315', requestOptions)
   .then(response => {
     res.json(response.data);
   })
