@@ -52,7 +52,7 @@ const ProductInfo = ({ productData, styles, setImages, SetThumbnail, availableSi
     <div className='p-4'>
       <div className='inner py-4'>
         <section>
-          <section className='text-white flex items-center justify-between mb-1 text-xl font-bold font-sans'>
+          <section className='text-white flex items-center justify-between mb-3 pb-2 text-xl font-bold font-sans border-b-2 border-[#78716C]'>
             <div>{productData.name}</div>
             <div className='pr-4 hover:text-[#78716C] cursor-pointer hover:scale-125 ease-in-out duration-300'
             onClick={handleFavoriteClick}>
