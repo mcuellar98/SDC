@@ -16,6 +16,7 @@ const Header = () => {
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
       aboutSection.scrollIntoView({ behavior: 'smooth' });
+      setNav(!nav);
     }
   };
 
@@ -50,11 +51,11 @@ const Header = () => {
           {!nav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
         </div>
 
-        <div className={!nav ? 'fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#27272A] ease-in-out duration-500' : 'fixed left-[-100%] ease-in-out duration-500'}>
+        <div className={!nav ? 'fixed  z-50 left-0 top-0 w-[80%] h-full border-r border-r-gray-900 bg-[#222222] ease-in-out duration-500' : 'fixed left-[-100%] ease-in-out duration-500'}>
           <ul className="pt-24 uppercase ">
             <li className='p-4 border-b border-white'><a href="/">Home</a></li>
             <li className='p-4 border-b border-white'><a href="/">Shop</a></li>
-            <li className='p-4 border-b border-white'><a href="/">About</a></li>
+            <li className='p-4 border-b border-white'><a onClick={scrollToAbout}>About</a></li>
             <li className='p-4 border-b border-white'><a href="/">Contact</a></li>
           </ul>
         </div>
