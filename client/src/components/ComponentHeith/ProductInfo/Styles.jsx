@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Styles = ({ styles, setImages, SetThumbnail }) => {
+const Styles = ({ styles, setImages, SetThumbnail, setSelectedStyle, setCheckoutItem }) => {
   const limitedStyles = styles.slice(0, 8);
   const [selectedColor, setSelectedColor] = useState('Black');
 
@@ -11,11 +11,14 @@ const Styles = ({ styles, setImages, SetThumbnail }) => {
     setSelectedColor(styleColor);
     setImages(chosenStyle);
     SetThumbnail(chosenThumStyle);
+    setSelectedStyle(styleColor);
+    setCheckoutItem(chosenThumStyle);
+
   };
 
   return (
     <div>
-      <div className='text-white mb-4'>{selectedColor}</div>
+      <div className='text-white font-semibold mb-4'>{selectedColor}</div>
       <div>
         {limitedStyles.map((style) => (
           <img
