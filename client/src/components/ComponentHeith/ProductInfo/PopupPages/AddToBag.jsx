@@ -4,7 +4,7 @@ const AddToBag = ({ selectedStyle, selectedSize, name, price, checkoutItem }) =>
   console.log(checkoutItem);
   return (
     <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-75 z-50">
-      <div className="bg-[#27272A] py-8 px-12 rounded-lg text-white text-lg tracking-wide">
+      <div className="bg-[#27272A] py-6 px-12 rounded-lg text-white text-lg tracking-wide">
         <div className="flex flex-col items-center">
           <p className="mb-4 font-bold">Item added to bag!</p>
 
