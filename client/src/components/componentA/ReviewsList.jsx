@@ -39,7 +39,7 @@ const ReviewsList = () => {
 
   return (
 <div className="bg-[#27272A] flex items-center justify-center">
-  <div className="flex m-20 p-10 bg-[#78716C] text-neutral-800 rounded-2xl">
+  <div className="flex m-28 p-10 bg-[#78716C] text-neutral-800 rounded-2xl">
     <div className="w-1/3">
       <RatingSummary reviews={reviews} unfilteredReviews={unfilteredReviews} setReviews={setReviews} />
     </div>
