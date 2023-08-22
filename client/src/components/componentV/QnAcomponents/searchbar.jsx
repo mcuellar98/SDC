@@ -4,6 +4,7 @@ const SearchBar = (props) => {
 
 const [search, updateSearch] = useState(false)
 
+
 const handleSearch = (value) => {
   var filtered = props.perma.filter((question) => {
     if (question.question_body.toLowerCase().includes(value.toLowerCase())) {
