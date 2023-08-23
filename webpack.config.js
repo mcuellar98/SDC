@@ -15,7 +15,7 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ["*", ".js", ".jsx", ".tsx", ".ts", '.css'],
+    extensions: [".*", ".js", ".jsx", ".tsx", ".ts", '.css'],
     modules: [__dirname, "src", "node_modules"],
   },
   module: {
