@@ -1,5 +1,5 @@
 import React from "react"
-import Helpful from "./Helpful.jsx"
+import Helpful from "./helpful.jsx"
 import UserInfo from "./userInfo.jsx"
 import Report from "./report.jsx"
 
