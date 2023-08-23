@@ -80,13 +80,13 @@ useEffect(()=> {
 
 return (
   <div className="characteristics">
-    <h2 className="font-bold text-lg mb-2">Characteristics</h2>
+    <h2 className="font-bold text-sm mb-2">Characteristics</h2>
     <div className="flex flex-col space-y-4">
       {characteristicsData
           .filter(characteristic => characteristicsKeys.includes(characteristic.title))
           .map((characteristic, index) => (
-            <div key={index} className="flex items-center">
-              <label className="font-normal mr-2">{characteristic.title}</label>
+            <div key={index} className="flex items-center text-xs">
+              <label className="font-normal text-xs mr-2">{characteristic.title}</label>
               {Array.from({ length: 5 }, (_, rating) => rating + 1).map(
                 (rating) => (
                   <label
