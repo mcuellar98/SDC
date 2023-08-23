@@ -73,7 +73,7 @@ const RatingSummary = ({reviews, unfilteredReviews, setReviews}) => {
 
 
   const fetchRatings = () => {
-    return axios.get('http://localhost:3000/reviews/getRatings')
+    return axios.get('reviews/getRatings')
       .then(response => {
         setRatingsData(response.data);
         // console.log('Fetched ratingsData:', response.data);

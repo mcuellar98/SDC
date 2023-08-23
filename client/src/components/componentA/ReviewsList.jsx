@@ -39,7 +39,7 @@ const ReviewsList = () => {
   }, [sortingOption]);
 
   const fetchReviews = () => {
-    return axios.get('http://localhost:3000/reviews/getAllReviews')
+    return axios.get('reviews/getAllReviews')
       .then(response => {
         // console.log(response.data);
         setReviews(response.data);
