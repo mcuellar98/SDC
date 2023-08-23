@@ -113,7 +113,7 @@ const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
             <StarRating rating={rating} setRating={setRating} />
           </div>
           <div className="recommendForm mb-4">
-            <label className="font-bold text-lg mb-2">Do you recommend this product?</label>
+            <label className="font-bold text-lg mb-2">Do you recommend this product?  </label>
             <label>
               <input
               type="radio"
@@ -135,7 +135,7 @@ const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
             </label>
           </div>
 
-          <div className="characteristics inline-block">
+          <div className="characteristics">
             <Characteristics
               characteristicsRatings={characteristicsRatings}
               setCharacteristicsRatings={setCharacteristicsRatings}

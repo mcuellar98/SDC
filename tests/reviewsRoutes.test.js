@@ -99,10 +99,10 @@ describe('reviewsRoutes', () => {
     const response = await request(app).get('/reviews/getAllReviews')
       .query({ product_id: productId });
 
-    console.log('Request URL:', response.request.url);
-    console.log('Request Params:', response.request.params);
-    console.log('Response Status:', response.status);
-    console.log('Response Body:', response.body);
+    // console.log('Request URL:', response.request.url);
+    // console.log('Request Params:', response.request.params);
+    // console.log('Response Status:', response.status);
+    // console.log('Response Body:', response.body);
     expect(response.status).toBe(200);
     expect(response.body).toEqual(mockResponseData.results);
   });
