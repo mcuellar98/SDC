@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">63.63% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>7/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>4/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>2/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">63.63% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>7/11</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -119,27 +119,27 @@
 <a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -172,10 +172,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, {useState, useEffect} from 'react';
 import {FaStar} from 'react-icons/fa';
 &nbsp;
-const StarRating = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span>rating, setRating}) =&gt; {</span>
+const StarRating = ({rating, setRating}) =&gt; {
 &nbsp;
-  const [hover, setHover] = <span class="cstat-no" title="statement not covered" >useState(null);</span>
-  const ratingText = <span class="cstat-no" title="statement not covered" >{</span>
+  const [hover, setHover] = useState(null);
+  const ratingText = {
     1: 'Poor',
     2: 'Fair',
     3: 'Average',
@@ -183,16 +183,16 @@ const StarRating = <span class="cstat-no" title="statement not covered" ><span c
     5: 'Great',
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >    console.log(rating);</span>
   }, [rating]);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;div className="flex"&gt;
-      {[...Array(5)].map(<span class="fstat-no" title="function not covered" >(s</span>tar, i) =&gt; {
-        const ratingValue = <span class="cstat-no" title="statement not covered" >i + 1;</span>
+      {[...Array(5)].map((star, i) =&gt; {
+        const ratingValue = i + 1;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        return (</span>
+        return (
           &lt;label className="mr-2"&gt;
             &lt;input
               type="radio"
@@ -206,7 +206,7 @@ const StarRating = <span class="cstat-no" title="statement not covered" ><span c
 &nbsp;
             &lt;FaStar
               className="star"
-              color={ratingValue &lt;= (hover || rating) ? "#ffc107" : "#e4e5e9"}
+              color={ratingValue &lt;= (hover || rating) ? <span class="branch-0 cbranch-no" title="branch not covered" >"#27272A" </span>: "#e4e5e9"}
               onMouseEnter={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setHover(ratingValue)}</span>
               onMouseLeave={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setHover(null)}</span>
             /&gt;
@@ -215,7 +215,7 @@ const StarRating = <span class="cstat-no" title="statement not covered" ><span c
       })}
 &nbsp;
       &lt;div className="ml-4"&gt;
-        {rating &amp;&amp; &lt;p&gt;{ratingText[rating]}&lt;/p&gt;}
+        {rating &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;p className="text-sm"&gt;{ratingText[rating]}&lt;/p&gt;}</span>
       &lt;/div&gt;
 &nbsp;
     &lt;/div&gt;
@@ -229,7 +229,7 @@ export default StarRating;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-08-23T02:49:44.612Z
+                at 2023-08-23T20:58:17.674Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>
