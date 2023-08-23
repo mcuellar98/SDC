@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AnswerItem from "./answerList.jsx"
 import Report from "./report.jsx"
-import Helpful from "./Helpful.jsx"
+import Helpful from "./helpful.jsx"
 import AnswerModal from "./modal/answermodal.jsx"
 
 const IdividualAnswer = (props) => {
