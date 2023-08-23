@@ -71,6 +71,7 @@ const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
       transformedCharacteristics[charId] = characteristicsRatings[index];
     })
 
+    const currentDate = new Date().toISOString();
     const newReview = {
       product_id: 37311,
       rating: rating,
@@ -80,7 +81,9 @@ const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
       name: nickname,
       email: email,
       characteristics: transformedCharacteristics,
-      photos: photos
+      photos: photos,
+      helpfulness: 0,
+      date: currentDate
     };
 
     axios.post('/reviews/reviews', newReview)
@@ -190,6 +193,7 @@ const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
                     const uploadedFiles = Array.from(e.target.files);
                     const photosURLs = uploadedFiles.map((file) => URL.createObjectURL(file));
                     setPhotos(photosURLs);
+                    console.log(photos);
                   }}
                 />
           </div>

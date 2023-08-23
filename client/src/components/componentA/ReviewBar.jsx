@@ -5,8 +5,8 @@ const ReviewBar = ({bgcolor,progress,height}) => {
     const Parentdiv = {
       height: height,
       width: '50%',
-      backgroundColor: '#efecec',
-      // borderRadius: 40,
+      backgroundColor: '#f0ece2',
+      // borderRadius: 10,
       margin: 10
     }
 
@@ -14,7 +14,7 @@ const ReviewBar = ({bgcolor,progress,height}) => {
       height: '100%',
       width: `${progress}%`,
       backgroundColor: bgcolor,
-      // borderRadius:40,
+      // borderRadius:20,
       textAlign: 'right'
     }
 

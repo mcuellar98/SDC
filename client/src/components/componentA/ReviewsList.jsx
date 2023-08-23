@@ -88,13 +88,15 @@ const ReviewsList = () => {
         ))}
       </div>
 
-      {showLoadMoreButton && (
-        <button className="load-more-button px-8 my-10 rounded bg-neutral-800 p-3 text-white" onClick={showMoreReviews}>
-          More Reviews
-        </button>
-      )}
+      <div className="flex justify-between items-center my-4">
+    {showLoadMoreButton && (
+      <button className="load-more-button px-8 rounded bg-neutral-800 p-3 text-white pr-6  hover:text-[#78716C]" onClick={showMoreReviews}>
+        More Reviews
+      </button>
+    )}
 
-      <button className="add-review-button px-8 my-10 rounded bg-neutral-800 p-3 text-white" onClick={() => {setOpenModal(true);}}>Add a Review</button>
+    <button className="add-review-button px-8 rounded bg-neutral-800 p-3 text-white pl-6  hover:text-[#78716C]" onClick={() => setOpenModal(true)}>Add a Review</button>
+  </div>
 
       {openModal && <Modal openModal={openModal} setOpenModal={setOpenModal} reviews={reviews} setReviews={setReviews}/>}
 
