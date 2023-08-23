@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import SearchBar from "./QnAcomponents/Searchbar.jsx";
+import SearchBar from "./QnAcomponents/searchbar.jsx";
 import IdividualAnswer from "./QnAcomponents/indvAnswer.jsx";
 import AddQuestions from "./QnAcomponents/addQuestion.jsx";
 const QuestionsAndAnswers = () => {
