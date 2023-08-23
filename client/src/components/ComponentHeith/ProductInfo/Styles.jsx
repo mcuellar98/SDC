@@ -27,7 +27,7 @@ const Styles = ({ styles, setImages, SetThumbnail, setSelectedStyle, setCheckout
 
   return (
     <div>
-      <div className='text-white font-semibold mb-4 px-2'>Style: {selectedColor}</div>
+      <div className='text-white text-lg font-medium mb-4 px-2'>Style: {selectedColor}</div>
       <div>
         {styles.map((style) => (
           <img
