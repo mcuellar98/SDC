@@ -1,6 +1,6 @@
 import React from 'react';
 import { AiFillFacebook, AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai';
-import { BsPinterest } from 'react-icons/Bs';
+import { BsPinterest } from 'react-icons/bs';
 
 const Share = ({closeShare}) => {
 
