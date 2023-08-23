@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AnswerItem from "./answerList.jsx"
+import Report from "./report.jsx"
 import Helpful from "./Helpful.jsx"
 import AnswerModal from "./modal/answermodal.jsx"
 
@@ -37,10 +38,10 @@ const handleLoad = () => {
       <div className="flex w-full justify-between ">
         <div className="text-xl">
           Q: {props.questions.question_body}
-          {showModal && <AnswerModal updateShow={updateShow} questionID={props.questions.question}/>}
+          {showModal && <AnswerModal updateShow={updateShow} questionID={props.questions.question_id}/>}
         </div> <span className="flex text-xs text-stone-400 pr-2.5" ><Helpful id={props.questions.question_id} helpfulness={props.questions.question_helpfulness} type="questions"/>&nbsp;| &nbsp;<p className="hover:text-stone-50" onClick={(e) => {
           updateShow(!showModal)
-        }}> {showModal && 'Cancel'} {!showModal && 'Add Answer'}</p></span>
+        }}> {showModal && 'Cancel'} {!showModal && 'Add Answer'}</p> &nbsp; | &nbsp; <Report id={props.questions.question_id} helpfulness={props.questions.question_helpfulness} type="questions"/> </span>
       </div>
       <div className="indAnswer">
         <div className="outer" >

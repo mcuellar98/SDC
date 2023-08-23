@@ -1,6 +1,6 @@
 const express = require('express');
 require('dotenv').config()
-const {questionRouter, postQuestionsRoute, updateHelpful, updateAnswer, addQuestion} = require('./questionRoutes.js')
+const {questionRouter, postQuestionsRoute, updateHelpful, updateAnswer, addQuestion , reportAnswer, reportQuestion} = require('./questionRoutes.js')
 const bodyParser = require('body-parser');
 const path = require('path');
 const axios = require('axios');
@@ -32,14 +32,12 @@ app.use('/reviews', reviewsRouter);
 
 // here is the api link if we need it
 
-
 // this is Victors section\
 app.put("/helpful/:question_id", (req,res) => {
   updateHelpful(req)
 })
 
 app.put("/helpful/:answer_id/answer", (req,res) => {
-  console.log('here')
   updateAnswer(req)
 })
 
@@ -59,6 +57,14 @@ app.post("/addQuestion/:product_id", (req,res) => {
   addQuestion(req)
 })
 
+app.put("/reportQuestion/:question_id", (req,res) => {
+  reportQuestion(req)
+})
+
+app.put("/reportAnswer/:answer_id", (req,res) => {
+  reportAnswer(req)
+})
+
 // this is Ratings & Reviews section
 app.use('/reviews', reviewsRouter);
 
@@ -72,7 +78,7 @@ app.get('/api/images', (req, res) => {
     }
   };
 
-  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/37314/styles', requestOptions)
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/37315/styles', requestOptions)
     .then(response => {
       res.json(response.data);
     })
@@ -89,7 +95,7 @@ app.get('/api/product', (req, res) => {
     }
   };
 
-  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/37314', requestOptions)
+  axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/37315', requestOptions)
   .then(response => {
     res.json(response.data);
   })

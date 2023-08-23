@@ -7,7 +7,7 @@ const ImageGallery = ({images, thumbnail}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center px-6">
       <section className="w-full mb-4 px-20">
         <ImageViewer  currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} images={images}/>
       </section>

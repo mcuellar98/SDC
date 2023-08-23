@@ -21,8 +21,8 @@ const App = () => {
         <OverviewModule />
       </div>
 
-      <div >
-        <ReviewsList className="h-[50vh]"/>
+      <div id="reviews">
+        <ReviewsList/>
       </div>
       <div >
       <QuestionsAndAnswers />

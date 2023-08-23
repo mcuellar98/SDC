@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import axios from "axios";
 
 const AnswerModal = (props) => {
-
+  console.log(props.questionID)
 return (
     <div className="absolute right-0">
       <form className="grid grid-col-2 gap-2 mr-4 bg-neutral-200 p-2" onSubmit={(e) => {
@@ -13,7 +13,7 @@ return (
         "email": e.target[2].value,
         "photo": "[]"
       }
-        axios.post("/questions/300476", options).then((result) => {
+        axios.post("/questions/" + props.questionID, options).then((result) => {
           return
         })
         props.updateShow(false);

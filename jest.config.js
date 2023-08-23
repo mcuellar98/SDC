@@ -1,6 +1,7 @@
-module.exports = {
+/** @type {import('jest').Config} */
+const config = {
   collectCoverage: true,
-  collectCoverageFrom: ["client/src/components/componentA/**/*.{js,jsx,ts,tsx}","!<rootDir>/node_modules/", "server/reviewsRoutes.js"],
+  collectCoverageFrom: ["client/src/components/componentV/**/*.{js,jsx,ts,tsx}","!<rootDir>/node_modules/"],
   coverageThreshold: {
     "global": {
       "lines": 90,
@@ -13,3 +14,6 @@ module.exports = {
     '\\.svg$': 'identity-obj-proxy',
   },
 };
+
+module.exports = config;
+

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { AiFillFacebook, AiOutlineInstagram, AiFillYoutube, AiOutlineTwitter } from 'react-icons/ai';
+import { BsPinterest } from 'react-icons/Bs';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
