@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1692756868631" clover="3.2.0">
-  <project timestamp="1692756868631" name="All files">
-    <metrics statements="262" coveredstatements="53" conditionals="62" coveredconditionals="16" methods="95" coveredmethods="12" elements="419" coveredelements="81" complexity="0" loc="262" ncloc="262" packages="2" files="12" classes="12"/>
+<coverage generated="1692758984657" clover="3.2.0">
+  <project timestamp="1692758984657" name="All files">
+    <metrics statements="262" coveredstatements="62" conditionals="62" coveredconditionals="17" methods="95" coveredmethods="15" elements="419" coveredelements="94" complexity="0" loc="262" ncloc="262" packages="2" files="12" classes="12"/>
     <package name="client.src.components.componentA">
-      <metrics statements="228" coveredstatements="25" conditionals="62" coveredconditionals="16" methods="83" coveredmethods="3"/>
+      <metrics statements="228" coveredstatements="34" conditionals="62" coveredconditionals="17" methods="83" coveredmethods="6"/>
       <file name="CharacterBar.jsx" path="/Users/jia/Desktop/HackReactor/fecproject/atelier_fecproject/client/src/components/componentA/CharacterBar.jsx">
         <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="3" count="0" type="stmt"/>
@@ -31,19 +31,19 @@
         <line num="106" count="0" type="stmt"/>
       </file>
       <file name="Helpful.jsx" path="/Users/jia/Desktop/HackReactor/fecproject/atelier_fecproject/client/src/components/componentA/Helpful.jsx">
-        <metrics statements="12" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="17" count="0" type="stmt"/>
+        <metrics statements="12" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="3"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="17" count="1" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
         <line num="24" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
       </file>
       <file name="ImageModal.jsx" path="/Users/jia/Desktop/HackReactor/fecproject/atelier_fecproject/client/src/components/componentA/ImageModal.jsx">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
