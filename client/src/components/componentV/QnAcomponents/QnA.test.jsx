@@ -24,7 +24,7 @@ describe(Report, () => {
 
 describe(Helpful, () => {
   it("should increment helpfulness only once", () => {
-    const {getByTestId} = render(<Helpful helpfulness={25} type="questions"/>);
+    const {getByAltText} = render(<Helpful helpfulness={25} type="questions"/>);
     const pValue = getByTestId("test-span")
     expect(pValue).toHaveTextContent("Helpful? Yes (25)")
     fireEvent.click(getByTestId("test-span"));

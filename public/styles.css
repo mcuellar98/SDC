@@ -25,3 +25,8 @@ height: 20%;
   max-height: 100vh;
   overflow-y: auto;
 }
+
+/* .imgRow {
+  display: flex;
+  justify-content: center;
+} */

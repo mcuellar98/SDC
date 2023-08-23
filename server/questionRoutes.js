@@ -20,13 +20,13 @@ questionRouter = (req, res) => {
 
 postQuestionsRoute = (req, res) => {
 const posturl = postPath + req.params.question_id + "/answers"
-
+console.log(req.body)
   axios.post(posturl, req.body, {
     headers: {
       'authorization': req.headers.authorization
     }
   }).then((result) => {
-    console.log(result)
+    // console.log(result)
   }).catch((err) => {
     console.error(err)
   })
@@ -45,13 +45,12 @@ updateAnswer = (req , res) => {
 
 updateHelpful = (req,res) => {
   const helpPath = postPath + req.params.question_id + "/helpful"
-  // console.log(helpPath)
   axios.put(helpPath, "test", {
     headers: {
       'authorization': req.headers.authorization
     }
   }).then((result) => {
-    // console.log("result",result);
+    console.log("result",result);
   }).catch((err) => console.error(err))
 }
 
