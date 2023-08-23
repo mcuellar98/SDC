@@ -79,12 +79,12 @@ const ProductInfo = ({ productData, styles, setImages, SetThumbnail, availableSi
               <BsFillSuitHeartFill size={25} color={isFavorite ? '#78716C' : ''}  />
             </div>
           </section>
-          <section className='text-white mb-2 text-lg font-sans px-2'>{productData.category}</section>
-          <section className='text-white mb-2 text-lg font-sans px-2'>{productData.slogan}</section>
+          <section className='text-white mb-2 text-lg font-sans px-2 font-medium'>{productData.category}</section>
+          <section className='text-white mb-2 text-lg font-sans px-2 font-medium'>{productData.slogan}</section>
 
 
           <section
-            className='text-white mb-2 text-lg font-sans px-2 flex justify-between items-center cursor-pointer'
+            className='text-white mb-2 text-lg font-sans font-medium px-2 flex justify-between items-center cursor-pointer'
             onClick={handleDescriptionClick}
           >
             Description & fit
@@ -99,7 +99,7 @@ const ProductInfo = ({ productData, styles, setImages, SetThumbnail, availableSi
           )}
 
           <section
-            className='text-white mb-2 text-lg font-sans px-2 flex justify-between items-center cursor-pointer'
+            className='text-white mb-2 text-lg font-medium font-sans px-2 flex justify-between items-center cursor-pointer'
             onClick={handleMaterialClick}
           >
             Materials & features
@@ -116,7 +116,7 @@ const ProductInfo = ({ productData, styles, setImages, SetThumbnail, availableSi
             </div>
           )}
 
-          <section className='text-white mb-4 text-lg font-sans px-2'>${productData.default_price}</section>
+          <section className='text-white mb-4 text-lg font-medium font-sans px-2'>${productData.default_price}</section>
         </section>
 
           <Styles styles={styles}

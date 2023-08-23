@@ -5,6 +5,15 @@ import axios from 'axios';
 const Reviews = () => {
   const [ratingsData, setRatingsData] = useState({});
 
+const handleReviewsClick = () => {
+    const reviewElement = document.getElementById('reviews');
+    if (reviewElement) {
+      reviewElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+
+
   useEffect(() => {
     axios.get('/reviews/getRatings')
       .then(response => {
@@ -38,7 +47,8 @@ const Reviews = () => {
   const totalReviews = numberOfReviews(ratingsData);
 
   return (
-    <div className='flex items-center text-white pt-4 cursor-pointer hover:text-[#b7b4b1] px-2'>
+    <div className='flex items-center text-white pt-4 cursor-pointer hover:text-[#b7b4b1] px-2'
+    onClick={handleReviewsClick}>
       <section className='mr-2'>REVIEWS ({totalReviews})</section>
       <Star rating={averageRating} />
     </div>
