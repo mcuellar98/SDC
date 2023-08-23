@@ -93,7 +93,7 @@ return (
                     key={rating}
                     className={`flex items-center cursor-pointer mr-4 ${
                       characteristicsRatings[index] === rating
-                        ? 'text-purple-600'
+                        ? 'text-black font-semibold'
                         : 'text-gray-600'
                     }`}
                   >
@@ -105,7 +105,7 @@ return (
                   onChange={() =>
                     handleCharacteristicRatingChange(index, rating)
                   }
-                  className="mr-1"
+                  className="mr-1 radio-input text-black cursor-pointer transition-colors duration-300 ease-in-out focus:ring-2 focus:ring-black focus:ring-opacity-50"
                 />
                 {characteristic.meanings[rating - 1]}
               </label>
