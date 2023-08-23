@@ -1,5 +1,6 @@
 import React from 'react';
 import { AiFillShopping } from 'react-icons/ai';
+import hero from '../../img/model.jpg'
 
 const HeroSection = () => {
 
@@ -13,7 +14,7 @@ const HeroSection = () => {
   return (
     <section className="h-[87vh] bg-gray-100 relative">
       <img
-        src="/assets/img/model.jpg"
+        src={hero}
         alt="hero Section"
         className="object-cover w-full h-full"
       />

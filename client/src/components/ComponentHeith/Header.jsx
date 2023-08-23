@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu, AiFillShopping } from 'react-icons/ai';
 import HeroSection from './HeroSection.jsx';
+import logo from '../../img/logo.png'
 
 //color theme:  bg-[#27272A]
 
@@ -31,7 +32,7 @@ const Header = () => {
     <div>
       <header className='flex justify-between items-center h-[13vh]  text-white bg-[#222222] px-8'>
         <div className="flex items-center">
-          <img src='/assets/img/logo.png' alt="Company Logo" className="w-60 h-[14vh] ml-4" />
+          <img src={logo} alt="Company Logo" className="w-60 h-[14vh] ml-4" />
         </div>
 
         <nav>
