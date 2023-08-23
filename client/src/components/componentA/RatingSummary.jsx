@@ -133,6 +133,7 @@ const RatingSummary = ({reviews, unfilteredReviews, setReviews}) => {
   const recommendPercentage = calculateRecommendPercentage(ratingsData.recommended).toFixed(1);
   // ratingsData.ratings = {1: '92', 2: '60', 3: '184', 4: '168', 5: '423'}
   const averageRating = calculateAverageRating(ratingsData.ratings).toFixed(1);
+  // console.log(averageRating);
   //ratingsData.recommended = {false: '209', true: '718'}
   const ratingDistribute = calculateProgress(ratingsData.ratings);
   // console.log(ratingDistribute);

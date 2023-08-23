@@ -106,7 +106,7 @@ const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
   return (
     <div className={`fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-75 ${openModal ? 'visible' : 'hidden'}`}>
       <div className="flex items-center justify-center min-h-screen">
-        <div className="modal-container overflow-y-auto bg-white p-4 rounded shadow-md max-w-3xl w-1/3 mx-4 max-h-[80vh] min-h-[80vh]">
+        <div className="modal-container overflow-y-auto bg-white p-4 rounded-lg shadow-md max-w-3xl w-1/3 mx-4 max-h-[80vh] min-h-[80vh]" style={{ overflowX: 'hidden' }}>
           {!reviewSend ? (
             <>
               <div className="model-image mb-4">
