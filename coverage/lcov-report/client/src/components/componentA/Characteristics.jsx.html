@@ -185,7 +185,13 @@
 <a name='L120'></a><a href='#L120'>120</a>
 <a name='L121'></a><a href='#L121'>121</a>
 <a name='L122'></a><a href='#L122'>122</a>
-<a name='L123'></a><a href='#L123'>123</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -265,6 +271,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -274,23 +281,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -387,44 +399,50 @@ useEffect(<span class="fstat-no" title="function not covered" >()</span>=&gt; {
 <span class="cstat-no" title="statement not covered" >  console.log(characteristicsRatings);</span>
 }, [characteristicsRatings])
 &nbsp;
-return (
-  &lt;div className="characteristics"&gt;
-    &lt;h2 className="font-bold text-sm mb-2"&gt;Characteristics&lt;/h2&gt;
-    &lt;div className="flex flex-col space-y-4"&gt;
-      {characteristicsData
+&nbsp;
+  return (
+    &lt;div className="characteristics"&gt;
+      &lt;h2 className="font-bold text-sm mb-2"&gt;Characteristics&lt;/h2&gt;
+      &lt;div className="flex flex-col space-y-4"&gt;
+        {characteristicsData
           .filter(characteristic =&gt; characteristicsKeys.includes(characteristic.title))
           .map(<span class="fstat-no" title="function not covered" >(c</span>haracteristic, index) =&gt; (
-<span class="cstat-no" title="statement not covered" >            &lt;div key={index} className="flex items-center text-xs"&gt;</span>
-              &lt;label className="font-normal text-xs mr-2"&gt;{characteristic.title}&lt;/label&gt;
-              {Array.from({ length: 5 }, <span class="fstat-no" title="function not covered" >(_</span>, rating) =&gt; <span class="cstat-no" title="statement not covered" >rating + 1)</span>.map(
-<span class="fstat-no" title="function not covered" >                (r</span>ating) =&gt; (
-<span class="cstat-no" title="statement not covered" >                  &lt;label</span>
-                    key={rating}
-                    className={`flex items-center cursor-pointer mr-4 ${
-                      characteristicsRatings[index] === rating
-                        ? 'text-black font-semibold'
-                        : 'text-gray-600'
-                    }`}
-                  &gt;
-&nbsp;
-                &lt;input
-                  type="radio"
-                  name={`characteristic_${index}`}
-                  value={rating}
-                  onChange={<span class="fstat-no" title="function not covered" >()</span> =&gt;
-<span class="cstat-no" title="statement not covered" >                    handleCharacteristicRatingChange(index, rating)</span>
-                  }
-                  className="mr-1 radio-input text-black cursor-pointer transition-colors duration-300 ease-in-out focus:ring-2 focus:ring-black focus:ring-opacity-50"
-                /&gt;
-                {characteristic.meanings[rating - 1]}
-              &lt;/label&gt;
-            )
-          )}
-        &lt;/div&gt;
-      ))}
+<span class="cstat-no" title="statement not covered" >            &lt;div key={index} className="flex flex-col items-start text-xs"&gt;</span>
+              &lt;div className="flex items-center"&gt;
+                &lt;label className="font-semibold text-xs mr-2"&gt;
+                  {characteristic.title}
+                &lt;/label&gt;
+              &lt;/div&gt;
+              &lt;div className="flex items-center space-x-4"&gt;
+                {Array.from({ length: 5 }, <span class="fstat-no" title="function not covered" >(_</span>, rating) =&gt; <span class="cstat-no" title="statement not covered" >rating + 1)</span>.map(
+<span class="fstat-no" title="function not covered" >                  (r</span>ating) =&gt; (
+<span class="cstat-no" title="statement not covered" >                    &lt;label</span>
+                      key={rating}
+                      className={`flex items-center cursor-pointer ${
+                        characteristicsRatings[index] === rating
+                          ? 'text-black font-semibold'
+                          : 'text-gray-600'
+                      }`}
+                    &gt;
+                      &lt;input
+                        type="radio"
+                        name={`characteristic_${index}`}
+                        value={rating}
+                        onChange={<span class="fstat-no" title="function not covered" >()</span> =&gt;
+<span class="cstat-no" title="statement not covered" >                          handleCharacteristicRatingChange(index, rating)</span>
+                        }
+                        className="mr-1 radio-input text-black cursor-pointer transition-colors duration-300 ease-in-out focus:ring-2 focus:ring-black focus:ring-opacity-50"
+                      /&gt;
+                      {characteristic.meanings[rating - 1]}
+                    &lt;/label&gt;
+                  )
+                )}
+              &lt;/div&gt;
+            &lt;/div&gt;
+          ))}
+      &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-);
+  );
 };
 &nbsp;
 &nbsp;
@@ -436,7 +454,7 @@ export default Characteristics;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-08-23T15:26:10.443Z
+                at 2023-08-23T20:58:17.674Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>
