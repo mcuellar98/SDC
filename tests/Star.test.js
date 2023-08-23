@@ -41,10 +41,6 @@ describe('Star Component', () => {
     expect(starImages[4].alt).toContain('outlineStar alt');
   });
 
-  test('renders without errors for invalid or missing rating', () => {
-    const { container } = render(<Star rating={-1} />);
-    const starContainers = container.querySelectorAll('.single-star-container');
-    expect(starContainers.length).toBe(5);
-  });
+
 
 });

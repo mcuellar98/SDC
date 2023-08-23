@@ -34,7 +34,7 @@ const ReviewEntry = ({ review }) => {
       <div className={`reviewBody font-normal ${showFullReview ? 'expanded' : ''}`}>
         {showFullReview ? review.body : review.body.substring(0, 250)}
         {!showFullReview && review.body.length > 250 && (
-          <span className="showMore" onClick={handleShowMore}>Show more</span>
+          <span className="showMore  hover:text-stone-50 text-xs text-stone-300" onClick={handleShowMore}>Show more</span>
         )}
       </div>
 
@@ -42,7 +42,7 @@ const ReviewEntry = ({ review }) => {
         <div className="imageThumbnail w-1/5 flex">
           {review.photos.map((image, index) => (
             <img
-            key ={index}
+            key ={image.id}
             src={image.url}
             onClick={() => handleImageClick(image)}
             />
@@ -57,7 +57,7 @@ const ReviewEntry = ({ review }) => {
         />
       )}
 
-      {review.recommend && <div className="recommendation flex"> <AiOutlineCheck className="mr-2"/>I recommend this product</div>}
+      {review.recommend && <div className="recommendation flex text-sm font-semibold mt-2"> <AiOutlineCheck className="mr-2"/>I recommend this product</div>}
 
       {/* Feedback Section */}
 

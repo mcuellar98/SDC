@@ -1,10 +1,11 @@
 import React from 'react';
+import aboutImg from '../../img/aboutImg.jpg'
 
 const AboutSection = () => {
   return (
     <section className="relative bg-[#27272A] text-white">
       <img
-        src="/assets/img/aboutImg.jpg"
+        src={aboutImg}
         alt="About Section"
         className="object-cover object-center w-full h-full absolute inset-0"
       />

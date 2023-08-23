@@ -9,7 +9,7 @@ const CharacterBar = ({ progress, height }) => {
     position: 'relative', // Make the parent div position relative
     height: height,
     width: '60%',
-    backgroundColor: '#efecec',
+    backgroundColor: '#f0ece2',
     // borderRadius: 40,
     margin: 15
   };
