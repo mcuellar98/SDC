@@ -7,18 +7,7 @@ import starThreeQuarter from '../resources/star-three-quarter.svg';
 import fullStar from '../resources/fullStar.svg';
 
 
-const Star = ({rating, className}) => {
-
-  // for example: rating = 3.75, fullStars = 3, decimalPart = 0.75, outlinedStars = 5 - 3 - 1 = 1
-  // const totalStars = 5;
-  // const fullStars = Math.floor(rating);
-  // const decimalPart = rating - fullStars;
-  // const outlinedStars = totalStars - fullStars - (decimalPart > 0 ? 1 : 0);
-
-  // const fractionalStarWidth = decimalPart * 100;
-
-
-  const QuarterStars = (rating) => {
+export const QuarterStars = (rating) => {
     rating = rating || 0;
     let stars = [];
     while (stars.length < 5) {
@@ -60,19 +49,31 @@ const Star = ({rating, className}) => {
     return stars;
   };
 
+const Star = ({rating}) => {
+
+  // for example: rating = 3.75, fullStars = 3, decimalPart = 0.75, outlinedStars = 5 - 3 - 1 = 1
+  // const totalStars = 5;
+  // const fullStars = Math.floor(rating);
+  // const decimalPart = rating - fullStars;
+  // const outlinedStars = totalStars - fullStars - (decimalPart > 0 ? 1 : 0);
+
+  // const fractionalStarWidth = decimalPart * 100;
+
+
+
   const stars = QuarterStars(rating);
 
   return (
-    <div className={`star-rating inline-flex ${className}`}>
+    <div className="star-rating inline-flex">
       {stars.map((item, i) => {
                 return (
                     <div className="single-star-container" key={i}>
 
-                        {item === 0 && <img className="single-star-outline h-6 w-6" src={outlineStar} alt="stars alt" />}
-                        {item === 0.25 && <img className="single-star-outline h-6 w-6" src={starOneQuarter} alt="stars alt" />}
-                        {item === 0.5 && <img className="single-star-outline h-6 w-6" src={starHalf} alt="stars alt" />}
-                        {item === 0.75 && <img className="single-star-outline h-6 w-6" src={starThreeQuarter} alt="stars alt" />}
-                        {item === 1 && <img className="single-star-outline h-6 w-6" src={fullStar} alt="stars alt" />}
+                        {item === 0 && <img className="single-star-outline h-6 w-6" src={outlineStar} alt="outlineStar alt" />}
+                        {item === 0.25 && <img className="single-star-outline h-6 w-6" src={starOneQuarter} alt="starOneQuarter alt" />}
+                        {item === 0.5 && <img className="single-star-outline h-6 w-6" src={starHalf} alt="starHalf alt" />}
+                        {item === 0.75 && <img className="single-star-outline h-6 w-6" src={starThreeQuarter} alt="starThreeQuarter alt" />}
+                        {item === 1 && <img className="single-star-outline h-6 w-6" src={fullStar} alt="fullStar alt" />}
 
                     </div>
                 );

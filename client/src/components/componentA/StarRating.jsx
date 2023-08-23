@@ -35,7 +35,7 @@ const StarRating = ({rating, setRating}) => {
 
             <FaStar
               className="star"
-              color={ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
+              color={ratingValue <= (hover || rating) ? "#27272A" : "#e4e5e9"}
               onMouseEnter={() => setHover(ratingValue)}
               onMouseLeave={() => setHover(null)}
             />
@@ -44,7 +44,7 @@ const StarRating = ({rating, setRating}) => {
       })}
 
       <div className="ml-4">
-        {rating && <p>{ratingText[rating]}</p>}
+        {rating && <p className="text-sm">{ratingText[rating]}</p>}
       </div>
 
     </div>
