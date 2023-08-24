@@ -1,80 +1,54 @@
-# Atelier
-Amelia - Victor - Heith
 
-Begin
------------------------------------
-1. clone your project(repo) as usual
-```
-git clone [url]
-```
+# ÉLIER
 
-Create Branch
------------------------------------
-2. Update the master, staging and/or feature branches to latest version(s)
-```
-git pull
-```
-to keep the fork synchronized with the repo
+A modernized e-commerce site built for an optimal user browsing experience.
 
-3. Create branch
-```
-git checkout -b [name of branch]
-```
-to create a "feature" brance to keep it away from the
-main branch, which keeps the work isolated and organized.
-short descriptive name
-prefixed with initials (eg. tjk_branch_name)
+## Authors
 
-Make Changes
-------------------------------------
-4. Make change
-```
-git add .
-git commit -m "insert your DESCRIPTIVE comment here"
-```
-
-5. Test
-Run full test suite locally
-6. Commit with descriptive name
+[Heith Mahfoudhi](https://github.com/Heithh)\
+[Amelia LI](https://github.com/amelia8872)\
+[Victor Acosta](https://github.com/Tonegawa941)
 
 
-Push changes
-------------------------------------
-7. Pull master for any changes
-```
-git pull
-```
-(if there is a conflict see section on merge conflict)
+## Built With
 
-8. push to remote branch
-!!! NEVER PUSH TO MAIN, only push to your branch !!!
-```
-git push -u origin [name of branch]
-```
-
-Pull Request
-------------------------------------
-
-9. !!!   make sure the master branch is not set to hack reactor   !!!
-
-FROM San-Pallegrino-Trio-Stars/atelier_project TO San-Pallegrino-Trio-Stars/atelier_project + branch name
-
-10. Open pull request into a staging or feature branch
-Longer descriptive title of taskBef
-Bullet points with descriptions of changes (changelog)
+* ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+* ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+* ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+* ![Tailwind](https://img.shields.io/badge/Tailwind%20CSS-06B6D4.svg?style=for-the-badge&logo=Tailwind-CSS&logoColor=white)
+* ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+* ![NodeJS](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+* ![ExpressJS](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
+* ![AWS](https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
+* ![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
+* ![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
+* ![ESLINT](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
 
 
-Merge Conflict
-------------------------------------
-11. Before every merge, at least one group member other than the one who made the pull request should review the pull request. Once approved, the changes can be merged into the main branch of the organization repository.
+## Key Features
 
+## Overview
+#### Features
 
+## Ratings & Reviews
+#### Features
 
+## Questions & Answers
+#### Features
 
-From within the root directory:
+## Getting Started
 
-```sh
-npm install -g webpack
-npm install
-```
-
+Installation
+- Clone the repository
+    ```
+        git clone https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject.git
+    ```
+- Install the dependencies
+    ```
+        npm install
+    ```
+- Run the following script
+    ```
+        npm run build
+        npm start
+    ```
