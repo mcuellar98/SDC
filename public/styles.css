@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 .test {
-height: 20%;
+height: 1%;
 }
 
 .outer{
@@ -14,7 +14,7 @@ height: 20%;
 }
 .indAnswer {
   overflow-y: auto;
-  max-height: 35vh;
+  max-height: 40vh;
 }
 .testers {
   display: flex;

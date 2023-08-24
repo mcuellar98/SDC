@@ -11,7 +11,7 @@ const AnswerItem = (props) => {
     <div className="flex py-4">
     {props.answer.photos.length > 0 &&
       props.answer.photos.map((photo) => {
-        return <img src={photo} className="max-h-36 px-2"/>
+        return <img src={photo} className="max-h-36 px-2" loading="lazy"/>
       })
     }
     </div>
