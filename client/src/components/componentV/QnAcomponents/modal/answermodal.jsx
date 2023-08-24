@@ -15,7 +15,7 @@ const AnswerModal = (props) => {
     setSelectedFile([...e.target.files])
 }
 return (
-    <div className="absolute right-0">
+    <div className="absolute right-10">
       <form className="grid grid-col-2 gap-2 mr-4 bg-neutral-200 p-2" onSubmit={(e) => {
         e.preventDefault()
       var options = {

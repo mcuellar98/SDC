@@ -15,7 +15,7 @@ const AnswerItem = (props) => {
       })
     }
     </div>
-    <p className="flex text-xs text-stone-400"> <UserInfo  userInfo={props}/> &nbsp;| &nbsp;<Helpful id={props.answer.id} helpfulness={props.answer.helpfulness} type="answer"/> &nbsp;| &nbsp;<Report id={props.answer.id} helpfulness={props.answer.helpfulness} type="answer"/> &nbsp;</p>
+    <p className="flex text-xs text-zinc-900"> <UserInfo  userInfo={props}/> &nbsp;| &nbsp;<Helpful id={props.answer.id} helpfulness={props.answer.helpfulness} type="answer"/> &nbsp;| &nbsp;<Report id={props.answer.id} helpfulness={props.answer.helpfulness} type="answer"/> &nbsp;</p>
     </div>
   )
 

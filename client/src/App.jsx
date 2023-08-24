@@ -24,7 +24,7 @@ const App = () => {
       <div id="reviews">
         <ReviewsList/>
       </div>
-      <div >
+      <div id="Questions" className="bg-[#27272A]">
       <QuestionsAndAnswers />
     </div>
 
