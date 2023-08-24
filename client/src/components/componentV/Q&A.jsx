@@ -41,8 +41,8 @@ useEffect(() => {
 },[updated, sliceNum, staticInfo])
 
 return (
-<div className="bg-[#27272A]">
-  <div className="p-20 bg-[#27272A] text-white relative fullPageDiv">
+<div className="bg-[#27272A] p-10">
+  <div className="p-10 bg-stone-500 text-black relative rounded-xl fullPageDiv">
     <h2 className="text-lg">Questions & Answers</h2>
     <SearchBar static={staticInfo} updateStatic={updateStatic} questions={questions} updateQuestions={updateQuestions} perma={permaInfo}/>
     <div className="flex flex-col space-y-32 mt-3.5 pt-6 testers">
@@ -55,7 +55,7 @@ return (
       })}
     </div>
     <div className="my-1.5 flex">
-      {staticInfo.length < 2 || questions.length === staticInfo.length ? "" : <button className="rounded bg-neutral-400 p-3" onClick={(e) => {
+      {staticInfo.length < 2 || questions.length === staticInfo.length ? "" : <button className="rounded bg-[#27272A] p-3 text-white hover:bg-zinc-900" onClick={(e) => {
         updateSlice((prevVal) => {
           updateQuestions(staticInfo.slice(0, prevVal + 2))
           return prevVal + 2

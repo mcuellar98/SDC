@@ -6,10 +6,10 @@ const AddQuestions = (props) => {
 
   return (
     <div>
-    {questionModal && <QuestionModal updateQModal={updateQModal}/>}
-  <button className="rounded bg-neutral-400	 p-3" onClick={(e) => {
+    {questionModal && <QuestionModal updateQModal={updateQModal} questionModal={questionModal}/>}
+    {!questionModal && <button className="rounded bg-[#27272A] p-3 text-white hover:bg-zinc-900" onClick={(e) => {
     updateQModal(!questionModal)
-  }}>{questionModal && 'Cancel'} {!questionModal && 'Add A Question'}</button>
+  }}>Add A Question</button>}
   </div>
 )
 }

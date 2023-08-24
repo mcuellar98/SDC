@@ -20,9 +20,8 @@ height: 20%;
   display: flex;
 }
 
-
 .fullPageDiv {
-  max-height: 100vh;
+  max-height: 96vh;
   overflow-y: auto;
 }
 
