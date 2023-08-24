@@ -26,13 +26,13 @@ A modernized e-commerce site built for an optimal user browsing experience.
 
 ## Key Features
 
-## Overview
+## Overview (Heith)
 #### Features
 
-## Ratings & Reviews
+## Ratings & Reviews (Amelia)
 #### Features
 
-## Questions & Answers
+## Questions & Answers (Victor)
 #### Features
 
 ## Getting Started
