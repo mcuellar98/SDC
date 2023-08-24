@@ -51,7 +51,7 @@ Installation
         npm run build
         npm start
     ```
-- Run the following script
+- Notes
     ```
     Set up a config.js with a token from Github
     ```
