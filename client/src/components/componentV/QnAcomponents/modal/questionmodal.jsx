@@ -4,7 +4,9 @@ import axios from "axios";
 const QuestionModal = (props) => {
 
 return (
-  <div className="fixed top-1/4 right-1/3 z-40">
+  <div>
+  <div className="w-100vw h-100vh top-0 left-0 right-0 bottom-0 fixed bg-neutral-600 opacity-70 z-10 "></div>
+  <div className="fixed top-1/4 right-1/4 z-40">
       <form className="grid grid-col-4 gap-2 mr-4 bg-neutral-200 p-2" onSubmit={(e) => {
         e.preventDefault()
       var options = {
@@ -36,7 +38,7 @@ return (
           props.updateQModal(!props.questionModal)
       }}>cancel</button>
       </form>
-
+  </div>
   </div>
 )
 }

@@ -1,3 +1,4 @@
+var compression = require('express-compression')
 const express = require('express');
 require('dotenv').config()
 const {questionRouter, postQuestionsRoute, updateHelpful, updateAnswer, addQuestion , reportAnswer, reportQuestion} = require('./questionRoutes.js')
@@ -16,6 +17,7 @@ let params = {
 
 // make sure before deployment we create an .env file and make this process.env.PORT;
 const port = 3000;
+app.use(compression())
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, ".." ,"/client/dist")));
 app.use(bodyParser.json());
