@@ -62,8 +62,8 @@ const ReviewsList = () => {
   }, []);
 
   return (
-<div className="bg-[#27272A] flex items-center justify-center px-10">
-  <div className="flex w-full md:w-[150vh] p-10 bg-[#78716C] text-neutral-800 rounded-2xl">
+<div className="bg-[#27272A] flex items-center justify-center p-12 pt-24">
+  <div className="flex w-full md:w-[150vh] p-12 bg-[#78716C] text-neutral-800 rounded-2xl">
     <div className="w-1/3">
       <RatingSummary reviews={reviews} unfilteredReviews={unfilteredReviews} setReviews={setReviews} />
     </div>
