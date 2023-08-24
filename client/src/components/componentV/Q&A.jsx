@@ -41,8 +41,8 @@ useEffect(() => {
 },[updated, sliceNum, staticInfo])
 
 return (
-<div className="bg-[#27272A] p-10">
-  <div className="p-10 bg-stone-500 text-black relative rounded-xl fullPageDiv">
+<div className="bg-[#27272A] px-24 py-24">
+  <div className="px-12 py-12 bg-stone-500 text-black relative rounded-xl fullPageDiv">
     <h2 className="text-lg">Questions & Answers</h2>
     <SearchBar static={staticInfo} updateStatic={updateStatic} questions={questions} updateQuestions={updateQuestions} perma={permaInfo}/>
     <div className="flex flex-col space-y-32 mt-3.5 pt-6 testers">
