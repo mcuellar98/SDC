@@ -1,3 +1,6 @@
+<img src="/client/src/img/logo.png">
+
+
 
 # ÉLIER
 
@@ -7,7 +10,7 @@ A modernized e-commerce site built for an optimal user browsing experience.
 
 [Heith Mahfoudhi](https://github.com/Heithh)\
 [Amelia LI](https://github.com/amelia8872)\
-[Victor Acosta](https://github.com/Tonegawa941)
+[Victor Acosta](https://github.com/Tonegawa94)
 
 
 ## Built With
