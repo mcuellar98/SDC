@@ -24,7 +24,6 @@ A modernized e-commerce site built for an optimal user browsing experience.
 ![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
 ![ESLINT](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
 
-
 ## Key Features
 
 ## Overview
