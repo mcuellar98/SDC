@@ -5,8 +5,8 @@ A modernized e-commerce site built for an optimal user browsing experience.
 
 ## Authors
 
-[Heith Mahfoudhi](https://github.com/Heithh)
-[Amelia LI](https://github.com/amelia8872)
+[Heith Mahfoudhi](https://github.com/Heithh)\
+[Amelia LI](https://github.com/amelia8872)\
 [Victor Acosta](https://github.com/Tonegawa941)
 
 
