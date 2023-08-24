@@ -16,6 +16,7 @@ const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
   const [photos, setPhotos] = useState([]);
+  const [photoPreviews, setPhotoPreviews] = useState([]);
   const [characteristicsRatings, setCharacteristicsRatings] = useState([]);
   const [counterMessage, setCounterMessage] = useState('');
   const [reviewSend, setReviewSend] = useState(false);
@@ -61,8 +62,6 @@ const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
   const handleNicknameChange = (event) => {
     setNickname(event.target.value);
   };
-
-
 
   const submitReview = () => {
     const transformedCharacteristics = {};
@@ -188,14 +187,18 @@ const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
             <label className="font-bold text-sm mb-2">Upload Photos:</label>
                 <input
                   type="file"
+                  className="mb-4"
                   multiple
                   onChange={(e) => {
                     const uploadedFiles = Array.from(e.target.files);
-                    const photosURLs = uploadedFiles.map((file) => URL.createObjectURL(file));
-                    setPhotos(photosURLs);
-                    console.log(photos);
+                    const previews = uploadedFiles.map((file) => URL.createObjectURL(file));
+                    // setPhotos(uploadedFiles);
+                    setPhotoPreviews(previews);
                   }}
                 />
+              {photoPreviews.map((preview, index) => (
+    <img key={index} src={preview} alt={`Preview ${index}`} className="flex max-h-20 mx-2" />
+  ))}
           </div>
 
           <div className="nickName mb-4">
