@@ -6,6 +6,69 @@ import CharacterBar from './CharacterBar.jsx';
 
 const RatingSummary = ({reviews, unfilteredReviews, setReviews}) => {
 
+  const characteristicsData = [
+    {
+      title: 'Size',
+      meanings: [
+      'A size too small',
+      '½ a size too small',
+      'Perfect',
+      '½ a size too big',
+      'A size too wide',
+    ],
+  },
+  {
+    title: 'Width',
+    meanings: [
+    'Too narrow',
+    'Slightly narrow',
+    'Perfect',
+    'Slightly wide',
+    'Too wide',
+    ],
+  },
+  {
+    title: 'Comfort',
+    meanings: [
+    'Uncomfortable',
+    'Slightly uncomfortable',
+    'Ok',
+    'Comfortable',
+    'Perfect',
+    ],
+  },
+  {
+    title: 'Quality',
+    meanings: [
+    'Poor',
+    'Below average',
+    'What I expected',
+    'Pretty great',
+    'Perfect',
+    ],
+  },
+  {
+    title: 'Length',
+    meanings: [
+    'Runs Short',
+    'Runs slightly short',
+    'Perfect',
+    'Runs slightly long',
+    'Runs long',
+    ],
+  },
+  {
+    title: 'Fit',
+    meanings: [
+    'Runs tight',
+    'Runs slightly tight',
+    'Perfect',
+    'Runs slightly long',
+    'Runs long',
+    ],
+  },
+]
+
   const [ratingsData, setRatingsData] = useState(null);
 
 
@@ -70,6 +133,7 @@ const RatingSummary = ({reviews, unfilteredReviews, setReviews}) => {
   const recommendPercentage = calculateRecommendPercentage(ratingsData.recommended).toFixed(1);
   // ratingsData.ratings = {1: '92', 2: '60', 3: '184', 4: '168', 5: '423'}
   const averageRating = calculateAverageRating(ratingsData.ratings).toFixed(1);
+  // console.log(averageRating);
   //ratingsData.recommended = {false: '209', true: '718'}
   const ratingDistribute = calculateProgress(ratingsData.ratings);
   // console.log(ratingDistribute);
@@ -78,7 +142,7 @@ const RatingSummary = ({reviews, unfilteredReviews, setReviews}) => {
   return (
     <div>
       <div className="averageRating pb-5">
-        <h2>RATINGS & REVIEWS</h2>
+        <h2 className="text-xl" >RATINGS & REVIEWS</h2>
         <span className="text-5xl pt-5 pr-5">{averageRating}</span>
         <Star rating={averageRating} />
       </div>
@@ -108,7 +172,7 @@ const RatingSummary = ({reviews, unfilteredReviews, setReviews}) => {
           <ReviewBar bgcolor="#27272A" progress={ratingDistribute[2]*100}  height={9} />
           <label>({ratingsData.ratings[2]} reviews)</label>
         </div>
-        <div className="1stars flex items-center mb-2 text-xs">
+        <div className="1stars flex items-center mb-1 text-xs">
           <label onClick={() => {filterReviewsByRating(1)}}>1 stars</label>
           <ReviewBar bgcolor="#27272A" progress={ratingDistribute[1]*100}  height={9} />
           <label>({ratingsData.ratings[1]} reviews)</label>
@@ -116,13 +180,20 @@ const RatingSummary = ({reviews, unfilteredReviews, setReviews}) => {
       </div>
 
       <div className="characteristicBreakdown pb-15">
-        {Object.entries(ratingsData.characteristics).map(([charName, charData]) => (
-          <div className="characteristic items-center mb-2 text-xs" key={charData.id}>
-            <label>{charName}</label>
-            <CharacterBar progress={parseFloat(charData.value) * 20} height={9} />
-          </div>
-        ))}
+  {Object.entries(ratingsData.characteristics).map(([charName, charData]) => (
+    <div className="characteristic items-center mb-1 text-xs" key={charData.id}>
+      <label className="font-semibold">{charName}</label>
+      <div className="flex flex-col items-center">
+        <CharacterBar className="pr-6" progress={parseFloat(charData.value) * 20} height={5} />
+        <div className="flex justify-between w-full">
+          <div className="text-2xs ml-8">{characteristicsData.find(data => data.title === charName).meanings[0]}</div>
+          <div className="text-2xs">{characteristicsData.find(data => data.title === charName).meanings[2]}</div>
+          <div className="text-2xs mr-8">{characteristicsData.find(data => data.title === charName).meanings[4]}</div>
+        </div>
       </div>
+    </div>
+  ))}
+</div>
 
     </div>
   )

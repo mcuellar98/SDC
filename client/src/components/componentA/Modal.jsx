@@ -71,6 +71,7 @@ const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
       transformedCharacteristics[charId] = characteristicsRatings[index];
     })
 
+    const currentDate = new Date().toISOString();
     const newReview = {
       product_id: 37311,
       rating: rating,
@@ -80,7 +81,9 @@ const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
       name: nickname,
       email: email,
       characteristics: transformedCharacteristics,
-      photos: photos
+      photos: photos,
+      helpfulness: 0,
+      date: currentDate
     };
 
     axios.post('/reviews/reviews', newReview)
@@ -103,7 +106,7 @@ const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
   return (
     <div className={`fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-75 ${openModal ? 'visible' : 'hidden'}`}>
       <div className="flex items-center justify-center min-h-screen">
-        <div className="modal-container overflow-y-auto bg-white p-4 rounded shadow-md max-w-3xl w-1/3 mx-4 max-h-[80vh] min-h-[80vh]">
+        <div className="modal-container overflow-y-auto bg-white p-4 rounded-lg shadow-md max-w-3xl w-1/3 mx-4 max-h-[80vh] min-h-[80vh]" style={{ overflowX: 'hidden' }}>
           {!reviewSend ? (
             <>
               <div className="model-image mb-4">
@@ -190,6 +193,7 @@ const Modal = ({openModal, setOpenModal, reviews, setReviews}) => {
                     const uploadedFiles = Array.from(e.target.files);
                     const photosURLs = uploadedFiles.map((file) => URL.createObjectURL(file));
                     setPhotos(photosURLs);
+                    console.log(photos);
                   }}
                 />
           </div>

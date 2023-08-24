@@ -1,7 +1,7 @@
 /** @type {import('jest').Config} */
 const config = {
   collectCoverage: true,
-  collectCoverageFrom: ["client/src/components/componentV/**/*.{js,jsx,ts,tsx}","!<rootDir>/node_modules/"],
+  collectCoverageFrom: ["client/src/components/componentA/**/*.{js,jsx,ts,tsx}","!<rootDir>/node_modules/", "server/reviewsRoutes.js"],
   coverageThreshold: {
     "global": {
       "lines": 90,

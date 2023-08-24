@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">68.75% </span>
+                <span class="strong">6.25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/16</span>
+                <span class='fraction'>1/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64.28% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>9/14</span>
+                <span class='fraction'>0/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">68.75% </span>
+                <span class="strong">6.25% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/16</span>
+                <span class='fraction'>1/16</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -140,24 +140,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -176,7 +176,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -209,25 +209,25 @@ import ImageModal from './ImageModal.jsx';
 import Helpful from './Helpful.jsx';
 import { AiOutlineCheck } from 'react-icons/ai';
 &nbsp;
-const ReviewEntry = ({ review }) =&gt; {
-  const dateObj = new Date(review.date);
-  const options = { year: 'numeric', month: 'short', day: 'numeric' };
-  const formattedDate = dateObj.toLocaleDateString('en-US', options);
+const ReviewEntry = <span class="fstat-no" title="function not covered" >({</span> review }) =&gt; {
+  const dateObj = <span class="cstat-no" title="statement not covered" >new Date(review.date);</span>
+  const options = <span class="cstat-no" title="statement not covered" >{ year: 'numeric', month: 'short', day: 'numeric' };</span>
+  const formattedDate = <span class="cstat-no" title="statement not covered" >dateObj.toLocaleDateString('en-US', options);</span>
 &nbsp;
-  const [showFullReview, setShowFullReview] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [openImageModal, setOpenImageModal] = useState(false);
+  const [showFullReview, setShowFullReview] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
+  const [selectedImage, setSelectedImage] = <span class="cstat-no" title="statement not covered" >useState(null);</span>
+  const [openImageModal, setOpenImageModal] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
 &nbsp;
-  const handleShowMore = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+  const handleShowMore = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    setShowFullReview(true);</span>
   }
 &nbsp;
-  const handleImageClick = <span class="fstat-no" title="function not covered" >(i</span>mage) =&gt; {
+  const handleImageClick = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(i</span>mage) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    setSelectedImage(image);</span>
 <span class="cstat-no" title="statement not covered" >    setOpenImageModal(true);</span>
   };
 &nbsp;
-  return (
+<span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;div className="relative h-100 w-50 p-4 border-b-2 border-neutral-800/50 reviewTile" key={review.review_id}&gt;
       &lt;div className="absolute top-0 right-0 h-50 w-50 text-xs text-stone-300 pt-2.5 pr-2.5"&gt;
         {review.reviewer_name},{formattedDate}
@@ -236,18 +236,18 @@ const ReviewEntry = ({ review }) =&gt; {
 &nbsp;
       &lt;div className="reviewSummary font-semibold"&gt;{review.summary}&lt;/div&gt;
 &nbsp;
-      &lt;div className={`reviewBody font-normal ${showFullReview ? <span class="branch-0 cbranch-no" title="branch not covered" >'expanded' </span>: ''}`}&gt;
-        {showFullReview ? <span class="branch-0 cbranch-no" title="branch not covered" >review.body </span>: review.body.substring(0, 250)}
+      &lt;div className={`reviewBody font-normal ${showFullReview ? 'expanded' : ''}`}&gt;
+        {showFullReview ? review.body : review.body.substring(0, 250)}
         {!showFullReview &amp;&amp; review.body.length &gt; 250 &amp;&amp; (
-<span class="branch-2 cbranch-no" title="branch not covered" >          &lt;span className="showMore" onClick={handleShowMore}&gt;Show more&lt;/span&gt;</span>
+          &lt;span className="showMore  hover:text-stone-50 text-xs text-stone-300" onClick={handleShowMore}&gt;Show more&lt;/span&gt;
         )}
       &lt;/div&gt;
 &nbsp;
       {review.photos &amp;&amp; review.photos.length &gt; 0 &amp;&amp; (
         &lt;div className="imageThumbnail w-1/5 flex"&gt;
-          {review.photos.map((image, index) =&gt; (
-            &lt;img
-            key ={index}
+          {review.photos.map(<span class="fstat-no" title="function not covered" >(i</span>mage, index) =&gt; (
+<span class="cstat-no" title="statement not covered" >            &lt;img</span>
+            key ={image.id}
             src={image.url}
             onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >handleImageClick(image)}</span>
             /&gt;
@@ -256,13 +256,13 @@ const ReviewEntry = ({ review }) =&gt; {
       )}
 &nbsp;
       {openImageModal &amp;&amp; (
-<span class="branch-1 cbranch-no" title="branch not covered" >        &lt;ImageModal</span>
+        &lt;ImageModal
         imageUrl={selectedImage.url}
         closeModal={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setOpenImageModal(false)}</span>
         /&gt;
       )}
 &nbsp;
-      {review.recommend &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;div className="recommendation flex"&gt; &lt;AiOutlineCheck className="mr-2"/&gt;I recommend this product&lt;/div&gt;}</span>
+      {review.recommend &amp;&amp; &lt;div className="recommendation flex text-sm font-semibold mt-2"&gt; &lt;AiOutlineCheck className="mr-2"/&gt;I recommend this product&lt;/div&gt;}
 &nbsp;
       {/* Feedback Section */}
 &nbsp;
@@ -280,7 +280,7 @@ export default ReviewEntry;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-08-22T22:32:03.264Z
+                at 2023-08-23T15:24:40.083Z
             </div>
         <script src="prettify.js"></script>
         <script>

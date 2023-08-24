@@ -42,9 +42,7 @@ app.put("/helpful/:answer_id/answer", (req,res) => {
 })
 
 app.post("/questions/:question_id" , (req, res) => {
-  postQuestionsRoute(req).then((result) => {
-    res.end();
-  })
+  postQuestionsRoute(req)
 })
 
 app.get("/questions/:product_id", (req,res) => {
