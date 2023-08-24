@@ -1,6 +1,3 @@
-<img src="/client/src/img/logo.png" >
-
-
 
 # ÉLIER
 
