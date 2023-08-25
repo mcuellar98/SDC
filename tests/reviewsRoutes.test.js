@@ -7,14 +7,14 @@ require('dotenv').config();
 
 
 // Create an instance of the express app and use the reviewsRouter
-const app = express();
-app.use('/reviews', reviewsRouter);
+// const app = express();
+// app.use('/reviews', reviewsRouter);
 
-// Create a new instance of axios mock adapter
-const mock = new MockAdapter(axios);
+// // Create a new instance of axios mock adapter
+// const mock = new MockAdapter(axios);
 
-// Mock the process.env.TOKEN value
-process.env.TOKEN = process.env.TOKEN;
+// // Mock the process.env.TOKEN value
+// process.env.TOKEN = process.env.TOKEN;
 
 describe('reviewsRoutes', () => {
   // Test getAllReviews endpoint

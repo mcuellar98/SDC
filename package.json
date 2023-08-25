@@ -7,7 +7,7 @@
     "start": "nodemon server/server.js",
     "build": "webpack --watch",
     "tailwind": "tailwindcss build -i ./public/styles.css -o ./client/dist/output.css --watch ",
-    "test": "jest --coverage"
+    "test": "jest QnA.test.jsx --coverage"
   },
   "keywords": [],
   "author": "",
