@@ -35,7 +35,7 @@ A modernized e-commerce site built for an optimal user browsing experience.
 #### Features
 
 - Header & Hero section
-- About Section & Footer for the brand unique story and conenctions
+- About Section & Footer for the brand unique story and connections
 - Details providing a product overview, style, price and key features
 - Ability to add items to favorite and cart
 - Ability to share items on social media
