@@ -3,6 +3,7 @@ import axios from "axios";
 import SearchBar from "./QnAcomponents/searchbar.jsx";
 import IdividualAnswer from "./QnAcomponents/indvAnswer.jsx";
 import AddQuestions from "./QnAcomponents/addQuestion.jsx";
+
 const QuestionsAndAnswers = () => {
   const product = '37323';
 
