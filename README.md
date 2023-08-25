@@ -26,16 +26,41 @@ A modernized e-commerce site built for an optimal user browsing experience.
 * ![ESLINT](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
 
 ## Key Features
+* Business Requirements Document: [Click here](https://docs.google.com/document/d/1KAqduzY8ae3DYrSoCL1i23qHe95zJRYFulqMk-sGLWY/edit)
+
+* ÉLIER is designed to be responsive, ensuring a seamless experience across different devices.
 
 
 ## Overview (Heith)
 #### Features
 
+- Header & Hero section
+- About section & footer for the brand unique story and conenctions
+- Details providing a product overview, style, price and key features
+- Ability to add items to favorite and cart
+- Ability to share items on social media
+- Scroll through images, expand images and zoom in on specific parts of the image
+
+<img width="1438" alt="HeroSection" src="https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/132500378/92eb8571-a46e-4329-b516-a143c82ad7f1">
+<img width="1421" alt="OverviewSection" src="https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/132500378/adbab7df-9136-4643-805e-e4ba34e79621">
+<img width="1423" alt="AboutSection" src="https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/132500378/f5518932-6dab-492d-a6ec-f94b67b778eb">
+
+<details>
+    <summary>DEMO</summary>
+</details>
+
+
 ## Ratings & Reviews (Amelia)
 #### Features
+<details>
+    <summary>DEMO</summary>
+</details>
 
 ## Questions & Answers (Victor)
 #### Features
+<details>
+    <summary>DEMO</summary>
+</details>
 
 ## Getting Started
 
