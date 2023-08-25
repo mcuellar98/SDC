@@ -70,6 +70,7 @@ const RatingSummary = ({reviews, unfilteredReviews, setReviews}) => {
 ]
 
   const [ratingsData, setRatingsData] = useState(null);
+  const [activeFilters, setActiveFilters] = useState([]);
 
 
   const fetchRatings = () => {
@@ -122,12 +123,35 @@ const RatingSummary = ({reviews, unfilteredReviews, setReviews}) => {
   }
 
 
-  const filterReviewsByRating = (rating) => {
-    // console.log("Filtering reviews by rating:", rating);
-    const filteredReviews = unfilteredReviews.filter(review => review.rating === rating);
-    // console.log("Filtered reviews:", filteredReviews);
-    setReviews(filteredReviews);
-  }
+  const filterReviewsByRating = (filters) => {
+    if (filters.length === 0) {
+      setReviews(unfilteredReviews);
+    } else {
+      const filteredReviews = unfilteredReviews.filter(review =>
+        filters.includes(review.rating)
+      );
+      setReviews(filteredReviews);
+    }
+  };
+
+
+  const toggleFilter = (rating) => {
+    setActiveFilters(prevFilters => {
+      let newFilters;
+      if (prevFilters.includes(rating)) {
+        newFilters = prevFilters.filter(item => item !== rating);
+      } else {
+        newFilters = [...prevFilters, rating];
+      }
+      filterReviewsByRating(newFilters);
+      return newFilters;
+    });
+  };
+
+
+  const clearAllFilters = () => {
+    setActiveFilters([]);
+  };
 
 
   const recommendPercentage = calculateRecommendPercentage(ratingsData.recommended).toFixed(1);
@@ -152,31 +176,64 @@ const RatingSummary = ({reviews, unfilteredReviews, setReviews}) => {
       </div>
 
       <div className="ratingDistribute pb-8">
-        <div className="5stars flex items-center mb-2 text-xs">
-          <label onClick={() => {filterReviewsByRating(5)}}>5 stars</label>
+        <div className="hover:bg-gray-200  hover:bg-opacity-20 transition duration-300 ease-in-out 5stars flex items-center mb-2 text-xs">
+          <label onClick={() => {
+          toggleFilter(5);
+          console.log(activeFilters);
+          console.log(reviews);
+        }}>5 stars</label>
           <ReviewBar bgcolor="#27272A" progress={ratingDistribute[5]*100}  height={9} />
           <label>({ratingsData.ratings[5]} reviews)</label>
         </div>
-        <div className="4stars flex items-center mb-2 text-xs">
-          <label onClick={() => {filterReviewsByRating(4)}}>4 stars</label>
+        <div className="hover:bg-gray-200 hover:bg-opacity-20 transition duration-300 ease-in-out4stars flex items-center mb-2 text-xs">
+          <label onClick={() => {
+          toggleFilter(4);
+        }}>4 stars</label>
           <ReviewBar bgcolor="#27272A" progress={ratingDistribute[4]*100}  height={9} />
           <label>({ratingsData.ratings[4]} reviews)</label>
         </div>
-        <div className="3stars flex items-center mb-2 text-xs">
-          <label onClick={() => {filterReviewsByRating(3)}}>3 stars</label>
+        <div className="hover:bg-gray-200 hover:bg-opacity-20 transition duration-300 ease-in-out 3stars flex items-center mb-2 text-xs">
+          <label onClick={() => {
+          toggleFilter(3);
+        }}>3 stars</label>
           <ReviewBar bgcolor="#27272A" progress={ratingDistribute[3]*100}  height={9} />
           <label>({ratingsData.ratings[3]} reviews)</label>
         </div>
-        <div className="2stars flex items-center mb-2 text-xs">
-          <label onClick={() => {filterReviewsByRating(2)}}>2 stars</label>
+        <div className="hover:bg-gray-200 hover:bg-opacity-20 transition duration-300 ease-in-out 2stars flex items-center mb-2 text-xs">
+          <label onClick={() => {
+          toggleFilter(2);
+        }}>2 stars</label>
           <ReviewBar bgcolor="#27272A" progress={ratingDistribute[2]*100}  height={9} />
           <label>({ratingsData.ratings[2]} reviews)</label>
         </div>
-        <div className="1stars flex items-center mb-1 text-xs">
-          <label onClick={() => {filterReviewsByRating(1)}}>1 stars</label>
+        <div className="hover:bg-gray-200 hover:bg-opacity-20 transition duration-300 ease-in-out 1stars flex items-center mb-1 text-xs">
+          <label onClick={() => {
+          toggleFilter(1);
+        }}>1 stars</label>
           <ReviewBar bgcolor="#27272A" progress={ratingDistribute[1]*100}  height={9} />
           <label>({ratingsData.ratings[1]} reviews)</label>
         </div>
+      </div>
+
+      <div className="filterMessage">
+        {activeFilters.length > 0 && (
+          <div>
+            <p>Filters applied:</p>
+            <ul className="filterList">
+              {activeFilters.map(filter => (
+                <li key={filter}>
+                  {filter} stars{' '}
+                  <span className="removeFilter" onClick={() => toggleFilter(filter)}>
+                    Remove
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <a href="#" onClick={clearAllFilters}>
+              Remove all filters
+            </a>
+          </div>
+        )}
       </div>
 
       <div className="characteristicBreakdown pb-15">
