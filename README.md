@@ -1,9 +1,8 @@
 
 # ÉLIER
 
-The project was in conjunction with an AGILE team of 3 engineers.
-ÉLIER is a modernized e-commerce site built for an optimal user browsing experience.
-
+- ÉLIER is a modernized e-commerce site built for an optimal user browsing experience.
+- The project was in conjunction with an AGILE team of 3 engineers.
 ## Authors
 
 [Heith Mahfoudhi](https://github.com/Heithh)\
