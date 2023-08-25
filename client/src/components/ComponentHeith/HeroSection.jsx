@@ -1,9 +1,9 @@
 import React from 'react';
 import { AiFillShopping } from 'react-icons/ai';
-import hero from '../../img/model.jpg'
+import hero from '../../img/model.jpg'; // Import the hero image
 
 const HeroSection = () => {
-
+  // Scroll to the 'overview' section when the button is clicked
   const scrollToOverview = () => {
     const overviewElement = document.getElementById('overview');
     if (overviewElement) {
@@ -13,17 +13,20 @@ const HeroSection = () => {
 
   return (
     <section className="h-[87vh] bg-gray-100 relative">
+      {/* Hero image */}
       <img
         src={hero}
         alt="hero Section"
         className="object-cover w-full h-full"
       />
+      {/* Overlay with text and button */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
         <div className="text-5xl text-center">
           <p>Quality. Style. ÉLIER</p>
           <p className='text-xl'>Crafting Elegance & Wearing Dreams</p>
         </div>
         <div>
+          {/* Button to scroll to the overview section */}
           <button
             onClick={scrollToOverview}
             className="mt-6 inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-[#27272A] hover:bg-[#78716C] active:bg-[#27272A] transition ease-in-out duration-150"

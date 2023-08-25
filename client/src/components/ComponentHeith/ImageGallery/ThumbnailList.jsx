@@ -1,32 +1,35 @@
-// ThumbnailList.jsx
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import axios from 'axios';
 
-const ThumbnailList = ({setCurrentIndex, thumbnail}) => {
+const ThumbnailList = ({ setCurrentIndex, thumbnail }) => {
 
-
-
+  // Scroll the thumbnail slider to the left
   const slideLeft = () => {
     let slider = document.getElementById('slider');
     slider.scrollLeft = slider.scrollLeft - 500;
   }
 
+  // Scroll the thumbnail slider to the right
   const slideRight = () => {
     let slider = document.getElementById('slider');
     slider.scrollLeft = slider.scrollLeft + 500;
   }
 
+  // Handle click on a thumbnail to change the current index
   const handleThumbnailClick = (index) => {
     setCurrentIndex(index);
   }
 
-
-
-
   return (
     <div className='relative flex items-center w-full md:w-auto'>
-      <BsChevronCompactLeft className='opacity-50 cursor-pointer hover:opacity-100 text-white' onClick={slideLeft} size={30}/>
+      {/* Slide left button */}
+      <BsChevronCompactLeft
+        className='opacity-50 cursor-pointer hover:opacity-100 text-white'
+        onClick={slideLeft}
+        size={30}
+      />
+      {/* Thumbnail slider */}
       <div id='slider' className='w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide'>
         {thumbnail.map((item, index) => (
           <img
@@ -35,11 +38,15 @@ const ThumbnailList = ({setCurrentIndex, thumbnail}) => {
             alt='Product Thumbnail'
             key={index}
             onClick={() => handleThumbnailClick(index)}
-
           />
         ))}
       </div>
-      <BsChevronCompactRight className='opacity-50 cursor-pointer hover:opacity-100 text-white' onClick={slideRight} size={30}/>
+      {/* Slide right button */}
+      <BsChevronCompactRight
+        className='opacity-50 cursor-pointer hover:opacity-100 text-white'
+        onClick={slideRight}
+        size={30}
+      />
     </div>
   );
 }

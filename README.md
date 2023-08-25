@@ -27,6 +27,7 @@ A modernized e-commerce site built for an optimal user browsing experience.
 
 ## Key Features
 
+
 ## Overview (Heith)
 #### Features
 
@@ -50,6 +51,7 @@ Installation
 - Run the following script
     ```
         npm run build
+        npm run tailwind
         npm start
     ```
 - Notes
