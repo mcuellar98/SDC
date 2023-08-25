@@ -35,7 +35,7 @@ A modernized e-commerce site built for an optimal user browsing experience.
 #### Features
 
 - Header & Hero section
-- About section & footer for the brand unique story and conenctions
+- About Section & Footer for the brand unique story and conenctions
 - Details providing a product overview, style, price and key features
 - Ability to add items to favorite and cart
 - Ability to share items on social media
@@ -52,12 +52,27 @@ A modernized e-commerce site built for an optimal user browsing experience.
 
 ## Ratings & Reviews (Amelia)
 #### Features
+
+- Product Ratings Breakdown with Visual Representations
+- Product-Specific Reviews with Uploaded Images
+- Custom Review Form with Drag-and-Drop Image Upload
+- Filter Reviews by Rating, Relevance, Helpfulness, or Posting Dat
+
+![reviews](https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/132500378/1baa1330-c635-419f-bc72-d859c289a64b)
+
 <details>
     <summary>DEMO</summary>
 </details>
 
 ## Questions & Answers (Victor)
 #### Features
+
+- View and add questions and answers using a modal window.
+- Filter questions using a search bar.
+- Report or mark questions and answers as helpful with immediate feedback
+
+![questions](https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/132500378/0d0aede9-4f4c-4301-a2f8-6a57ea100e84)
+
 <details>
     <summary>DEMO</summary>
 </details>
