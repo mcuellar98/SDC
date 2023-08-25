@@ -34,7 +34,7 @@ reviewsRouter.get('/getAllReviews', (req, res) => {
 
 reviewsRouter.get('/getRatings', (req, res) => {
   // let productId = parseInt(req.query.product_id);
-  let productId = 37311;
+  let productId = 37315;
   let options = {
     headers: { Authorization: process.env.TOKEN},
     params: {

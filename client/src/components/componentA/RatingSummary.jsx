@@ -3,6 +3,7 @@ import Star from './Star.jsx';
 import axios from 'axios';
 import ReviewBar from './ReviewBar.jsx';
 import CharacterBar from './CharacterBar.jsx';
+import { FaTimes } from 'react-icons/fa';
 
 const RatingSummary = ({reviews, unfilteredReviews, setReviews}) => {
 
@@ -151,6 +152,7 @@ const RatingSummary = ({reviews, unfilteredReviews, setReviews}) => {
 
   const clearAllFilters = () => {
     setActiveFilters([]);
+    setReviews(unfilteredReviews);
   };
 
 
@@ -215,26 +217,27 @@ const RatingSummary = ({reviews, unfilteredReviews, setReviews}) => {
         </div>
       </div>
 
-      <div className="filterMessage">
+      <div className="filterMessage pb-8 flex">
         {activeFilters.length > 0 && (
-          <div>
-            <p>Filters applied:</p>
-            <ul className="filterList">
+          <div className="flex flex-col">
+            <div className="font-semibold text-sm mb-2">Filters:</div>
+            <div className="flex flex-wrap gap-2">
               {activeFilters.map(filter => (
-                <li key={filter}>
-                  {filter} stars{' '}
-                  <span className="removeFilter" onClick={() => toggleFilter(filter)}>
-                    Remove
-                  </span>
-                </li>
+                <span className="removeFilter italic hover:text-white text-sm bg-gray-200 bg-opacity-20 pl-1 pr-1 flex items-center" onClick={() => toggleFilter(filter)} key={filter}>
+                  {filter} stars <FaTimes className="ml-1" />
+                </span>
               ))}
-            </ul>
-            <a href="#" onClick={clearAllFilters}>
-              Remove all filters
-            </a>
+            </div>
+            <div>
+              <button className="mt-2 italic text-xs font-semibold hover:text-white bg-gray-200 bg-opacity-20 p-1" onClick={clearAllFilters}>
+                Clear all filters
+              </button>
+            </div>
+
           </div>
         )}
       </div>
+
 
       <div className="characteristicBreakdown pb-15">
   {Object.entries(ratingsData.characteristics).map(([charName, charData]) => (
