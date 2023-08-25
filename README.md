@@ -1,7 +1,8 @@
 
 # ÉLIER
 
-A modernized e-commerce site built for an optimal user browsing experience.
+The project was in conjunction with an AGILE team of 3 engineers.
+ÉLIER is a modernized e-commerce site built for an optimal user browsing experience.
 
 ## Authors
 
@@ -41,12 +42,15 @@ A modernized e-commerce site built for an optimal user browsing experience.
 - Ability to share items on social media
 - Scroll through images, expand images and zoom in on specific parts of the image
 
-<img width="1438" alt="HeroSection" src="https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/132500378/92eb8571-a46e-4329-b516-a143c82ad7f1">
+![HeroSection](https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/132500378/92eb8571-a46e-4329-b516-a143c82ad7f1.png)
+
 <img width="1421" alt="OverviewSection" src="https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/132500378/adbab7df-9136-4643-805e-e4ba34e79621">
 <img width="1423" alt="AboutSection" src="https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/132500378/f5518932-6dab-492d-a6ec-f94b67b778eb">
 
 <details>
     <summary>DEMO</summary>
+
+
 </details>
 
 
