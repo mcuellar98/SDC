@@ -8,33 +8,43 @@ const axios = require('axios');
 const basePath = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe';
 const reviewsRouter = require('./reviewsRoutes.js');
 
-
-
+// Create Express app
 const app = express();
-let params = {
-  headers: {Authorization: process.env.TOKEN}
-}
 
-// make sure before deployment we create an .env file and make this process.env.PORT;
+// Set up headers for API requests
+let params = {
+  headers: { Authorization: process.env.TOKEN }
+};
+
+// Set the port for the server to listen on
 const port = 3000;
-app.use(compression())
-app.use(express.urlencoded({extended: true}));
-app.use(express.static(path.join(__dirname, ".." ,"/client/dist")));
+
+// Use compression middleware to compress responses
+app.use(compression());
+
+// Set up body parsing middleware
+app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use((req,res,next) => {
+
+// Serve static files from the client's 'dist' directory
+app.use(express.static(path.join(__dirname, '..', '/client/dist')));
+
+// Middleware to set authorization header
+app.use((req, res, next) => {
   if (!req.headers.authorization) {
     req.headers.authorization = process.env.TOKEN;
   }
   next();
-})
+});
 
-app.use(express.json());
+
+//Amelia's section
 app.use('/reviews', reviewsRouter);
 
 
-// here is the api link if we need it
+//--------------------------------------------------------------------------------------
 
-// this is Victors section\
+//Victor's section
 app.put("/helpful/:question_id", (req,res) => {
   updateHelpful(req)
 })
@@ -68,7 +78,9 @@ app.put("/reportAnswer/:answer_id", (req,res) => {
 // this is Ratings & Reviews section
 app.use('/reviews', reviewsRouter);
 
-// this is  Heith section
+
+//-------------------------------------------------------------------------------------
+// Heith section
 
 //View Images
 app.get('/api/images', (req, res) => {
@@ -105,7 +117,7 @@ app.get('/api/product', (req, res) => {
     });
 });
 
-
+//-------------------------------------------------------------------------------------------
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`)
