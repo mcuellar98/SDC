@@ -80,7 +80,7 @@
 
 <details>
     <summary>DEMO</summary>
-     <img width="600" alt="HeroSection" src="https://media.giphy.com/media/NDRANC6Hqg2OkJ2klI/giphy.gif">
+     <img width="600" alt="Quesrtions" src="https://media.giphy.com/media/NDRANC6Hqg2OkJ2klI/giphy.gif">
 </details>
 
 ## Getting Started
