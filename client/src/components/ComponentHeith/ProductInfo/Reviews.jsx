@@ -3,9 +3,11 @@ import Star from './Star.jsx';
 import axios from 'axios';
 
 const Reviews = () => {
+
   const [ratingsData, setRatingsData] = useState({});
 
-const handleReviewsClick = () => {
+  // Scroll to reviews section when clicked
+  const handleReviewsClick = () => {
     const reviewElement = document.getElementById('reviews');
     if (reviewElement) {
       reviewElement.scrollIntoView({ behavior: 'smooth' });
@@ -13,7 +15,7 @@ const handleReviewsClick = () => {
   };
 
 
-
+  // Fetch ratings data from server on component mount
   useEffect(() => {
     axios.get('/reviews/getRatings')
       .then(response => {
@@ -24,7 +26,8 @@ const handleReviewsClick = () => {
       });
   }, []);
 
-  const calculateAverageRating = (ratingCounts) => {
+  // Calculate the average rating based on rating counts
+    const calculateAverageRating = (ratingCounts) => {
     const ratingArray = Object.keys(ratingCounts);
     let sumRating = 0;
     ratingArray.forEach(rating => (sumRating += rating * ratingCounts[rating]));
@@ -33,6 +36,7 @@ const handleReviewsClick = () => {
   };
   const averageRating = calculateAverageRating(ratingsData);
 
+  // Calculate the total number of reviews based on ratings
   const numberOfReviews = (ratings) => {
     let total = 0;
     const ratingArray = Object.values(ratings);
@@ -46,9 +50,10 @@ const handleReviewsClick = () => {
 
   const totalReviews = numberOfReviews(ratingsData);
 
+// Render reviews component
   return (
     <div className='flex items-center text-white pt-4 cursor-pointer hover:text-[#b7b4b1] px-2'
-    onClick={handleReviewsClick}>
+      onClick={handleReviewsClick}>
       <section className='mr-2'>REVIEWS ({totalReviews})</section>
       <Star rating={averageRating} />
     </div>

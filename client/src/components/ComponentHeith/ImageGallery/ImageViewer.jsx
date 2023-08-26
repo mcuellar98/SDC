@@ -4,7 +4,7 @@ import PopupImageViewer from './PopupImageViewer';
 import { RxDotFilled } from 'react-icons/rx';
 import axios from 'axios';
 
-const ImageViewer = ({setCurrentIndex, currentIndex, images}) => {
+const ImageViewer = ({ setCurrentIndex, currentIndex, images }) => {
 
 
 
@@ -69,7 +69,7 @@ const ImageViewer = ({setCurrentIndex, currentIndex, images}) => {
           </div>
         ))}
       </div>
-      {showPopup && <PopupImageViewer images={images} currentIndex={currentIndex} onClose={closePopup} setShowPopup={setShowPopup}/>}
+      {showPopup && <PopupImageViewer images={images} currentIndex={currentIndex} onClose={closePopup} setShowPopup={setShowPopup} />}
     </div>
   );
 };

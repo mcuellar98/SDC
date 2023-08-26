@@ -11,7 +11,7 @@ import AddToBag from './PopupPages/AddToBag.jsx';
 
 
 
-const ProductInfo = ({ productData, styles, setImages, SetThumbnail, availableSizes  }) => {
+const ProductInfo = ({ productData, styles, setImages, SetThumbnail, availableSizes }) => {
 
   const [isFavorite, setIsFavorite] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -26,7 +26,7 @@ const ProductInfo = ({ productData, styles, setImages, SetThumbnail, availableSi
   const [itemFeatures, setItemFeatures] = useState([])
 
 
-
+  // Handle favorite icon click
   const handleFavoriteClick = () => {
     setIsFavorite(!isFavorite);
     setShowModal(true);
@@ -42,12 +42,13 @@ const ProductInfo = ({ productData, styles, setImages, SetThumbnail, availableSi
   const handleDescriptionClick = () => {
     SetDescription(!description)
   };
-
+  // Handle description section click
   const handleMaterialClick = () => {
     SetShowMaterials(!showMaterials)
 
   }
 
+  // Close bag popup after 3 seconds if shown
   useEffect(() => {
     if (showBag) {
 
@@ -59,6 +60,7 @@ const ProductInfo = ({ productData, styles, setImages, SetThumbnail, availableSi
     }
   }, [showBag]);
 
+  // Set item features based on product data
   useEffect(() => {
     if (productData && productData.features && productData.features.length > 0) {
       setItemFeatures(productData.features);
@@ -72,17 +74,19 @@ const ProductInfo = ({ productData, styles, setImages, SetThumbnail, availableSi
     <div className='p-4'>
       <div className='inner py-4'>
         <section>
+           {/* Product name and favorite icon */}
           <section className='text-white flex items-center justify-between mb-3 pb-2 text-xl font-bold font-sans border-b-2 border-[#78716C]'>
             <div>{productData.name}</div>
             <div className='pr-4 hover:text-[#78716C] cursor-pointer hover:scale-125 ease-in-out duration-300'
-            onClick={handleFavoriteClick}>
-              <BsFillSuitHeartFill size={25} color={isFavorite ? '#78716C' : ''}  />
+              onClick={handleFavoriteClick}>
+              <BsFillSuitHeartFill size={25} color={isFavorite ? '#78716C' : ''} />
             </div>
           </section>
+          {/* Product category and slogan */}
           <section className='text-white mb-2 text-lg font-sans px-2 font-medium'>{productData.category}</section>
           <section className='text-white mb-2 text-lg font-sans px-2 font-medium'>{productData.slogan}</section>
 
-
+          {/* Description section */}
           <section
             className='text-white mb-2 text-lg font-sans font-medium px-2 flex justify-between items-center cursor-pointer'
             onClick={handleDescriptionClick}
@@ -98,6 +102,7 @@ const ProductInfo = ({ productData, styles, setImages, SetThumbnail, availableSi
             </div>
           )}
 
+            {/* Materials and features section */}
           <section
             className='text-white mb-2 text-lg font-medium font-sans px-2 flex justify-between items-center cursor-pointer'
             onClick={handleMaterialClick}
@@ -119,25 +124,34 @@ const ProductInfo = ({ productData, styles, setImages, SetThumbnail, availableSi
           <section className='text-white mb-4 text-lg font-medium font-sans px-2'>${productData.default_price}</section>
         </section>
 
-          <Styles styles={styles}
+        {/* Styles and Thumbnails */}
+        <Styles styles={styles}
           setImages={setImages}
           SetThumbnail={SetThumbnail}
           setSelectedStyle={setSelectedStyle}
-          setCheckoutItem={setCheckoutItem}/>
-          <Reviews />
-          <SizeQtyChooser availableSizes={availableSizes} setSelectedSize={setSelectedSize}/>
-          <Checkout setShowShare={setShowShare} setShowBag={setShowBag}/>
+          setCheckoutItem={setCheckoutItem} />
+
+        {/* Reviews */}
+        <Reviews />
+
+        {/* Size and Quantity Chooser */}
+        <SizeQtyChooser availableSizes={availableSizes} setSelectedSize={setSelectedSize} />
+
+       {/* Checkout */}
+        <Checkout setShowShare={setShowShare} setShowBag={setShowBag} />
 
 
       </div>
+
+      {/* Favorite Modal */}
       {showModal && <FavoriteModal closeModal={closeModal} />}
       {showShare && <Share closeShare={closeShare} />}
       {showBag && <AddToBag
-      selectedStyle={selectedStyle}
-      selectedSize={selectedSize}
-      name={productData.name}
-      price={productData.default_price}
-      checkoutItem={checkoutItem[0]}/>}
+        selectedStyle={selectedStyle}
+        selectedSize={selectedSize}
+        name={productData.name}
+        price={productData.default_price}
+        checkoutItem={checkoutItem[0]} />}
     </div>
   );
 };
