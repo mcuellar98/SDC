@@ -41,12 +41,9 @@
 - Ability to add items to favorite, cart, and share on social media
 - Scroll through images, expand images and zoom in on specific parts of the image
 
-<div style="display: flex; justify-content: space-between;">
-    <img width="30%" alt="HeroSection" src="https://github.com/San-Pellegrino-Trio-Stars/atelier_fecproject/assets/132500378/512e01ff-3c7a-4f34-9560-0b6a67065cb7">
-    <img width="30%" alt="OverviewSection" src="https://github.com/San-Pellegrino-Trio-Stars/atelier_fecproject/assets/132500378/adbab7df-9136-4643-805e-e4ba34e79621">
-    <img width="30%" alt="AboutSection" src="https://github.com/San-Pellegrino-Trio-Stars/atelier_fecproject/assets/132500378/f5518932-6dab-492d-a6ec-f94b67b778eb">
-</div>
-
+| Hero Section | Overview Section | About Section |
+| :-----------: | :--------------: | :------------: |
+| ![HeroSection](https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/blob/master/assets/132500378/512e01ff-3c7a-4f34-9560-0b6a67065cb7.jpg) | ![OverviewSection](https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/blob/master/assets/132500378/adbab7df-9136-4643-805e-e4ba34e79621.jpg) | ![AboutSection](https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/blob/master/assets/132500378/f5518932-6dab-492d-a6ec-f94b67b778eb.jpg) |
 <details>
     <summary>DEMO</summary>
 
