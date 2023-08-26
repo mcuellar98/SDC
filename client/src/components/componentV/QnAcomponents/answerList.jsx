@@ -10,8 +10,8 @@ const AnswerItem = (props) => {
     <p>A: {props.answer.body}</p>
     <div className="flex py-4">
     {props.answer.photos.length > 0 &&
-      props.answer.photos.map((photo) => {
-        return <img src={photo} className="max-h-36 px-2" loading="lazy"/>
+      props.answer.photos.map((photo, index) => {
+        return <img src={photo} className="max-h-36 px-2" loading="lazy" key={index}/>
       })
     }
     </div>
