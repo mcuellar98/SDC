@@ -9,7 +9,7 @@ const ReviewsList = () => {
   const [unfilteredReviews, setUnfilteredReviews] = useState([]);
   const [visible, setVisible] = useState(2);
   const [openModal, setOpenModal] = useState(false);
-  const [sortingOption, setSortingOption] = useState(null);
+  const [sortingOption, setSortingOption] = useState('');
 
   const sortReviews = (option) => {
     let sortedReviews = [...reviews];
