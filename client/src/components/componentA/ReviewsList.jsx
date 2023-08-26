@@ -24,7 +24,6 @@ const ReviewsList = () => {
         sortedReviews.sort((a, b) => {
           const relevanceA = a.helpfulness / Math.max(1, new Date() - new Date(a.date));
           const relevanceB = b.helpfulness / Math.max(1, new Date() - new Date(b.date));
-
           return relevanceB - relevanceA;
         });
         break;
@@ -41,7 +40,6 @@ const ReviewsList = () => {
   const fetchReviews = () => {
     return axios.get('reviews/getAllReviews')
       .then(response => {
-        // console.log(response.data);
         setReviews(response.data);
         setUnfilteredReviews(response.data);
       })

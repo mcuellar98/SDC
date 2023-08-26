@@ -8,7 +8,6 @@ const ImageModal = ({ closeModal, imageUrl }) => {
         <RxExit onClick={closeModal} size={25} />
       </div>
       <div className="relative">
-
         <img src={imageUrl} alt="Full Image" className="max-h-[80vh] max-w-[80vw] rounded-2xl" />
       </div>
 

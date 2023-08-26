@@ -73,12 +73,10 @@ const RatingSummary = ({reviews, unfilteredReviews, setReviews}) => {
   const [ratingsData, setRatingsData] = useState(null);
   const [activeFilters, setActiveFilters] = useState([]);
 
-
   const fetchRatings = () => {
     return axios.get('reviews/getRatings')
       .then(response => {
         setRatingsData(response.data);
-        // console.log('Fetched ratingsData:', response.data);
       })
       .catch(error => {
         console.error('Error fetching ratings:', error);
@@ -105,7 +103,6 @@ const RatingSummary = ({reviews, unfilteredReviews, setReviews}) => {
   }
 
   const calculateRecommendPercentage = (recommendData) => {
-    // console.log(recommendData);
     return parseInt(recommendData.true)/(parseInt(recommendData.false) + parseInt(recommendData.true));
   }
 
@@ -155,15 +152,9 @@ const RatingSummary = ({reviews, unfilteredReviews, setReviews}) => {
     setReviews(unfilteredReviews);
   };
 
-
   const recommendPercentage = calculateRecommendPercentage(ratingsData.recommended).toFixed(1);
-  // ratingsData.ratings = {1: '92', 2: '60', 3: '184', 4: '168', 5: '423'}
   const averageRating = calculateAverageRating(ratingsData.ratings).toFixed(1);
-  // console.log(averageRating);
-  //ratingsData.recommended = {false: '209', true: '718'}
   const ratingDistribute = calculateProgress(ratingsData.ratings);
-  // console.log(ratingDistribute);
-
 
   return (
     <div>
@@ -181,8 +172,6 @@ const RatingSummary = ({reviews, unfilteredReviews, setReviews}) => {
         <div className="hover:bg-gray-200  hover:bg-opacity-20 transition duration-300 ease-in-out 5stars flex items-center mb-2 text-xs">
           <label onClick={() => {
           toggleFilter(5);
-          console.log(activeFilters);
-          console.log(reviews);
         }}>5 stars</label>
           <ReviewBar bgcolor="#27272A" progress={ratingDistribute[5]*100}  height={9} />
           <label>({ratingsData.ratings[5]} reviews)</label>

@@ -12,9 +12,9 @@ const StarRating = ({rating, setRating}) => {
     5: 'Great',
   };
 
-  useEffect(() => {
-    console.log(rating);
-  }, [rating]);
+  // useEffect(() => {
+  //   console.log(rating);
+  // }, [rating]);
 
   return (
     <div className="flex">
@@ -46,7 +46,6 @@ const StarRating = ({rating, setRating}) => {
       <div className="ml-4">
         {rating && <p className="text-sm">{ratingText[rating]}</p>}
       </div>
-
     </div>
   )
 };

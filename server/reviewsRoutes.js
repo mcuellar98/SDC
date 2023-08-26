@@ -6,7 +6,6 @@ const basePath = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe';
 
 
 reviewsRouter.get('/getAllReviews', (req, res) => {
-  // let productId = parseInt(req.query.product_id);
   let productId = 37312;
   let options = {
     headers: { Authorization: process.env.TOKEN},
@@ -18,11 +17,9 @@ reviewsRouter.get('/getAllReviews', (req, res) => {
     }
   };
 
-  // console.log(req.url);
 
   axios.get(basePath + '/reviews', options)
     .then((response) => {
-      // console.log(response.data.results);
       res.send(response.data.results);
     })
     .catch((err) => {
@@ -44,7 +41,6 @@ reviewsRouter.get('/getRatings', (req, res) => {
 
   axios.get(basePath + '/reviews/meta', options)
     .then((response) => {
-      // console.log(response.data);
       res.send(response.data);
     })
     .catch((err) => {
@@ -63,7 +59,6 @@ reviewsRouter.post('/reviews', (req,res) => {
 
   axios.post(basePath + '/reviews', requestData, options)
     .then((response) => {
-      // console.log(requestData);
       res.status(201).send(response.data); // Successfully created
     })
     .catch((err) => {
@@ -74,9 +69,7 @@ reviewsRouter.post('/reviews', (req,res) => {
 });
 
 reviewsRouter.put('/updateHelpful/:review_id', (req, res) => {
-  // console.log(req.url);
   const reviewId = req.params.review_id;
-  // console.log(reviewId);
 
   const options = {
     headers: { Authorization: process.env.TOKEN },
