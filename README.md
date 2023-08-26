@@ -70,7 +70,7 @@
 
 
 
-[![gif of productoverview](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3ZnaTZyZ2NocDRtcXZqdDZvZTBzcjV2ZDc1ZW9jZGY4cDd2eDg1YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jjPTYiH27vPPauj7Yz/giphy.gif)]
+![gif of productoverview](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3ZnaTZyZ2NocDRtcXZqdDZvZTBzcjV2ZDc1ZW9jZGY4cDd2eDg1YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jjPTYiH27vPPauj7Yz/giphy.gif)
 
 ## Questions & Answers (Victor)
 #### Features
