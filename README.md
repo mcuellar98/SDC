@@ -47,7 +47,7 @@
 
 <details>
     <summary>DEMO</summary>
-    <img width="600" alt="HeroSection" src="https://media.giphy.com/media/sHJQlCqowsT8w853nE/giphy.mp4">
+    <img width="600" alt="HeroSection" src="https://media.giphy.com/media/sHJQlCqowsT8w853nE/giphy.gif">
 
 
 
