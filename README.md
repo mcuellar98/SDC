@@ -110,5 +110,4 @@ Installation
 
 ## LightHouse Audit Results
 
-
-<img  alt="image" width="300" height="200" src="https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/132500378/cac0f68e-1a0e-4f90-bbe5-02d91f2812aa">
+![image](https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/132500378/dd4a28e6-03fc-40f9-a2fc-3285eb23f80f)
