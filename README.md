@@ -61,7 +61,6 @@
 - Custom Review Form with Drag-and-Drop Image Upload
 - Filter Reviews by Rating, Relevance, Helpfulness, or Posting Dat
 
-![reviews](https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/132500378/1baa1330-c635-419f-bc72-d859c289a64b)
 
 <img width="1910" alt="ReviewSection" src="https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/136006024/b1ca70d1-a3fe-47ce-98d8-3bb2807e76e5">
 <img width="2051" alt="NewReview" src="https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/136006024/727320a5-41d8-496a-976f-b0196c5bc28f">
