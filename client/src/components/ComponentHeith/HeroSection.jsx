@@ -4,6 +4,7 @@ import hero from '../../img/model.jpg'
 
 const HeroSection = () => {
 
+  // Function to scroll to the "overview" section when the button is clicked
   const scrollToOverview = () => {
     const overviewElement = document.getElementById('overview');
     if (overviewElement) {

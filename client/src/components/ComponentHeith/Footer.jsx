@@ -3,12 +3,15 @@ import { AiFillFacebook, AiOutlineInstagram, AiFillYoutube, AiOutlineTwitter } f
 import { BsPinterest } from 'react-icons/bs';
 
 const Footer = () => {
+
   const [email, setEmail] = useState('');
 
+// Function to handle email input change
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
 
+  // Function to handle join button click
   const handleJoinClick = () => {
     setEmail('');
   };
