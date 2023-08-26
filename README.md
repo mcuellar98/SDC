@@ -76,12 +76,8 @@
 - Filter questions using a search bar.
 - Report or mark questions and answers as helpful with immediate feedback
 
-<img width="600" alt="questions" src="https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/132500378/e0dae3c7-08e7-482f-a617-14d47b1a206a">
+     <img width="600" alt="Questions" src="https://media.giphy.com/media/NDRANC6Hqg2OkJ2klI/giphy.gif">
 
-<details>
-    <summary>DEMO</summary>
-     <img width="600" alt="Quesrtions" src="https://media.giphy.com/media/NDRANC6Hqg2OkJ2klI/giphy.gif">
-</details>
 
 ## Getting Started
 
