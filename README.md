@@ -79,7 +79,7 @@
 - Filter questions using a search bar.
 - Report or mark questions and answers as helpful with immediate feedback
 
-![questions](https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/132500378/0d0aede9-4f4c-4301-a2f8-6a57ea100e84)
+<img width="600" alt="questions" src="https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/132500378/0d0aede9-4f4c-4301-a2f8-6a57ea100e84">
 
 <details>
     <summary>DEMO</summary>
