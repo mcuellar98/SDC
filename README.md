@@ -107,3 +107,7 @@ Installation
     ```
     Set up a config.js with a token from Github
     ```
+
+## LightHouse Audit Results
+
+![image](https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/132500378/3dcce9ff-3226-4301-b18b-af505ba9ffb7)
