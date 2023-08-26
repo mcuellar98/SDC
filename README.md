@@ -76,7 +76,7 @@
 - Filter questions using a search bar.
 - Report or mark questions and answers as helpful with immediate feedback
 
-     <img width="600" alt="Questions" src="https://media.giphy.com/media/NDRANC6Hqg2OkJ2klI/giphy.gif">
+<img width="600" alt="Questions" src="https://media.giphy.com/media/NDRANC6Hqg2OkJ2klI/giphy.gif">
 
 
 ## Getting Started
