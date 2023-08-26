@@ -61,9 +61,6 @@
 - Filter Reviews by Rating, Relevance, Helpfulness, or Posting Dat
 
 
-<img width="1910" alt="ReviewSection" src="https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/136006024/b1ca70d1-a3fe-47ce-98d8-3bb2807e76e5">
-<img width="2051" alt="NewReview" src="https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/136006024/727320a5-41d8-496a-976f-b0196c5bc28f">
-
 <details>
     <summary>DEMO</summary>
 </details>
@@ -72,6 +69,8 @@
 [Demo YouTube Video Link](https://www.youtube.com/watch?v=qsZ7apeVM0M)
 
 
+
+[![gif of productoverview](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3ZnaTZyZ2NocDRtcXZqdDZvZTBzcjV2ZDc1ZW9jZGY4cDd2eDg1YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jjPTYiH27vPPauj7Yz/giphy.gif)]
 
 ## Questions & Answers (Victor)
 #### Features
