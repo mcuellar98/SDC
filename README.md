@@ -47,7 +47,7 @@
 
 <details>
     <summary>DEMO</summary>
-    <img width="600" alt="HeroSection" src="https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/132500378/7169e8da-ca41-46aa-9cb8-805266f9a744">
+    <img width="600" alt="HeroSection" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjI0MGJiZTRibWswOWZmNjFxaXFwaGJvNm8wc29mNnpjY2YzaW9vciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6ekhe21VarFMJH45xs/giphy.gif">
 
 
 
