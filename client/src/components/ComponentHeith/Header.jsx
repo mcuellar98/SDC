@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu, AiFillShopping } from 'react-icons/ai';
 import HeroSection from './HeroSection.jsx';
-import logo from '../../img/logo.png'
-
+import logo from '../../img/logo.png';
 
 const Header = () => {
-
   // State variable to control navigation menu visibility
   const [nav, setNav] = useState(true);
 
   // Function to toggle the navigation menu
   const handleNav = () => {
     setNav(!nav);
-  }
+  };
 
   // Function to scroll to the "about" section
   const scrollToAbout = () => {
@@ -32,8 +30,8 @@ const Header = () => {
 
   // Render the component's JSX
   return (
-    {/* Header section */}
     <div>
+      {/* Header section */}
       <header className='flex justify-between items-center h-[13vh]  text-white bg-[#222222] px-8'>
         <div className="flex items-center">
           <img src={logo} alt="Company Logo" className="w-60 h-[14vh] ml-4" />
@@ -68,15 +66,12 @@ const Header = () => {
             <li className='p-4 border-b border-white'><a href="/">Contact</a></li>
           </ul>
         </div>
-
       </header>
-      <HeroSection />
 
+      {/* Render the HeroSection component */}
+      <HeroSection />
     </div>
   );
 };
 
-
-
 export default Header;
-
