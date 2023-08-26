@@ -5,9 +5,9 @@
 - The project was in conjunction with an AGILE team of 3 engineers.
 ## Authors
 
-[Heith Mahfoudhi](https://github.com/Heithh)  -  Product Overview Module\
-[Amelia LI](https://github.com/amelia8872)  -  Ratings & Reviews Module\
-[Victor Acosta](https://github.com/Tonegawa94)  -  Questions & Answers Module
+[Heith Mahfoudhi](https://github.com/Heithh)\
+[Amelia LI](https://github.com/amelia8872)\
+[Victor Acosta](https://github.com/Tonegawa94)
 
 
 ## Built With
