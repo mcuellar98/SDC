@@ -6,7 +6,6 @@ const ReviewBar = ({bgcolor,progress,height}) => {
       height: height,
       width: '50%',
       backgroundColor: '#f0ece2',
-      // borderRadius: 10,
       margin: 10
     }
 
@@ -14,7 +13,6 @@ const ReviewBar = ({bgcolor,progress,height}) => {
       height: '100%',
       width: `${progress}%`,
       backgroundColor: bgcolor,
-      // borderRadius:20,
       textAlign: 'right'
     }
 

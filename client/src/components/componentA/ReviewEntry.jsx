@@ -59,8 +59,6 @@ const ReviewEntry = ({ review }) => {
 
       {review.recommend && <div className="recommendation flex text-sm font-semibold mt-2"> <AiOutlineCheck className="mr-2"/>I recommend this product</div>}
 
-      {/* Feedback Section */}
-
       <Helpful review={review} />
 
     </div>

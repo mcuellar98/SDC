@@ -2,9 +2,6 @@ import React, {useState, useEffect} from 'react';
 
 const Characteristics = ({characteristicsRatings, setCharacteristicsRatings, characteristicsKeys}) => {
 
-  // console.log("characteristicsKeys:", characteristicsKeys);
-  // console.log("characteristicsRatings:", characteristicsRatings);
-
   const characteristicsData = [
     {
       title: 'Size',
@@ -74,9 +71,9 @@ const handleCharacteristicRatingChange = (index, value) => {
   setCharacteristicsRatings(updatedRatings);
 };
 
-useEffect(()=> {
-  console.log(characteristicsRatings);
-}, [characteristicsRatings])
+// useEffect(()=> {
+//   console.log(characteristicsRatings);
+// }, [characteristicsRatings])
 
 
   return (

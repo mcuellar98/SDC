@@ -1,5 +1,4 @@
 import React from 'react';
-// import {FaStar, FaStarHalfAlt, FaRegStar} from 'react-icons/fa';
 import outlineStar from '../resources/outlineStar.svg';
 import starOneQuarter from '../resources/star-one-quarter.svg';
 import starHalf from '../resources/star-half.svg';
@@ -50,16 +49,6 @@ export const QuarterStars = (rating) => {
   };
 
 const Star = ({rating}) => {
-
-  // for example: rating = 3.75, fullStars = 3, decimalPart = 0.75, outlinedStars = 5 - 3 - 1 = 1
-  // const totalStars = 5;
-  // const fullStars = Math.floor(rating);
-  // const decimalPart = rating - fullStars;
-  // const outlinedStars = totalStars - fullStars - (decimalPart > 0 ? 1 : 0);
-
-  // const fractionalStarWidth = decimalPart * 100;
-
-
 
   const stars = QuarterStars(rating);
 
