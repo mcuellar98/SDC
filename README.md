@@ -39,8 +39,7 @@
 - Header & Hero section
 - About Section & Footer for the brand unique story and connections
 - Details providing a product overview, style, price and key features
-- Ability to add items to favorite and cart
-- Ability to share items on social media
+- Ability to add items to favorite, cart, and share on social media
 - Scroll through images, expand images and zoom in on specific parts of the image
 
 <img width="1438" alt="HeroSection" src="https://github.com/San-Pallegrino-Trio-Stars/atelier_fecproject/assets/132500378/6c38c871-1b70-4d05-b48e-04396c2a9d5f">
