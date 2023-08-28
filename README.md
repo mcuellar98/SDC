@@ -60,7 +60,7 @@
 - Product Ratings Breakdown with Visual Representations
 - Product-Specific Reviews with Uploaded Images
 - Custom Review Form with Drag-and-Drop Image Upload
-- Filter Reviews by Rating, Relevance, Helpfulness, or Posting Dat
+- Filter Reviews by Rating, Relevance, Helpfulness, or Posting Data
 
 [Demo YouTube Video Link](https://www.youtube.com/watch?v=qsZ7apeVM0M)
 
@@ -71,8 +71,8 @@
 ## Questions & Answers (Victor)
 #### Features
 
-- View and add questions and answers using a modal window.
-- Filter questions using a search bar.
+- View and add questions and answers using a modal window
+- Filter questions using a search bar
 - Report or mark questions and answers as helpful with immediate feedback
 
 <img width="600" alt="Questions" src="https://media.giphy.com/media/NDRANC6Hqg2OkJ2klI/giphy.gif">
