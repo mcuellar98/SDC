@@ -12,6 +12,7 @@ const productsSchema = new mongoose.Schema({
   default_price: String,
   created_at: String,
   updated_at: String
+  // feature link here
 });
 
 const featuresSchema = new mongoose.Schema({
@@ -21,8 +22,10 @@ const featuresSchema = new mongoose.Schema({
   value: String
 })
 
-
+const Products = mongoose.model('products', productsSchema);
+const Features = mongoose.model('features', featuresSchema);
 
 module.exports  = {
-
+  Products: Products,
+  Features: Features
 }
