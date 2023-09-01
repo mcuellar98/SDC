@@ -1,46 +1,79 @@
-const fs = require('fs');
-const { parse } = require("csv-parse");
-const readline = require('readline');
-const {Products, Features} = require('./db.js');
+
+const db = require('./db.js');
+const exec = require('child_process').exec;
 const _ = require('underscore');
+const fs = require('fs');
+const readline = require('readline');
 
-// fs.createReadStream("./../raw_data/features.csv")
-//   .pipe(parse({ delimiter: ",", from_line: 2 }))
-//     .on("data", function (row) {
-//       console.log(row);
-//     })
-//     .on("error", function (error) {s
-//       console.log(error.message);
-//     })
-//     .on("end", function () {
-//       console.log("finished");
-//     });
+// Fast method
 
-const makeTableRow = (arr1, arr2) => {
-  var row = {};
-  _.each(arr1, (field, index) => {
+var problematicDataSets = [];
 
-    var value = arr2[index];
-    row[field] = JSON.parse(value);
+async function seed(cb) {
+  var length = Object.keys(db).length;
+  _.each(Object.keys(db), (table, index) => {
+    var command = `mongoimport --type csv --headerline --db sdc --collection ${table} --file raw_data/${table}.csv --drop`
+    exec(command, (err, stdout, stderr) => {
+      if (err) {
+        problematicDataSets.push(table)
+        console.log(err)
+        return
+      }
+      console.log(`${table} seeded`)
+      if (index === length - 1) {
+        cb();
+      }
+    })
   });
-  return row;
 }
 
-var cntr = 0;
-var rl = readline.createInterface({
-  input: fs.createReadStream("raw_data/features.csv")
-});
+//Slow method. Used when data need to be edited before adding to db
 
-var fields;
-rl.on('line', function(line) {
-  if (cntr === 0) {
-      fields = line.split(',');
-  } else {
-    var values = line.split(',');
-    var feature = new Features(makeTableRow(fields, values));
-    feature.save();
+function makeRow(arr1, arr2) {
+  var obj = {}
+  _.each(arr1, (field, index) => {
+    var value = arr2[index];
+    if (value[0]==='"' && value[value.length-1] !== '"') {
+      value += '"';
+    } else if (value[0] !== '"' && value[value.length-1] === '"') {
+      value = '"' + value;
+    }
+    obj[field] = JSON.parse(value);
+  })
+  return obj;
+}
+
+async function slowSeed(table) {
+  await db[table].deleteMany({});
+  var counter = 0;
+  const fileStream = fs.createReadStream(`raw_data/${table}.csv`);
+  const rl = readline.createInterface({
+    input: fileStream,
+    crlfDelay: Infinity
+  });
+  var fields;
+  for await (const line of rl) {
+      if (counter === 0) {
+        var fields = line.split(',');
+        counter++;
+      } else {
+        var values = line.split(',');
+        await db[table].create(makeRow(fields, values))
+      }
   }
-  cntr++;
-});
+  console.log(`${table} seeded`)
+}
 
-//{id: parseInt(values[0]), product_id: parseInt(values[1]), feature: values[2].slice(1, values[2].length-1), value: values[3].slice(1, values[3].length - 1) }
+
+seed(() => {
+  problematicDataSets.forEach((table) => {
+    slowSeed(table)
+  })
+})
+
+
+
+
+
+
+// await db.Features.create({id: values[0], product_id: values[1], feature: values[2], value: values[3]})
