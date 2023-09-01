@@ -10,8 +10,8 @@ const productsSchema = new mongoose.Schema({
   description: String,
   category: String,
   default_price: String,
-  created_at: String,
-  updated_at: String
+  created_at: Date,
+  updated_at: Date
 });
 
 const featuresSchema = new mongoose.Schema({
