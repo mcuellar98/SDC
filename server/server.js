@@ -115,15 +115,16 @@ app.get('/api/images', (req, res) => {
             return Promise.resolve(obj)
           })
           .then((object) => {
-            console.log(object)
+            styleObj.results.push(object);
+            res.json(styleObj);
           })
           .catch((err) => {
-            console.log(error);
+            res.status(500).json({ error: 'Internal Server Error' });
           })
       })
     })
     .catch((err) => {
-      console.log(error);
+      res.status(500).json({ error: 'Internal Server Error' });
     })
   // for each style returned by query
   // populate a style object
