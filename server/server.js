@@ -126,33 +126,6 @@ app.get('/api/images', (req, res) => {
     .catch((err) => {
       res.status(500).json({ error: 'Internal Server Error' });
     })
-  // for each style returned by query
-  // populate a style object
-  // make photo array
-  // for each object returned from photo table
-    // add object to photo array
-  // make sku object
-    // for each object returned by sku
-    // make sku object with id as first property
-    // then make another object with qunity and size
-  // return object
-  // console.log(db.styles.find({productId: (37315-37370)}))
-
-  //og stuff
-  // const requestOptions = {
-  //   headers: {
-  //     Authorization: process.env.TOKEN,
-  //   }
-  // };
-
-  // axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/37315/styles', requestOptions)
-  //   .then(response => {
-  //     res.json(response.data);
-  //   })
-  //   .catch(error => {
-  //     console.error('Error fetching images:', error);
-  //     res.status(500).json({ error: 'Internal Server Error' });
-  //   });
 });
 
 app.get('/api/product', (req, res) => {
@@ -183,22 +156,6 @@ app.get('/api/product', (req, res) => {
     .catch((err) => {
       res.status(500).json({ error: 'Internal Server Error' });
     })
-
-  // og stuff
-  // const requestOptions = {
-  //   headers: {
-  //     Authorization: process.env.TOKEN,
-  //   }
-  // };
-
-  // axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/37315', requestOptions)
-  // .then(response => {
-  //   res.json(response.data);
-  // })
-  //   .catch(error => {
-  //     console.error('Error fetching product info:', error);
-  //     res.status(500).json({ error: 'Internal Server Error' });
-  //   });
 });
 
 //-------------------------------------------------------------------------------------------
