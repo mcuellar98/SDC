@@ -9,7 +9,6 @@ const productsSchema = new mongoose.Schema({
   slogan: String,
   description: String,
   category: String,
-  //need to add below to csv data
   default_price: String,
   created_at: String,
   updated_at: String

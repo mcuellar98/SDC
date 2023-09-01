@@ -5,8 +5,8 @@ const _ = require('underscore');
 const fs = require('fs');
 const readline = require('readline');
 
-// Fast method
-
+// Fastest seeding method using mongoimport
+// Keeps track of tables that give an error on import and runs secondary callback seeding function to fix data and seed manually
 var problematicDataSets = [];
 
 async function seed(cb) {
@@ -28,7 +28,6 @@ async function seed(cb) {
 }
 
 //Slow method. Used when data need to be edited before adding to db
-
 function makeRow(arr1, arr2) {
   var obj = {}
   _.each(arr1, (field, index) => {
@@ -64,11 +63,21 @@ async function slowSeed(table) {
   console.log(`${table} seeded`)
 }
 
-
+// Call top level seeding function and provide slower seeding callback
 seed(() => {
   problematicDataSets.forEach((table) => {
     slowSeed(table)
   })
+})
+
+// Add dates to product table
+db.products.updateMany({}, {
+  created_at: new Date(),
+  updated_at: new Date()
+})
+.then(() => {
+  console.log('Dates added to product')
+  process.exit();
 })
 
 
@@ -76,4 +85,3 @@ seed(() => {
 
 
 
-// await db.Features.create({id: values[0], product_id: values[1], feature: values[2], value: values[3]})
