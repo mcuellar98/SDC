@@ -2,6 +2,7 @@ const {MongoClient} = require('mongodb');
 const axios = require('axios');
 require('dotenv').config();
 const _ = require('lodash');
+const dbs = require('./../server/db.js');
 
 describe('fields', () => {
   let connection;
@@ -127,4 +128,44 @@ describe('api query', () => {
         expect(JSON.stringify(dbResult)).toEqual(JSON.stringify(herokuResults));
       })
   }, 20000);
+});
+
+describe('db query times', () => {
+
+  it('products should query item in last 10% in less than 50ms', async () => {
+    await dbs.products.find({id: 10000000}).explain('executionStats')
+     .then((results) => {
+      console.log(results.executionStats.executionTimeMillis);
+      expect(results.executionStats.executionTimeMillis).toBeLessThanOrEqual(50);
+     })
+ });
+
+it('styles should query item in last 10% in less than 50ms', async () => {
+  await dbs.styles.find({id: 19000000}).explain('executionStats')
+   .then((results) => {
+     expect(results.executionStats.executionTimeMillis).toBeLessThanOrEqual(50);
+   })
+});
+
+it('photos should query item in last 10% in less than 50ms', async () => {
+  await dbs.photos.find({id: 5500000}).explain('executionStats')
+   .then((results) => {
+     expect(results.executionStats.executionTimeMillis).toBeLessThanOrEqual(50);
+   })
+});
+
+it('skus should query item in last 10% in less than 50ms', async () => {
+  await dbs.skus.find({id: 11000000}).explain('executionStats')
+   .then((results) => {
+     expect(results.executionStats.executionTimeMillis).toBeLessThanOrEqual(50);
+   })
+});
+
+it('features should query item in last 10% in less than 50ms', async() => {
+  await dbs.features.find({id: 2000000}).explain('executionStats')
+   .then((results) => {
+     expect(results.executionStats.executionTimeMillis).toBeLessThanOrEqual(50);
+   })
+});
+
 });
