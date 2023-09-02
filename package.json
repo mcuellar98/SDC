@@ -29,6 +29,7 @@
     "express-compression": "^1.0.2",
     "fs": "^0.0.1-security",
     "jquery": "^3.7.1",
+    "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "mongoose": "^7.5.0",
     "react": "^18.2.0",
@@ -45,6 +46,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.22.10",
+    "@babel/plugin-transform-modules-commonjs": "^7.22.11",
     "@babel/preset-env": "^7.22.10",
     "@babel/preset-react": "^7.22.5",
     "@testing-library/jest-dom": "^6.0.1",

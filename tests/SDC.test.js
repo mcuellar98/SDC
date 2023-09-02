@@ -1,6 +1,7 @@
 const {MongoClient} = require('mongodb');
 const axios = require('axios');
-
+require('dotenv').config();
+const _ = require('lodash');
 
 describe('fields', () => {
   let connection;
@@ -90,10 +91,40 @@ describe('api query', () => {
   });
 
   it('products by id api call should return same as heroku api', async () => {
-    await axios.get('http://localhost:3000/api/images')
+    var dbResult;
+    await axios.get('http://localhost:3000/api/product')
       .then((results) => {
-        console.log(results.data);
+        dbResult = results.data;
+        dbResult.created_at = null;
+        dbResult.updated_at = null;
+        return axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/37315',  {
+          headers: { Authorization: process.env.TOKEN }
+        })
+      })
+      .then((results) => {
+        var herokuResults = results.data;
+        herokuResults.created_at = null;
+        herokuResults.updated_at = null;
+        expect(JSON.stringify(dbResult)).toEqual(JSON.stringify(herokuResults));
       })
   });
 
+  it('images api call should return same as heroku api', async () => {
+    var dbResult;
+    await axios.get('http://localhost:3000/api/images')
+      .then((results) => {
+        dbResult = results.data;
+        dbResult.created_at = null;
+        dbResult.updated_at = null;
+        return axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/37315/styles',  {
+          headers: { Authorization: process.env.TOKEN }
+        })
+      })
+      .then((results) => {
+        var herokuResults = results.data;
+        herokuResults.created_at = null;
+        herokuResults.updated_at = null;
+        expect(JSON.stringify(dbResult)).toEqual(JSON.stringify(herokuResults));
+      })
+  }, 20000);
 });

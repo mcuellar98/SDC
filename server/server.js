@@ -92,21 +92,22 @@ app.get('/api/images', (req, res) => {
   styleObj.results = [];
   db.styles.find({productId: 5})
     .then((results) => {
-      results.forEach((result)=> {
+      var counter = 0;
+      results.forEach((result, index)=> {
         var obj = {};
         obj.style_id = result.id + 220997;
         obj.name = result.name;
-        obj.original_price = result.original_price;
+        obj.original_price = result.original_price+'.00';
         obj.sale_price = (result.sale_price === 'null' ? null: result.sale_price);
         obj['default?'] = result.default_style;
         obj.photos = [];
         obj.skus = {};
-        db.photos.find({styleId: result.id})
+        db.photos.find({styleId: result.id}).sort({id:1})
           .then((results) => {
             results.forEach((result) => {
-              obj.photos.push({url: result.url, thumbnail_url: result.thumbnail_url})
+              obj.photos.push({thumbnail_url: result.thumbnail_url, url: result.url})
             })
-            return db.skus.find({styleId: result.id})
+            return db.skus.find({styleId: result.id}).sort({id:1})
           })
           .then((results) => {
             results.forEach((sku) => {
@@ -117,13 +118,15 @@ app.get('/api/images', (req, res) => {
           })
           .then((object) => {
             styleObj.results.push(object);
+            counter++;
+            if (counter === results.length) {
 
+              styleObj.results = _.sortBy(styleObj.results, (result) => {return result.style_id});
+              console.log(styleObj);
+              res.json(styleObj);
+            }
           })
       })
-      return Promise.resolve(styleObj);
-    })
-    .then((response) => {
-      res.json(response);
     })
     .catch((err) => {
       res.status(500).json({ error: 'Internal Server Error' });
@@ -140,10 +143,10 @@ app.get('/api/product', (req, res) => {
       productObj.slogan = result[0].slogan;
       productObj.description = result[0].description;
       productObj.category = result[0].category;
-      productObj.default_price = result[0].default_price;
+      productObj.default_price = result[0].default_price+'.00';
       productObj.created_at = result[0].created_at;
       productObj.updated_at = result[0].updated_at;
-      return db.features.find({product_id: 6})
+      return db.features.find({product_id: 6}).sort({id:1})
     })
     .then((result) => {
       productObj.features = [];

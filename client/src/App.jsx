@@ -21,12 +21,12 @@ const App = () => {
         <OverviewModule />
       </div>
 
-      {/* <div id="reviews">
+      <div id="reviews">
         <ReviewsList/>
       </div>
       <div id="Questions" className="bg-[#27272A]">
       <QuestionsAndAnswers />
-    </div> */}
+    </div>
 
 
       <div id="about">
