@@ -9,6 +9,7 @@ const basePath = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe';
 const reviewsRouter = require('./reviewsRoutes.js');
 const db = require('./db.js');
 const Promise = require("bluebird");
+const _ = require('underscore');
 
 // Create Express app
 const app = express();
@@ -116,12 +117,13 @@ app.get('/api/images', (req, res) => {
           })
           .then((object) => {
             styleObj.results.push(object);
-            res.json(styleObj);
-          })
-          .catch((err) => {
-            res.status(500).json({ error: 'Internal Server Error' });
+
           })
       })
+      return Promise.resolve(styleObj);
+    })
+    .then((response) => {
+      res.json(response);
     })
     .catch((err) => {
       res.status(500).json({ error: 'Internal Server Error' });
@@ -154,7 +156,6 @@ app.get('/api/product', (req, res) => {
       res.json(productObj);
     })
     .catch((err) => {
-      res.status(500).json({ error: 'Internal Server Error' });
     })
 });
 
