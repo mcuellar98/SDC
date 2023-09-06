@@ -122,7 +122,6 @@ app.get('/api/images', (req, res) => {
             if (counter === results.length) {
 
               styleObj.results = _.sortBy(styleObj.results, (result) => {return result.style_id});
-              console.log(styleObj);
               res.json(styleObj);
             }
           })

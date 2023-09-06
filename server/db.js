@@ -11,7 +11,8 @@ const productsSchema = new mongoose.Schema({
   category: String,
   default_price: String,
   created_at: Date,
-  updated_at: Date
+  updated_at: Date,
+  features: Array
 });
 
 const featuresSchema = new mongoose.Schema({
@@ -69,8 +70,8 @@ const Reviews = mongoose.model('reviews', reviewsSchema);
 module.exports  = {
   products: Products,
   features: Features,
-  photos: Photos,
-  skus: Skus,
-  styles: Styles,
-  reviews: Reviews
+  // photos: Photos,
+  // skus: Skus,
+  // styles: Styles,
+  // reviews: Reviews
 }
