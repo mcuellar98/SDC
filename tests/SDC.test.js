@@ -23,7 +23,7 @@ describe('fields', () => {
   it('products table should have all expected values', async () => {
     const products = db.collection('products');
     const fields = ['id','campus','name','slogan','description','category','default_price','created_at','updated_at']
-    const data = await products.findOne({id:1});
+    const data = await products.findOne({id:37311});
     fields.forEach((field) => {
       expect(data).toHaveProperty(field);
     })

@@ -70,8 +70,8 @@ const Reviews = mongoose.model('reviews', reviewsSchema);
 module.exports  = {
   products: Products,
   features: Features,
-  // photos: Photos,
-  // skus: Skus,
-  // styles: Styles,
+  photos: Photos,
+  skus: Skus,
+  styles: Styles,
   // reviews: Reviews
 }

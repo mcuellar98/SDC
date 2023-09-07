@@ -65,9 +65,9 @@ async function slowSeed(table) {
 
 // Call top level seeding function and provide slower seeding callback
 seed(() => {
-  problematicDataSets.forEach((table) => {
-    slowSeed(table)
-  })
+  // problematicDataSets.forEach((table) => {
+  //   slowSeed(table)
+  // })
   db.products.updateMany({}, {
     $inc: {id: 37310},
     created_at: new Date(),
@@ -76,40 +76,72 @@ seed(() => {
   })
   .then(() => {
     console.log('Dates and campus added to product');
-    return db.features.updateMany({}, {$inc: {product_id: 37310}});
+    return db.features.updateMany({}, {$inc: {product_id: 37310}})
   })
   .then(() => {
-    console.log('Features product_id updated')
-    return db.products.aggregate([
-      {$limit: 1000},
-      {$project: {
-        id: 1,
-        campus: 1,
-        name: 1,
-        slogan: 1,
-        description: 1,
-        category: 1,
-        default_price : { $concat: [ {$substr: ["$default_price", 0, 10] }, ".00" ] },
-        created_at: 1,
-        updated_at: 1
-      }},
-      {$lookup: {
-        from: "features",
-        let: {id: "$id"},
-        pipeline: [
-          { $match:  {$expr: {$in: ['$product_id', ["$$id"]]}} },
-          { $sort: {id: 1}},
-          { $project: {_id: 0, feature:  1, value: 1} }
-        ],
-        as: "features"
-        }
-      },
-      { $out: "completeProducts" }
-    ])
+    console.log('Features product_id updated');
+    return db.styles.updateMany({}, {$inc: {productId: 37310, id: 220997}});
   })
-  .then((result) => {
-    console.log('Products joined with features');
-    process.exit();
+  .then(() => {
+    console.log('Styles ids updated');
+    return db.photos.updateMany({}, {$inc: {styleId: 220997}});
+  })
+  .then(() => {
+    return db.products.collection.createIndex({id:1});
+  })
+  .then(() => {
+    return db.features.collection.createIndex({product_id:1});
+  })
+  .then(() => {
+    return db.styles.collection.createIndex({id:1});
+  })
+  .then(() => {
+    return db.photos.collection.createIndex({styleId:1});
+  })
+  .then(() => {
+    return db.skus.collection.createIndex({styleId:1});
+  })
+  // .then(() => {
+  //  db.products.aggregate([
+  //   {$match: {id: 37315}},
+  //   // {$limit: 10},
+  //   {$project: {
+  //     id: 1,
+  //     campus: 1,
+  //     name: 1,
+  //     slogan: 1,
+  //     description: 1,
+  //     category: 1,
+  //     default_price : { $concat: [ {$substr: ["$default_price", 0, 10] }, ".00" ] },
+  //     created_at: 1,
+  //     updated_at: 1
+  //   }},
+  //   {$lookup: {
+  //     from: "features",
+  //     let: {id: "$id"},
+  //     pipeline: [
+  //       { $match:  {$expr: {$in: ['$product_id', ["$$id"]]}} },
+  //       // {$match: {product_id: 149247}},
+  //       { $sort: {id: 1}},
+  //       { $project: {_id: 0, feature:  1, value: 1} }
+  //     ],
+  //     as: "features"
+  //     }
+  //   },
+  //   {$out: 'completeProducts'}
+  // ])
+  //
+  // .catch((err) => {
+  //   console.log(err);
+  //   process.exit();
+  // })
+// })
+  .then(() => {
+    console.log('Indexes created');
+    return db.skus.updateMany({}, {$inc: {styleID: 220997}});
+  })
+  .then(() => {
+      process.exit();
   })
 })
 
