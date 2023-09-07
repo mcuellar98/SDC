@@ -87,61 +87,6 @@ app.use('/reviews', reviewsRouter);
 
 //View Images
 app.get('/api/images', (req, res) => {
-  // db.styles.aggregate([
-  //   {$match: {productId: 37315}},
-  //   {$project:{productId: 1}},
-  //   {$limit: 1},
-  //   {$lookup: {
-  //     from: "styles",
-  //     let: {
-  //       productId: "$productId",
-  //       id: "$id"
-  //     },
-  //     pipeline: [
-  //       { $match:  {$expr: {$eq: ['$productId', "$$productId"]}} },
-  //       { $sort: {id: 1}},
-  //       { $project: {
-  //         _id: 0,
-  //         style_id: '$id',
-  //         name: 1,
-  //         original_price: { $concat: [ {$substr: ["$original_price", 0, 10] }, ".00" ] },
-  //         sale_price: { $cond:
-  //           [
-  //             {$eq: ['$sale_price', 'null']},
-  //             undefined,
-  //             { $concat: [ {$substr: ["$sale_price", 0, 10] }, ".00" ] }
-  //           ]},
-  //         'default?':{$eq: ['$default_style', 1]},
-  //       }},
-  //       // {$lookup: {
-  //       //   from: 'photos',
-  //       //   // let: {id:400000},
-  //       //   pipeline: [
-  //       //     { $match: {$expr: {$eq:['$styleId', '$$id']} }},
-  //       //     {$project: {
-  //       //       _id: 0,
-  //       //       url: 1,
-  //       //       thumbnail_url: 1
-  //       //     }}
-  //       //   ],
-  //       //   as: 'photos'
-  //       // }}
-  //     ],
-  //     as: "results"
-  //     }
-  //   }
-  // ])
-  // .then((result) => {
-  //   // console.log(result[0].results);
-  //   // var response = result[0];
-  //   // delete response._id;
-  //   // res.json(response);
-  //   console.log()
-  // })
-  // .catch((err) => {
-  //   res.status(500).json({ error: 'Internal Server Error' });
-  // })
-
   var styleObj = {};
   styleObj.product_id = '37315';
   styleObj.results = [];
@@ -150,7 +95,7 @@ app.get('/api/images', (req, res) => {
       var counter = 0;
       results.forEach((result, index)=> {
         var obj = {};
-        obj.style_id = result.id + 220997;
+        obj.style_id = result.id;
         obj.name = result.name;
         obj.original_price = result.original_price+'.00';
         obj.sale_price = (result.sale_price === 'null' ? null: result.sale_price);
@@ -166,7 +111,7 @@ app.get('/api/images', (req, res) => {
           })
           .then((results) => {
             results.forEach((sku) => {
-              var skuId = sku.id+1281031
+              var skuId = sku.id
               obj.skus[skuId] = {quantity: sku.quantity, size: sku.size}
             })
             return Promise.resolve(obj)
@@ -176,7 +121,6 @@ app.get('/api/images', (req, res) => {
             counter++;
             if (counter === results.length) {
               styleObj.results = _.sortBy(styleObj.results, (result) => {return result.style_id});
-              // console.log(styleObj);
               res.json(styleObj);
             }
           })
@@ -188,42 +132,6 @@ app.get('/api/images', (req, res) => {
 });
 
 app.get('/api/product', (req, res) => {
-  // db.products.aggregate([
-  //   {$match: {id: 37315}},
-  //   {$limit: 1000},
-  //   {$project: {
-  //     id: 1,
-  //     campus: 1,
-  //     name: 1,
-  //     slogan: 1,
-  //     description: 1,
-  //     category: 1,
-  //     default_price : { $concat: [ {$substr: ["$default_price", 0, 10] }, ".00" ] },
-  //     created_at: 1,
-  //     updated_at: 1
-  //   }},
-  //   {$lookup: {
-  //     from: "features",
-  //     let: {id: "$id"},
-  //     pipeline: [
-  //       { $match:  {$expr: {$eq: ['$product_id', "$$id"]}} },
-  //       { $sort: {id: 1}},
-  //       { $project: {_id: 0, feature:  1, value: 1} }
-  //     ],
-  //     as: "features"
-  //     }
-  //   }
-  // ])
-  // .then((result) => {
-  //   var response = result[0];
-  //   delete response._id;
-  //   res.json(response);
-  // })
-  // .catch((err) => {
-  //   res.status(500).json({ error: 'Internal Server Error' });
-  // })
-
-// })
   var productObj = {}
   db.products.find({id: 37315})
     .then((result) => {
@@ -236,7 +144,7 @@ app.get('/api/product', (req, res) => {
       productObj.default_price = result[0].default_price+'.00';
       productObj.created_at = result[0].created_at;
       productObj.updated_at = result[0].updated_at;
-      return db.features.find({product_id: 6}).sort({id:1})
+      return db.features.find({product_id: 37315}).sort({id:1})
     })
     .then((result) => {
       productObj.features = [];
@@ -249,6 +157,7 @@ app.get('/api/product', (req, res) => {
       res.json(productObj);
     })
     .catch((err) => {
+      res.status(500).json({ error: 'Internal Server Error' });
     })
 });
 

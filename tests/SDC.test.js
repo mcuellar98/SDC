@@ -59,7 +59,7 @@ describe('fields', () => {
   it('skus table should have all expected values', async () => {
     const skus = db.collection('skus');
     const fields = ['id', 'styleId', 'size', 'quantity']
-    const data = await skus.findOne({id:1});
+    const data = await skus.findOne({id:1281158});
     fields.forEach((field) => {
       expect(data).toHaveProperty(field);
     })
@@ -68,7 +68,7 @@ describe('fields', () => {
   it('styles table should have all expected values', async () => {
     const styles = db.collection('styles');
     const fields = ['id', 'productId', 'name', 'sale_price', 'original_price', 'default_style']
-    const data = await styles.findOne({id:1});
+    const data = await styles.findOne({id:221010});
     fields.forEach((field) => {
       expect(data).toHaveProperty(field);
     })
@@ -141,28 +141,28 @@ describe('db query times', () => {
  });
 
 it('styles should query item in last 10% in less than 50ms', async () => {
-  await dbs.styles.find({id: 19000000}).explain('executionStats')
+  await dbs.styles.find({productId: 19000000}).explain('executionStats')
    .then((results) => {
      expect(results.executionStats.executionTimeMillis).toBeLessThanOrEqual(50);
    })
 });
 
 it('photos should query item in last 10% in less than 50ms', async () => {
-  await dbs.photos.find({id: 5500000}).explain('executionStats')
+  await dbs.photos.find({styleId: 5500000}).explain('executionStats')
    .then((results) => {
      expect(results.executionStats.executionTimeMillis).toBeLessThanOrEqual(50);
    })
 });
 
 it('skus should query item in last 10% in less than 50ms', async () => {
-  await dbs.skus.find({id: 11000000}).explain('executionStats')
+  await dbs.skus.find({styleId: 11000000}).explain('executionStats')
    .then((results) => {
      expect(results.executionStats.executionTimeMillis).toBeLessThanOrEqual(50);
    })
 });
 
 it('features should query item in last 10% in less than 50ms', async() => {
-  await dbs.features.find({id: 2000000}).explain('executionStats')
+  await dbs.features.find({product_id: 2000000}).explain('executionStats')
    .then((results) => {
      expect(results.executionStats.executionTimeMillis).toBeLessThanOrEqual(50);
    })
