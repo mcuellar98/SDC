@@ -90,6 +90,11 @@ app.get('/api/images', getStyles);
 
 app.get('/api/product', getProduct);
 
+//for load testing verification
+app.get('/loaderio-99691c5b04268daffcb3c06df4d0ef4d.txt', (req, res) => {
+  res.end('loaderio-99691c5b04268daffcb3c06df4d0ef4d.txt');
+});
+
 //-------------------------------------------------------------------------------------------
 
 app.listen(port, () => {
