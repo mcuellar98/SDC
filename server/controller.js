@@ -1,13 +1,13 @@
 const db = require('./db.js');
 const Promise = require("bluebird");
 const _ = require('underscore');
-// const redisClient = require('redis').createClient;
-// const redis = redisClient(6379, 'localhost');
 const redis = require('ioredis');
 const redisClient = redis.createClient({host:'localhost',port:6379});
 redisClient.on('connect', () => {
   console.log('connected to redis successfully!');
 })
+
+
 
 exports.getProduct = (req, res) => {
   redisClient.get(37315 +'product',(err, reply) => {
@@ -38,8 +38,8 @@ exports.getProduct = (req, res) => {
                 value: obj.value
               })
             });
-          })
             return redisClient.set(37315 +'product', JSON.stringify(productObj))
+          })
           .then(() => {
             return redisClient.expire(37315 +'product', 3600);
           })
@@ -97,7 +97,9 @@ exports.getStyles = (req, res) => {
                   styleObj.results = _.sortBy(styleObj.results, (result) => {return result.style_id});
                   return redisClient.set(37315+'images', JSON.stringify(styleObj))
                   .then(() => {
-                    redisClient.expire(37315+'images', 3600);
+                    return redisClient.expire(37315+'images', 3600);
+                  })
+                  .then(() => {
                     res.json(styleObj);
                   })
                 }
