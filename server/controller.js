@@ -14,10 +14,8 @@ exports.getProduct = (req, res) => {
       if(err) {
           console.log(err);
       } else if(reply) {
-        console.log('cached')
           res.end(reply);
       } else {
-        console.log('not cached!');
         var productObj = {};
         db.products.find({id: 37315})
           .then((result) => {
@@ -61,10 +59,8 @@ exports.getStyles = (req, res) => {
     if(err) {
         console.log(err);
     } else if(reply) {
-      console.log('cached')
       res.end(reply);
     } else {
-      console.log('not cached');
       var styleObj = {};
       styleObj.product_id = '37315';
       styleObj.results = [];
