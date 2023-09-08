@@ -6,7 +6,7 @@ config:
   #   timeout: 5
   phases:
     - duration: 1
-      arrivalRate: 1000
+      arrivalRate: 1
       # rampTo: 1
       name: Warm up phase
   # Load & configure a couple of useful plugins
