@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/sdc')
+mongoose.connect('mongodb://3.91.40.105:27017/sdc')
 
 const productsSchema = new mongoose.Schema({
   id: Number,
