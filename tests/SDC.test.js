@@ -3,13 +3,14 @@ const axios = require('axios');
 require('dotenv').config();
 const _ = require('lodash');
 const dbs = require('./../server/db.js');
+cosnt mongoServer = 'mongodb://127.0.0.1:27017/sdc';
 
 describe('fields', () => {
   let connection;
   let db;
 
   beforeAll(async () => {
-    connection = await MongoClient.connect('mongodb://127.0.0.1:27017/sdc', {
+    connection = await MongoClient.connect(mongoServer, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -80,7 +81,7 @@ describe('api query', () => {
   let db;
 
   beforeAll(async () => {
-    connection = await MongoClient.connect('mongodb://127.0.0.1:27017/sdc', {
+    connection = await MongoClient.connect(mongoServer, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
