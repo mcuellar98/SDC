@@ -5,8 +5,8 @@ config:
   # http:
   #   timeout: 5
   phases:
-    - duration: 1
-      arrivalRate: 1
+    - duration: 15
+      arrivalRate: 15
       # rampTo: 1
       name: Warm up phase
   # Load & configure a couple of useful plugins

@@ -3,14 +3,13 @@ const axios = require('axios');
 require('dotenv').config();
 const _ = require('lodash');
 const dbs = require('./../server/db.js');
-cosnt mongoServer = 'mongodb://127.0.0.1:27017/sdc';
 
 describe('fields', () => {
   let connection;
   let db;
 
   beforeAll(async () => {
-    connection = await MongoClient.connect(mongoServer, {
+    connection = await MongoClient.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -81,7 +80,7 @@ describe('api query', () => {
   let db;
 
   beforeAll(async () => {
-    connection = await MongoClient.connect(mongoServer, {
+    connection = await MongoClient.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -136,7 +135,6 @@ describe('db query times', () => {
   it('products should query item in last 10% in less than 50ms', async () => {
     await dbs.products.find({id: 10000000}).explain('executionStats')
      .then((results) => {
-      console.log(results.executionStats.executionTimeMillis);
       expect(results.executionStats.executionTimeMillis).toBeLessThanOrEqual(50);
      })
  });
