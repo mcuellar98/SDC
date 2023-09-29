@@ -3,19 +3,14 @@ const axios = require('axios');
 require('dotenv').config();
 const _ = require('lodash');
 const dbs = require('./../server/db.js');
-const mongoServer = process.env.MONGO_URI;
+// const mongoServer = process.env.MONGO_URI;
 
 describe('fields', () => {
   let connection;
   let db;
 
   beforeAll(async () => {
-<<<<<<< HEAD
-    console.log(mongoServer);
-    connection = await MongoClient.connect(mongoServer, {
-=======
     connection = await MongoClient.connect(process.env.MONGO_URI, {
->>>>>>> d9a192428867889c2b8791106196cd7eb1e18cda
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

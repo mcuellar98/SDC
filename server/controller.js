@@ -78,7 +78,7 @@ exports.getStyles = (req, res) => {
       db.styles.find({productId: ID})
         .then((results) => {
           if (results.length === 0) {
-            res.end('Product does not exist')
+            res.end('Style does not exist')
           }
           var counter = 0;
           results.forEach((result, index)=> {
