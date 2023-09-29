@@ -3,13 +3,14 @@ const axios = require('axios');
 require('dotenv').config();
 const _ = require('lodash');
 const dbs = require('./../server/db.js');
-const mongoServer = 'mongodb://127.0.0.1:27017/sdc';
+const mongoServer = process.env.MONGO_URI;
 
 describe('fields', () => {
   let connection;
   let db;
 
   beforeAll(async () => {
+    console.log(mongoServer);
     connection = await MongoClient.connect(mongoServer, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
