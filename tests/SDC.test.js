@@ -10,8 +10,12 @@ describe('fields', () => {
   let db;
 
   beforeAll(async () => {
+<<<<<<< HEAD
     console.log(mongoServer);
     connection = await MongoClient.connect(mongoServer, {
+=======
+    connection = await MongoClient.connect(process.env.MONGO_URI, {
+>>>>>>> d9a192428867889c2b8791106196cd7eb1e18cda
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -88,7 +92,7 @@ describe('api query', () => {
   let db;
 
   beforeAll(async () => {
-    connection = await MongoClient.connect(mongoServer, {
+    connection = await MongoClient.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
