@@ -5,16 +5,9 @@ config:
   # http:
   #   timeout: 5
   phases:
-<<<<<<< HEAD
-    - duration: 15
-      arrivalRate: 15
-      # rampTo: 1
-      name: Warm up phase
-=======
     - duration: 60
       arrivalRate: 10
       name: Spiking Load
->>>>>>> f34f5cb51714fbca01a6311017abea81cf3b5310
   # Load & configure a couple of useful plugins
   # https://docs.art/reference/extensions
   plugins:

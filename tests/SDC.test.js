@@ -3,10 +3,7 @@ const axios = require('axios');
 require('dotenv').config();
 const _ = require('lodash');
 const dbs = require('./../server/db.js');
-<<<<<<< HEAD
-=======
-const mongoServer = 'mongodb://127.0.0.1:27017/sdc';
->>>>>>> f34f5cb51714fbca01a6311017abea81cf3b5310
+const mongoServer = process.env.MONGO_URI;
 
 describe('fields', () => {
   let connection;
