@@ -28,6 +28,7 @@ describe('fields', () => {
     fields.forEach((field) => {
       expect(data).toHaveProperty(field);
     })
+
   });
 
   it('features table should have all expected values', async () => {
@@ -37,6 +38,7 @@ describe('fields', () => {
     fields.forEach((field) => {
       expect(data).toHaveProperty(field);
     })
+
   });
 
   it('photos table should have all expected values', async () => {
@@ -46,6 +48,7 @@ describe('fields', () => {
     fields.forEach((field) => {
       expect(data).toHaveProperty(field);
     })
+
   });
 
   it('photos table should have all expected values', async () => {
@@ -55,6 +58,7 @@ describe('fields', () => {
     fields.forEach((field) => {
       expect(data).toHaveProperty(field);
     })
+
   });
 
   it('skus table should have all expected values', async () => {
@@ -64,6 +68,7 @@ describe('fields', () => {
     fields.forEach((field) => {
       expect(data).toHaveProperty(field);
     })
+
   });
 
   it('styles table should have all expected values', async () => {
@@ -74,6 +79,7 @@ describe('fields', () => {
       expect(data).toHaveProperty(field);
     })
   });
+
 });
 
 describe('api query', () => {
@@ -109,6 +115,7 @@ describe('api query', () => {
         herokuResults.updated_at = null;
         expect(JSON.stringify(dbResult)).toEqual(JSON.stringify(herokuResults));
       })
+
   });
 
   it('images api call should return same as heroku api', async () => {
@@ -129,6 +136,7 @@ describe('api query', () => {
         expect(JSON.stringify(dbResult)).toEqual(JSON.stringify(herokuResults));
       })
   }, 20000);
+
 });
 
 describe('db query times', () => {
@@ -136,9 +144,9 @@ describe('db query times', () => {
   it('products should query item in last 10% in less than 50ms', async () => {
     await dbs.products.find({id: 10000000}).explain('executionStats')
      .then((results) => {
-      console.log(results.executionStats.executionTimeMillis);
       expect(results.executionStats.executionTimeMillis).toBeLessThanOrEqual(50);
      })
+
  });
 
 it('styles should query item in last 10% in less than 50ms', async () => {
@@ -146,6 +154,7 @@ it('styles should query item in last 10% in less than 50ms', async () => {
    .then((results) => {
      expect(results.executionStats.executionTimeMillis).toBeLessThanOrEqual(50);
    })
+
 });
 
 it('photos should query item in last 10% in less than 50ms', async () => {
@@ -153,6 +162,7 @@ it('photos should query item in last 10% in less than 50ms', async () => {
    .then((results) => {
      expect(results.executionStats.executionTimeMillis).toBeLessThanOrEqual(50);
    })
+
 });
 
 it('skus should query item in last 10% in less than 50ms', async () => {
@@ -160,6 +170,7 @@ it('skus should query item in last 10% in less than 50ms', async () => {
    .then((results) => {
      expect(results.executionStats.executionTimeMillis).toBeLessThanOrEqual(50);
    })
+
 });
 
 it('features should query item in last 10% in less than 50ms', async() => {
@@ -167,6 +178,8 @@ it('features should query item in last 10% in less than 50ms', async() => {
    .then((results) => {
      expect(results.executionStats.executionTimeMillis).toBeLessThanOrEqual(50);
    })
+
 });
 
 });
+
